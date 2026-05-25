@@ -8,41 +8,50 @@
 <meta name="keywords" content="Rita Omotegho, WordPress designer, AI music video, UGC creator, web design portfolio, Lagos designer" />
 <meta name="author" content="Rita Omotegho Aghwana" />
 <meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#f6f3ee" />
 <link rel="canonical" href="https://omotegho.com/work.html" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="Rita Omotegho Aghwana" />
 <meta property="og:title" content="Work & Portfolio — Rita Omotegho Aghwana" />
 <meta property="og:description" content="Selected WordPress sites, AI music videos, and UGC reels from 5+ years of client work." />
 <meta property="og:image" content="assets/rita-portrait.jpg" />
 <meta property="og:url" content="https://omotegho.com/work.html" />
+<meta property="og:locale" content="en_US" />
 
-<!-- Twitter -->
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@DesignzPixel" />
 <meta name="twitter:title" content="Work — Rita Omotegho Aghwana" />
 <meta name="twitter:description" content="WordPress, AI music videos & UGC. From dreams to diamonds." />
 <meta name="twitter:image" content="assets/rita-portrait.jpg" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:wght@400;500&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:wght@400;500&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+
 <style>
-  /* === WORK PAGE === */
+  /* ============================================================
+     WORK PAGE — STYLES
+  ============================================================ */
+
+  /* --- Hero ------------------------------------------------- */
   .work-hero {
     padding: clamp(60px, 8vw, 110px) 0 clamp(32px, 4vw, 56px);
   }
   .work-hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(58px, 9.5vw, 156px);
+    font-size: clamp(52px, 9.5vw, 148px);
     line-height: 0.92;
     letter-spacing: -0.025em;
+    margin-top: 20px;
   }
   .work-hero h1 em { font-style: italic; color: var(--accent); }
   .work-hero .lead { margin-top: 24px; max-width: 56ch; }
 
-  /* FILTER BAR */
+  /* --- Filter bar ------------------------------------------- */
   .filter-bar {
     display: flex;
     justify-content: space-between;
@@ -59,7 +68,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 16px;
+    padding: 10px 18px;
     border: 1px solid var(--line);
     border-radius: 99px;
     background: transparent;
@@ -69,9 +78,9 @@
     letter-spacing: 0.12em;
     color: var(--ink-2);
     cursor: pointer;
-    transition: all .2s;
+    transition: background .2s, border-color .2s, color .2s, transform .15s;
   }
-  .f-chip:hover { border-color: var(--ink-3); }
+  .f-chip:hover { border-color: var(--ink-3); transform: translateY(-1px); }
   .f-chip.active {
     background: var(--ink);
     color: var(--bg);
@@ -79,7 +88,7 @@
   }
   .f-chip .count {
     font-size: 10px;
-    opacity: .6;
+    opacity: .55;
   }
   .filter-bar .count-display {
     font-family: var(--font-mono);
@@ -87,47 +96,75 @@
     color: var(--ink-3);
     text-transform: uppercase;
     letter-spacing: 0.12em;
+    white-space: nowrap;
   }
   .filter-bar .count-display em { font-style: normal; color: var(--ink); }
 
-  /* UGC VIDEO GRID — vertical 9:16 reels */
+  /* --- UGC / Reel grid -------------------------------------- */
   .ugc-section { padding: clamp(48px, 7vw, 100px) 0; }
 
   .ugc-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
   }
 
+  @media (min-width: 1200px) {
+    .ugc-grid { grid-template-columns: repeat(5, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .ugc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  }
+
+  /* Individual reel card */
   .reel {
     position: relative;
-    aspect-ratio: 9/16;
+    aspect-ratio: 9 / 16;
     border-radius: 12px;
     overflow: hidden;
     background: var(--bg-2);
     border: 1px solid var(--line);
     cursor: pointer;
+    display: block;
     transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
   }
-  .reel:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(0,0,0,.2); }
+  .reel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 48px -20px rgba(0,0,0,.22);
+  }
 
-  .reel video, .reel img {
+  .reel video,
+  .reel img {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     display: block;
   }
 
+  /* Placeholder (shown until real video is dropped in) */
   .reel .reel-placeholder {
     position: absolute; inset: 0;
     background: var(--bg-2);
-    background-image: repeating-linear-gradient(45deg, transparent 0px, transparent 14px, rgba(26,26,26,.04) 14px, rgba(26,26,26,.04) 15px);
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent 0px, transparent 14px,
+      rgba(26,26,26,.04) 14px, rgba(26,26,26,.04) 15px
+    );
     display: grid;
     place-items: center;
     text-align: center;
     padding: 20px;
   }
-  .reel .reel-placeholder .label {
+  .reel-placeholder .ph-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--bg);
+    display: grid; place-items: center;
+    margin: 0 auto 14px;
+    font-size: 15px;
+  }
+  .reel-placeholder .ph-label {
     font-family: var(--font-mono);
     font-size: 10px;
     text-transform: uppercase;
@@ -135,32 +172,28 @@
     color: var(--ink-3);
     line-height: 1.7;
   }
-  .reel .reel-placeholder .icon {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: var(--bg);
-    display: grid; place-items: center;
-    margin: 0 auto 14px;
-    font-size: 14px;
-  }
 
-  /* Overlay info on hover */
-  .reel .reel-info {
+  /* Hover overlay with project info */
+  .reel-info {
     position: absolute;
     inset: 0;
     padding: 16px;
-    background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.4) 40%, transparent 70%);
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,.88) 0%,
+      rgba(0,0,0,.45) 38%,
+      transparent 68%
+    );
     color: var(--bg);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     opacity: 0;
-    transition: opacity .3s;
+    transition: opacity .28s;
     pointer-events: none;
   }
   .reel:hover .reel-info { opacity: 1; }
-  .reel .reel-info .tag {
+  .reel-info .tag {
     font-family: var(--font-mono);
     font-size: 10px;
     text-transform: uppercase;
@@ -168,69 +201,81 @@
     color: var(--accent-soft);
     margin-bottom: 6px;
   }
-  .reel .reel-info h4 {
+  .reel-info h4 {
     font-family: var(--font-display);
-    font-size: 22px;
+    font-size: 20px;
     color: var(--bg);
     line-height: 1.1;
   }
-  .reel .reel-info p {
+  .reel-info p {
     font-size: 12px;
-    color: rgba(246,243,238,.8);
+    color: rgba(246,243,238,.78);
     margin-top: 6px;
     line-height: 1.4;
   }
 
-  /* Play icon overlay */
-  .reel .play-icon {
+  /* Play / music icon badge (top-right) */
+  .play-icon {
     position: absolute;
     top: 12px; right: 12px;
     width: 32px; height: 32px;
     border-radius: 50%;
-    background: rgba(255,255,255,.95);
+    background: rgba(255,255,255,.94);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: grid;
     place-items: center;
     font-size: 12px;
     color: var(--ink);
     z-index: 2;
+    pointer-events: none;
   }
 
-  /* Pinned ribbon */
-  .reel .ribbon {
+  /* Pinned ribbon (top-left) */
+  .ribbon {
     position: absolute;
     top: 12px; left: 12px;
     background: var(--accent);
     color: var(--bg);
-    padding: 5px 10px;
+    padding: 5px 11px;
     border-radius: 99px;
     font-family: var(--font-mono);
     font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     z-index: 2;
+    pointer-events: none;
   }
 
-  /* WEB WORK GRID — wider cards */
+  /* --- WordPress / web-card grid ---------------------------- */
+  .wp-section {
+    background: var(--bg-2);
+    padding: clamp(48px, 7vw, 100px) 0;
+  }
+
   .web-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-  @media (max-width: 720px) {
-    .web-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 720px) { .web-grid { grid-template-columns: 1fr; } }
+
   .web-card {
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--line);
     background: var(--bg);
+    display: block;
     transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
     cursor: pointer;
   }
-  .web-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(0,0,0,.18); }
+  .web-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,.18);
+  }
+
   .web-card .frame {
-    aspect-ratio: 16/10;
+    aspect-ratio: 16 / 10;
     background: var(--bg-2);
     position: relative;
     overflow: hidden;
@@ -240,12 +285,15 @@
     width: 100%; height: 100%;
     object-fit: cover;
     object-position: top;
+    display: block;
   }
   .web-card .frame .placeholder {
     position: absolute; inset: 0;
     border-radius: 0;
     border: none;
+    height: 100%;
   }
+
   .web-card .info {
     padding: 22px 24px;
     display: flex;
@@ -267,8 +315,9 @@
     letter-spacing: 0.12em;
     color: var(--ink-3);
     text-align: right;
+    flex-shrink: 0;
   }
-  .web-card .info .meta .visit {
+  .web-card .info .visit {
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -276,7 +325,9 @@
     color: var(--ink);
   }
 
-  /* INSTRUCTIONS PANEL — only visible to Rita */
+  /* --- "How to add" instructions panel ---------------------- */
+  .add-section { padding: clamp(64px, 9vw, 120px) 0; }
+
   .add-panel {
     background: var(--ink);
     color: var(--bg);
@@ -287,290 +338,366 @@
     gap: 48px;
     align-items: center;
   }
-  @media (max-width: 820px) { .add-panel { grid-template-columns: 1fr; gap: 32px; } }
+  @media (max-width: 820px) {
+    .add-panel { grid-template-columns: 1fr; gap: 32px; }
+  }
 
   .add-panel h2 {
     font-family: var(--font-display);
-    font-size: clamp(32px, 4.5vw, 56px);
+    font-size: clamp(30px, 4vw, 52px);
     line-height: 1.05;
     color: var(--bg);
+    margin-top: 16px;
   }
   .add-panel h2 em { font-style: italic; color: var(--accent-soft); }
   .add-panel .sub {
-    margin-top: 16px;
-    color: rgba(246,243,238,.7);
+    margin-top: 14px;
+    color: rgba(246,243,238,.72);
     font-size: 15px;
-    line-height: 1.55;
+    line-height: 1.6;
   }
 
   .add-code {
     background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.11);
     border-radius: 10px;
-    padding: 20px;
+    padding: 22px;
     font-family: var(--font-mono);
     font-size: 12px;
-    line-height: 1.7;
-    color: rgba(246,243,238,.92);
+    line-height: 1.75;
+    color: rgba(246,243,238,.9);
     overflow-x: auto;
     white-space: pre;
+    tab-size: 2;
   }
-  .add-code .k { color: var(--accent-soft); }
-  .add-code .s { color: #9ad4a8; }
-  .add-code .c { color: rgba(246,243,238,.45); font-style: italic; }
+  .add-code .k  { color: var(--accent-soft); }
+  .add-code .s  { color: #9ad4a8; }
+  .add-code .c  { color: rgba(246,243,238,.42); font-style: italic; }
+  .add-code u   { text-decoration: none; color: #f0d080; }
+
+  /* --- Bottom CTA ------------------------------------------- */
+  .work-cta {
+    padding-top: 0;
+    padding-bottom: clamp(64px, 9vw, 120px);
+  }
+  .work-cta-inner {
+    border-top: 1px solid var(--line);
+    padding-top: clamp(40px, 5vw, 64px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+  @media (max-width: 600px) {
+    .work-cta-inner { grid-template-columns: 1fr; }
+  }
+  .work-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5.5vw, 80px);
+    line-height: .95;
+    letter-spacing: -0.02em;
+  }
+  .work-cta h2 em { font-style: italic; color: var(--accent); }
+  .work-cta .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 </style>
 </head>
-<body data-screen-label="Work">
+<body>
 
-<!-- NAV -->
-<nav class="nav">
+<!-- ══════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════ -->
+<nav class="nav" role="navigation" aria-label="Main">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">
-      <span class="nav-mark">R</span>
+    <a href="index.html" class="nav-brand" aria-label="Rita Omotegho — Home">
+      <span class="nav-mark" aria-hidden="true">R</span>
       <span>Rita Omotegho</span>
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="work.html">Work</a>
+      <a href="work.html" class="active" aria-current="page">Work</a>
       <a href="contact.html">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta">
-      <span class="dot"></span>
+      <span class="dot" aria-hidden="true"></span>
       <span>Available for Work</span>
     </a>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="work-hero">
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<header class="work-hero" role="banner">
   <div class="shell">
     <span class="eyebrow reveal">Portfolio — Selected work · 2024–2026</span>
-    <h1 class="reveal" style="margin-top: 20px;">Pixels with <em>purpose,</em><br/>reels with <em>rhythm.</em></h1>
-    <p class="lead reveal">A living gallery — websites I've shipped, music videos I've directed, and UGC reels I've created and edited. New work added every month.</p>
 
-    <div class="filter-bar reveal">
-      <div class="filter-chips" id="filters">
-        <button type="button" class="f-chip active" data-filter="all">All <span class="count">14</span></button>
-        <button type="button" class="f-chip" data-filter="ugc">UGC Reels <span class="count">8</span></button>
-        <button type="button" class="f-chip" data-filter="music">Music Videos <span class="count">3</span></button>
-        <button type="button" class="f-chip" data-filter="wordpress">WordPress <span class="count">3</span></button>
+    <h1 class="reveal">
+      Pixels with <em>purpose,</em><br />
+      reels with <em>rhythm.</em>
+    </h1>
+
+    <p class="lead reveal">
+      A living gallery — websites I've shipped, music videos I've directed,
+      and UGC reels I've created and edited. New work added every month.
+    </p>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar reveal" role="group" aria-label="Filter projects">
+      <div class="filter-chips" id="filterChips" role="list">
+        <button type="button" class="f-chip active" data-filter="all" role="listitem" aria-pressed="true">
+          All <span class="count" id="countAll">15</span>
+        </button>
+        <button type="button" class="f-chip" data-filter="ugc" role="listitem" aria-pressed="false">
+          UGC Reels <span class="count">8</span>
+        </button>
+        <button type="button" class="f-chip" data-filter="music" role="listitem" aria-pressed="false">
+          Music Videos <span class="count">3</span>
+        </button>
+        <button type="button" class="f-chip" data-filter="wordpress" role="listitem" aria-pressed="false">
+          WordPress <span class="count">4</span>
+        </button>
       </div>
-      <div class="count-display" id="countDisplay">Showing <em>14</em> projects</div>
+      <div class="count-display" id="countDisplay" aria-live="polite">
+        Showing <em id="shownCount">15</em> projects
+      </div>
     </div>
   </div>
 </header>
 
-<!-- UGC VIDEOS — VERTICAL REELS -->
-<section class="ugc-section" data-screen-label="UGC reels" data-category-group="ugc-music">
+<!-- ══════════════════════════════════════════════
+     01 — UGC & MUSIC VIDEO REELS
+     ──────────────────────────────────────────────
+     HOW TO ADD A NEW VIDEO:
+       1. Drop your .mp4 into  assets/videos/
+       2. Drop an optional poster .jpg there too
+       3. Copy any .reel block below, swap the
+          src/poster/text, set data-cat to
+          "ugc" or "music"
+       4. Save and refresh
+     See the "Adding a new UGC video" panel below
+     for a clean copy-paste template.
+══════════════════════════════════════════════ -->
+<section class="ugc-section" id="ugcSection" aria-labelledby="ugcHeading">
   <div class="shell">
     <div class="section-head reveal">
       <span class="eyebrow">01 — UGC &amp; Music Videos</span>
-      <h2 class="display">Vertical-native <em>reels.</em></h2>
+      <h2 class="display" id="ugcHeading">Vertical-native <em>reels.</em></h2>
     </div>
-
-    <!-- 
-      ╔══════════════════════════════════════════════════════════════════╗
-      ║  HOW TO ADD YOUR UGC VIDEO:                                       ║
-      ║  1. Drop your .mp4 file into the assets/videos/ folder            ║
-      ║  2. (Optional) Drop a poster .jpg into assets/videos/ too         ║
-      ║  3. Copy any .reel block below and edit the highlighted bits      ║
-      ║  4. Save and refresh                                              ║
-      ║  See the panel at the bottom of this page for a clean template    ║
-      ╚══════════════════════════════════════════════════════════════════╝
-    -->
 
     <div class="ugc-grid reveal-stagger" id="ugcGrid">
 
-      <!-- ✦ REEL 1 — Has placeholder, swap in your video below ✦ -->
-      <a href="#" class="reel" data-cat="ugc">
+      <!-- ✦ REEL 1 — Human UGC · Skincare ✦ -->
+      <a href="#" class="reel" data-cat="ugc" aria-label="Glowline — Morning routine, Human UGC for TikTok Shop">
         <span class="ribbon">Featured</span>
-        <span class="play-icon">▶</span>
-        <!-- 
-          To use a real video, REPLACE the .reel-placeholder div with:
-          <video src="assets/videos/your-file.mp4" poster="assets/videos/your-poster.jpg" muted loop playsinline preload="metadata"></video>
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <!--
+          SWAP PLACEHOLDER: replace the div below with a <video> tag:
+          <video src="assets/videos/glowline-morning.mp4"
+                 poster="assets/videos/glowline-morning.jpg"
+                 muted loop playsinline preload="metadata"></video>
         -->
-        <div class="reel-placeholder">
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">▶</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">▶</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">Human UGC · Skincare</span>
           <h4>Glowline — Morning routine</h4>
           <p>Day-in-a-life UGC for TikTok Shop</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="ugc">
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+      <!-- ✦ REEL 2 — AI UGC · SaaS ✦ -->
+      <a href="#" class="reel" data-cat="ugc" aria-label="Sendly AI — Hook test, AI UGC for SaaS">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">▶</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">▶</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">AI UGC · SaaS</span>
           <h4>Sendly AI — Hook test</h4>
           <p>One of 6 variants for split-testing</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="music">
+      <!-- ✦ REEL 3 — AI Music Video · Afrobeats ✦ -->
+      <a href="#" class="reel" data-cat="music" aria-label="Dreamscape — King Ade, AI Music Video, Afrobeats">
         <span class="ribbon">Music Video</span>
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+        <span class="play-icon" aria-hidden="true">♫</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">♫</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">♫</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">AI Music Video · Afrobeats</span>
           <h4>Dreamscape — King Ade</h4>
           <p>Vertical cut · 200K+ views</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="ugc">
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+      <!-- ✦ REEL 4 — Human UGC · Fashion ✦ -->
+      <a href="#" class="reel" data-cat="ugc" aria-label="Nala Atelier — Lookbook, Human UGC, Fashion">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">▶</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">▶</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">Human UGC · Fashion</span>
           <h4>Nala Atelier — Lookbook</h4>
           <p>Editorial reel for collection launch</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="ugc">
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+      <!-- ✦ REEL 5 — AI UGC · Wellness ✦ -->
+      <a href="#" class="reel" data-cat="ugc" aria-label="Auralis — Founder story, AI UGC, Wellness">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">▶</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">▶</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">AI UGC · Wellness</span>
           <h4>Auralis — Founder story</h4>
           <p>Brand-voice script, AI avatar</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="music">
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+      <!-- ✦ REEL 6 — AI Music Video · R&B ✦ -->
+      <a href="#" class="reel" data-cat="music" aria-label="Midnight — Toju, AI Music Video, R&B">
+        <span class="play-icon" aria-hidden="true">♫</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">♫</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">♫</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">AI Music Video · R&amp;B</span>
           <h4>Midnight — Toju</h4>
           <p>Cinematic dreamscape edit</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="ugc">
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+      <!-- ✦ REEL 7 — Human UGC · Food ✦ -->
+      <a href="#" class="reel" data-cat="ugc" aria-label="BukaBox — Unboxing, Human UGC, Food">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">▶</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">▶</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">Human UGC · Food</span>
           <h4>BukaBox — Unboxing</h4>
           <p>First-impression reel</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="ugc">
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+      <!-- ✦ REEL 8 — AI UGC · Fintech ✦ -->
+      <a href="#" class="reel" data-cat="ugc" aria-label="PayKraft — 3 hooks, AI UGC, Fintech">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">▶</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">▶</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">AI UGC · Fintech</span>
           <h4>PayKraft — 3 hooks</h4>
           <p>Test pack for media buyer</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="ugc">
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+      <!-- ✦ REEL 9 — Human UGC · Beauty ✦ -->
+      <a href="#" class="reel" data-cat="ugc" aria-label="Lush Lashes — Tutorial, Human UGC, Beauty">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">▶</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">▶</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">Human UGC · Beauty</span>
           <h4>Lush Lashes — Tutorial</h4>
           <p>30s how-to with brand colors</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="music">
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+      <!-- ✦ REEL 10 — AI Music Video · Gospel ✦ -->
+      <a href="#" class="reel" data-cat="music" aria-label="Light — DJ Kemi, AI Music Video, Gospel">
+        <span class="play-icon" aria-hidden="true">♫</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">♫</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">♫</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">AI Music Video · Gospel</span>
           <h4>Light — DJ Kemi</h4>
           <p>Featured on artist's YouTube</p>
         </div>
       </a>
 
-      <a href="#" class="reel" data-cat="ugc">
-        <span class="play-icon">▶</span>
-        <div class="reel-placeholder">
+      <!-- ✦ REEL 11 — AI UGC · Course ✦ -->
+      <a href="#" class="reel" data-cat="ugc" aria-label="Adaeze Academy — Pitch, AI UGC, Course">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <div class="reel-placeholder" aria-hidden="true">
           <div>
-            <div class="icon">▶</div>
-            <div class="label">Drop video<br/>9:16 · MP4</div>
+            <div class="ph-icon">▶</div>
+            <div class="ph-label">Drop video<br />9:16 · MP4</div>
           </div>
         </div>
-        <div class="reel-info">
+        <div class="reel-info" aria-hidden="true">
           <span class="tag">AI UGC · Course</span>
           <h4>Adaeze Academy — Pitch</h4>
           <p>30s ad creative for IG</p>
         </div>
       </a>
 
-    </div>
+    </div><!-- /#ugcGrid -->
   </div>
 </section>
 
-<!-- WORDPRESS SHOWCASE -->
-<section style="background: var(--bg-2); padding: clamp(48px, 7vw, 100px) 0;" data-screen-label="WordPress sites">
+<!-- ══════════════════════════════════════════════
+     02 — WORDPRESS SITES
+══════════════════════════════════════════════ -->
+<section class="wp-section" id="wpSection" aria-labelledby="wpHeading">
   <div class="shell">
     <div class="section-head reveal" style="border-color: var(--line);">
       <span class="eyebrow">02 — WordPress Builds</span>
-      <h2 class="display">Sites that <em>load fast</em><br/>and convert <em>quietly.</em></h2>
+      <h2 class="display" id="wpHeading">
+        Sites that <em>load fast</em><br />
+        and convert <em>quietly.</em>
+      </h2>
     </div>
 
     <div class="web-grid reveal-stagger" id="webGrid">
-      <a href="#" class="web-card" data-cat="wordpress">
+
+      <!-- WordPress card 1 -->
+      <a href="#" class="web-card" data-cat="wordpress" aria-label="Auralis Wellness WordPress site">
         <div class="frame">
-          <div class="placeholder browser">
+          <!--
+            Swap placeholder: replace with <img src="assets/screenshots/auralis.png" alt="Auralis Wellness homepage" />
+          -->
+          <div class="placeholder browser" aria-hidden="true">
             <span class="ph-meta">Elementor Pro · 1600×900</span>
             <span class="ph-label">AURALIS WELLNESS — HOMEPAGE</span>
             <span class="ph-tag">drop screenshot.png</span>
@@ -585,9 +712,10 @@
         </div>
       </a>
 
-      <a href="#" class="web-card" data-cat="wordpress">
+      <!-- WordPress card 2 -->
+      <a href="#" class="web-card" data-cat="wordpress" aria-label="Nala Atelier WooCommerce site">
         <div class="frame">
-          <div class="placeholder browser">
+          <div class="placeholder browser" aria-hidden="true">
             <span class="ph-meta">WooCommerce · 1600×900</span>
             <span class="ph-label">NALA ATELIER — SHOP</span>
             <span class="ph-tag">drop screenshot.png</span>
@@ -602,9 +730,10 @@
         </div>
       </a>
 
-      <a href="#" class="web-card" data-cat="wordpress">
+      <!-- WordPress card 3 -->
+      <a href="#" class="web-card" data-cat="wordpress" aria-label="Adaeze Okafor personal brand site">
         <div class="frame">
-          <div class="placeholder browser">
+          <div class="placeholder browser" aria-hidden="true">
             <span class="ph-meta">Custom Theme · 1600×900</span>
             <span class="ph-label">ADAEZE OKAFOR — PERSONAL BRAND</span>
             <span class="ph-tag">drop screenshot.png</span>
@@ -619,9 +748,10 @@
         </div>
       </a>
 
-      <a href="#" class="web-card" data-cat="wordpress">
+      <!-- WordPress card 4 -->
+      <a href="#" class="web-card" data-cat="wordpress" aria-label="SoulFit Studio booking site">
         <div class="frame">
-          <div class="placeholder browser">
+          <div class="placeholder browser" aria-hidden="true">
             <span class="ph-meta">Divi · 1600×900</span>
             <span class="ph-label">SOULFIT STUDIO — BOOKING</span>
             <span class="ph-tag">drop screenshot.png</span>
@@ -635,36 +765,49 @@
           </div>
         </div>
       </a>
-    </div>
+
+    </div><!-- /#webGrid -->
   </div>
 </section>
 
-<!-- "HOW TO ADD" PANEL — for Rita -->
-<section data-screen-label="How to add a video">
+<!-- ══════════════════════════════════════════════
+     "HOW TO ADD A VIDEO" PANEL
+     Only visible to Rita — reference panel for
+     adding new UGC reels to the grid above.
+══════════════════════════════════════════════ -->
+<section class="add-section" aria-labelledby="addHeading">
   <div class="shell">
     <div class="add-panel">
+
+      <!-- Left: instructions -->
       <div class="reveal">
-        <span class="eyebrow" style="color: rgba(246,243,238,.5);">For Rita — Quick reference</span>
-        <h2 style="margin-top: 16px;">Adding a new <em>UGC video</em> takes 30 seconds.</h2>
-        <p class="sub">Drop the file in <code style="background: rgba(255,255,255,.08); padding: 2px 6px; border-radius: 4px;">assets/videos/</code>, then paste this block above any existing reel in the grid. The page handles the rest — autoplay, hover overlay, filter category.</p>
-        <div style="margin-top: 24px;">
+        <span class="eyebrow" style="color: rgba(246,243,238,.48);">For Rita — Quick reference</span>
+        <h2 id="addHeading">Adding a new <em>UGC video</em> takes 30 seconds.</h2>
+        <p class="sub">
+          Drop the file in
+          <code style="background: rgba(255,255,255,.09); padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); font-size: 11px;">assets/videos/</code>,
+          then paste the code block into the reel grid above.
+          The page handles autoplay, hover overlay, and filter category automatically.
+        </p>
+        <div style="margin-top: 28px;">
           <a href="contact.html" class="btn btn-accent">Need a new section? Ping me</a>
         </div>
       </div>
 
+      <!-- Right: copy-paste template -->
       <div class="reveal">
-        <pre class="add-code"><span class="c">&lt;!-- Copy this whole block --&gt;</span>
-<span class="k">&lt;a</span> <span class="k">href</span>=<span class="s">"#"</span> <span class="k">class</span>=<span class="s">"reel"</span> <span class="k">data-cat</span>=<span class="s">"ugc"</span><span class="k">&gt;</span>
-  <span class="k">&lt;span</span> <span class="k">class</span>=<span class="s">"play-icon"</span><span class="k">&gt;</span>▶<span class="k">&lt;/span&gt;</span>
+        <pre class="add-code"><span class="c">&lt;!-- Copy this whole block and paste above an existing reel --&gt;</span>
+<span class="k">&lt;a</span> href=<span class="s">"#"</span> class=<span class="s">"reel"</span> data-cat=<span class="s">"<u>ugc</u>"</span><span class="k">&gt;</span>
+  <span class="k">&lt;span</span> class=<span class="s">"play-icon"</span><span class="k">&gt;</span>▶<span class="k">&lt;/span&gt;</span>
 
   <span class="k">&lt;video</span>
-    <span class="k">src</span>=<span class="s">"assets/videos/<u>YOUR-FILE.mp4</u>"</span>
-    <span class="k">poster</span>=<span class="s">"assets/videos/<u>cover.jpg</u>"</span>
+    src=<span class="s">"assets/videos/<u>YOUR-FILE.mp4</u>"</span>
+    poster=<span class="s">"assets/videos/<u>cover.jpg</u>"</span>
     muted loop playsinline preload=<span class="s">"metadata"</span>
   <span class="k">&gt;&lt;/video&gt;</span>
 
-  <span class="k">&lt;div</span> <span class="k">class</span>=<span class="s">"reel-info"</span><span class="k">&gt;</span>
-    <span class="k">&lt;span</span> <span class="k">class</span>=<span class="s">"tag"</span><span class="k">&gt;</span><u>Human UGC · Brand</u><span class="k">&lt;/span&gt;</span>
+  <span class="k">&lt;div</span> class=<span class="s">"reel-info"</span><span class="k">&gt;</span>
+    <span class="k">&lt;span</span> class=<span class="s">"tag"</span><span class="k">&gt;</span><u>Human UGC · Brand</u><span class="k">&lt;/span&gt;</span>
     <span class="k">&lt;h4&gt;</span><u>Project name here</u><span class="k">&lt;/h4&gt;</span>
     <span class="k">&lt;p&gt;</span><u>One-line description</u><span class="k">&lt;/p&gt;</span>
   <span class="k">&lt;/div&gt;</span>
@@ -672,16 +815,19 @@
 
 <span class="c">// data-cat options: "ugc" | "music" | "wordpress"</span></pre>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section style="padding-top: 0;">
+<!-- ══════════════════════════════════════════════
+     BOTTOM CTA
+══════════════════════════════════════════════ -->
+<section class="work-cta">
   <div class="shell">
-    <div style="border-top: 1px solid var(--line); padding-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;">
-      <h2 class="display" style="font-size: clamp(36px, 5.5vw, 80px); line-height: .95;">Like what you see? Let's <em>make yours.</em></h2>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    <div class="work-cta-inner">
+      <h2 class="reveal">Like what you see?<br />Let's <em>make yours.</em></h2>
+      <div class="cta-btns reveal">
         <a href="contact.html" class="btn btn-primary">Start a project <span class="arrow">→</span></a>
         <a href="services.html" class="btn btn-ghost">View services</a>
       </div>
@@ -689,17 +835,26 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
   <div class="shell">
     <div class="footer-grid">
       <div>
         <h3 class="display">Let's build something <em>worth remembering.</em></h3>
-        <p style="margin-top:24px; color:rgba(246,243,238,.7); max-width: 44ch;">Open for WordPress builds, music video commissions and UGC packages. Reply within 24 hours.</p>
-        <a href="mailto:Ritaomoteghoo@gmail.com" style="display:inline-flex; align-items:center; gap:10px; margin-top:24px; font-family:var(--font-display); font-style:italic; font-size:24px; color:var(--bg); border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 4px;">
-          Ritaomoteghoo@gmail.com <span>→</span>
+        <p style="margin-top: 24px; color: rgba(246,243,238,.7); max-width: 44ch;">
+          Open for WordPress builds, music video commissions and UGC packages.
+          Reply within 24 hours.
+        </p>
+        <a href="mailto:Ritaomoteghoo@gmail.com"
+           style="display: inline-flex; align-items: center; gap: 10px; margin-top: 24px;
+                  font-family: var(--font-display); font-style: italic; font-size: 24px;
+                  color: var(--bg); border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 4px;">
+          Ritaomoteghoo@gmail.com <span aria-hidden="true">→</span>
         </a>
       </div>
+
       <div class="footer-col">
         <h4>Navigate</h4>
         <ul>
@@ -710,17 +865,19 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>Elsewhere</h4>
         <ul>
-          <li><a href="https://Fiverr.com/Omotegho" target="_blank" rel="noopener">Fiverr ↗</a></li>
-          <li><a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-          <li><a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener">Instagram ↗</a></li>
-          <li><a href="https://www.tiktok.com/@omotegho" target="_blank" rel="noopener">TikTok ↗</a></li>
-          <li><a href="https://x.com/DesignzPixel" target="_blank" rel="noopener">X / Twitter ↗</a></li>
+          <li><a href="https://Fiverr.com/Omotegho" target="_blank" rel="noopener noreferrer">Fiverr ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+          <li><a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@omotegho" target="_blank" rel="noopener noreferrer">TikTok ↗</a></li>
+          <li><a href="https://x.com/DesignzPixel" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
       <span>© 2026 Rita Omotegho Aghwana</span>
       <span>From Dreams to Diamonds — Vol. 05</span>
@@ -728,43 +885,73 @@
   </div>
 </footer>
 
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════ -->
 <script>
-  // VIDEO HOVER-PLAY: muted + autoplay on hover
-  document.querySelectorAll('.reel video').forEach(v => {
-    const card = v.closest('.reel');
-    card.addEventListener('mouseenter', () => { v.play().catch(()=>{}); });
-    card.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+(function () {
+  'use strict';
+
+  /* ── Video hover-to-play ──────────────────────────────── */
+  document.querySelectorAll('.reel video').forEach(function (video) {
+    var card = video.closest('.reel');
+    card.addEventListener('mouseenter', function () {
+      video.play().catch(function () {});
+    });
+    card.addEventListener('mouseleave', function () {
+      video.pause();
+      video.currentTime = 0;
+    });
   });
 
-  // FILTER
-  const filterChips = document.querySelectorAll('#filters .f-chip');
-  const allCards = document.querySelectorAll('.reel, .web-card');
-  const ugcSection = document.querySelector('[data-category-group="ugc-music"]');
-  const wpSection = ugcSection.nextElementSibling;
+  /* ── Filter chips ─────────────────────────────────────── */
+  var chips      = document.querySelectorAll('#filterChips .f-chip');
+  var reels      = document.querySelectorAll('#ugcGrid .reel');
+  var webCards   = document.querySelectorAll('#webGrid .web-card');
+  var ugcSection = document.getElementById('ugcSection');
+  var wpSection  = document.getElementById('wpSection');
+  var countEl    = document.getElementById('shownCount');
 
-  filterChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      filterChips.forEach(c => c.classList.remove('active'));
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      /* Update active chip */
+      chips.forEach(function (c) {
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      });
       chip.classList.add('active');
-      const f = chip.dataset.filter;
+      chip.setAttribute('aria-pressed', 'true');
 
-      let shown = 0;
-      allCards.forEach(c => {
-        const match = (f === 'all') || (c.dataset.cat === f);
-        c.style.display = match ? '' : 'none';
+      var f = chip.dataset.filter;
+      var shown = 0;
+
+      /* Show / hide reel cards */
+      reels.forEach(function (card) {
+        var match = (f === 'all' || card.dataset.cat === f);
+        card.style.display = match ? '' : 'none';
         if (match) shown++;
       });
 
-      // Hide section heads when all their cards are hidden
-      const ugcVisible = [...document.querySelectorAll('#ugcGrid .reel')].some(c => c.style.display !== 'none');
-      const wpVisible = [...document.querySelectorAll('#webGrid .web-card')].some(c => c.style.display !== 'none');
-      ugcSection.style.display = ugcVisible ? '' : 'none';
-      wpSection.style.display = wpVisible ? '' : 'none';
+      /* Show / hide WordPress cards */
+      webCards.forEach(function (card) {
+        var match = (f === 'all' || card.dataset.cat === f);
+        card.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
 
-      document.getElementById('countDisplay').innerHTML = `Showing <em>${shown}</em> ${shown === 1 ? 'project' : 'projects'}`;
+      /* Hide entire section when nothing inside is visible */
+      var ugcVisible = Array.from(reels).some(function (c) { return c.style.display !== 'none'; });
+      var wpVisible  = Array.from(webCards).some(function (c) { return c.style.display !== 'none'; });
+      ugcSection.style.display = ugcVisible ? '' : 'none';
+      wpSection.style.display  = wpVisible  ? '' : 'none';
+
+      /* Update counter */
+      countEl.textContent = shown;
     });
   });
+})();
 </script>
+
 <script src="shared.js"></script>
 <script src="enhance.js"></script>
 </body>
