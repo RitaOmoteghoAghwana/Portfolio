@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About — Rita Omotegho Aghwana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:wght@400;500&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* === PRINT STYLES === */
+  @page { size: A4 portrait; margin: 1.2cm; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+    html, body { background: var(--bg) !important; }
+
+    /* Show all reveal elements */
+    .reveal, .reveal-stagger, .reveal-stagger > * {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* Hide nav (sticky), footer, tweaks panel */
+    .nav, #tweaks-panel { display: none !important; }
+
+    /* Remove sticky positioning */
+    .story-side { position: static !important; }
+
+    /* Page breaks */
+    section { break-inside: avoid; page-break-inside: avoid; padding: 32px 0 !important; }
+    .about-hero { break-after: page; page-break-after: always; padding-top: 0 !important; }
+    .story { break-after: page; page-break-after: always; }
+    #toolbox-section { break-after: page; page-break-after: always; }
+    .process-block { break-inside: avoid; page-break-inside: avoid; break-after: page; page-break-after: always; }
+    .principles { break-inside: avoid; page-break-inside: avoid; }
+
+    /* Avoid splitting cards */
+    .tool, .principle, .step, .deliverable, .testi-card, .work-card { break-inside: avoid; page-break-inside: avoid; }
+
+    /* Shrink display type so it fits print pages */
+    .about-hero h1 { font-size: 52px !important; line-height: .95 !important; }
+    .story-side h2 { font-size: 36px !important; }
+    .section-head h2 { font-size: 36px !important; }
+    .step h4 { font-size: 20px !important; }
+    .step .num { font-size: 44px !important; }
+    .principle h4 { font-size: 22px !important; }
+    .story-body { font-size: 13px !important; line-height: 1.55 !important; }
+    .story-body p:first-of-type::first-letter { font-size: 3.4em !important; }
+    .lead { font-size: 14px !important; }
+
+    /* Tighter portrait for print */
+    .portrait-large { max-width: 340px; max-height: 420px; margin: 0 auto; }
+    .portrait-large .badge { width: 80px; height: 80px; font-size: 11px; padding: 8px; }
+
+    /* Footer styling for print */
+    .footer { padding: 32px 0 16px !important; break-before: page; page-break-before: always; }
+    .footer h3 { font-size: 36px !important; }
+
+    /* Force dark sections to print backgrounds */
+    .process-block, .footer { background: #1a1a1a !important; color: #f6f3ee !important; }
+
+    /* Stat / 4-col grids: keep 4 cols even on print */
+    .toolbox { grid-template-columns: repeat(4, 1fr) !important; }
+    .process-steps { grid-template-columns: repeat(5, 1fr) !important; }
+    .principles { grid-template-columns: repeat(3, 1fr) !important; }
+    .about-hero .grid, .story { grid-template-columns: 1fr 1fr !important; }
+    .story { gap: 32px !important; }
+
+    /* Remove hover transforms */
+    *, *::before, *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+
+    a { color: inherit !important; text-decoration: none !important; }
+
+    /* Compress sections vertically */
+    .section-head { padding-bottom: 16px !important; margin-bottom: 20px !important; }
+    .principle { padding: 20px 16px !important; }
+    .step { min-height: auto !important; padding: 16px !important; }
+    .tool { padding: 14px 16px !important; }
+    .tool h4 { font-size: 16px !important; }
+  }
+
+  /* === ABOUT PAGE === */
+  .about-hero {
+    padding: clamp(60px, 8vw, 110px) 0 clamp(40px, 5vw, 80px);
+  }
+  .about-hero .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 100px);
+    align-items: end;
+  }
+  .about-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(54px, 8vw, 120px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+  .about-hero h1 em { font-style: italic; color: var(--accent); }
+  .about-hero .lead { margin-top: 32px; font-size: clamp(18px, 1.6vw, 22px); color: var(--ink-2); }
+
+  .portrait-large {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 280px 280px 8px 8px;
+    overflow: hidden;
+    background-image: repeating-linear-gradient(45deg, transparent 0px, transparent 14px, rgba(26,26,26,.04) 14px, rgba(26,26,26,.04) 15px);
+    display: grid; place-items: center;
+  }
+  .portrait-large .ph-label {
+    font-family: var(--font-mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-3);
+    text-align: center; line-height: 1.6;
+  }
+  .portrait-large .badge {
+    position: absolute; top: 32px; right: 32px;
+    width: 110px; height: 110px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.15;
+    text-align: center;
+    transform: rotate(-8deg);
+    padding: 14px;
+  }
+
+  @media (max-width: 820px) {
+    .about-hero .grid { grid-template-columns: 1fr; }
+    .portrait-large { max-width: 360px; }
+  }
+
+  /* STORY */
+  .story {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(32px, 5vw, 96px);
+  }
+  .story-side {
+    position: sticky; top: 100px; align-self: start;
+  }
+  .story-side .label {
+    font-family: var(--font-mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3);
+    margin-bottom: 16px;
+  }
+  .story-side h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4.5vw, 64px);
+    line-height: 1;
+  }
+  .story-side h2 em { font-style: italic; color: var(--accent); }
+
+  .story-body {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+  .story-body p { margin-bottom: 20px; }
+  .story-body p:first-of-type::first-letter {
+    font-family: var(--font-display);
+    font-size: 4.5em;
+    float: left;
+    line-height: .85;
+    margin: 4px 10px 0 0;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .story-body strong { color: var(--ink); font-weight: 500; }
+
+  @media (max-width: 820px) {
+    .story { grid-template-columns: 1fr; }
+    .story-side { position: static; }
+  }
+
+  /* TOOLBOX */
+  .toolbox {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .tool {
+    padding: 28px 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .tool:nth-child(4n) { border-right: none; }
+  .tool .label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
+  .tool h4 { font-family: var(--font-display); font-size: 22px; }
+  @media (max-width: 720px) {
+    .toolbox { grid-template-columns: repeat(2, 1fr); }
+    .tool:nth-child(2n) { border-right: none; }
+    .tool:nth-child(4n) { border-right: none; }
+  }
+
+  /* PROCESS */
+  .process-block {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 12px;
+    padding: clamp(40px, 6vw, 80px) clamp(28px, 4vw, 64px);
+  }
+  .process-block .section-head {
+    border-color: rgba(255,255,255,.12);
+  }
+  .process-block .section-head h2 { color: var(--bg); }
+  .process-block .section-head h2 em { color: var(--accent-soft); }
+  .process-block .eyebrow { color: rgba(246,243,238,.5); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,.12);
+  }
+  .step {
+    padding: 28px 20px 32px;
+    border-right: 1px solid rgba(255,255,255,.12);
+    display: flex; flex-direction: column; gap: 12px;
+    position: relative;
+    min-height: 280px;
+  }
+  .step:last-child { border-right: none; }
+  .step .num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .step h4 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--bg);
+    margin-top: 8px;
+  }
+  .step p { font-size: 14px; line-height: 1.5; color: rgba(246,243,238,.7); }
+  .step .duration {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(246,243,238,.5);
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding-top: 12px;
+  }
+  @media (max-width: 920px) {
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .step { border-right: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); }
+    .step:nth-child(2n) { border-right: none; }
+  }
+  @media (max-width: 540px) {
+    .process-steps { grid-template-columns: 1fr; }
+    .step { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.12); min-height: auto; }
+    .step:last-child { border-bottom: none; }
+  }
+
+  /* PRINCIPLES */
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .principle {
+    background: var(--bg);
+    padding: 36px 28px;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: background .3s;
+  }
+  .principle:hover { background: var(--bg-2); }
+  .principle .num { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); }
+  .principle h4 { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 32px); line-height: 1.05; }
+  .principle h4 em { font-style: italic; }
+  .principle p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+  @media (max-width: 720px) {
+    .principles { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-screen-label="About">
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-mark">R</span>
+      <span>Rita Omotegho</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">
+      <span class="dot"></span>
+      <span>Available for Work</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ABOUT HERO -->
+<header class="about-hero">
+  <div class="shell">
+    <div class="grid">
+      <div class="reveal-stagger">
+        <span class="eyebrow">About — Rita Omotegho Aghwana</span>
+        <h1 style="margin-top: 24px;">A designer who treats every brief like a <em>diamond</em> in the rough.</h1>
+        <p class="lead">Five years in, I still get the same thrill from a blank Figma canvas as I did from my first WordPress install. I build websites, cinematic AI music videos, and UGC that actually sounds like a human wrote it.</p>
+      </div>
+
+      <div class="portrait-large reveal">
+        <img src="assets/rita-portrait.jpg" alt="Rita Omotegho Aghwana" style="width:100%; height:100%; object-fit:cover; object-position: center 20%; display:block;" />
+        <div class="badge">
+          Hi, I'm<br/>Rita ✦
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STORY -->
+<section data-screen-label="My story">
+  <div class="shell">
+    <div class="story">
+      <aside class="story-side reveal">
+        <div class="label">01 — The Story</div>
+        <h2>How <em>Dreams</em><br/>became <em>Diamonds.</em></h2>
+      </aside>
+
+      <div class="story-body reveal">
+        <p>Five years ago, I built my first WordPress site for a friend's hair brand at midnight, on a borrowed laptop, fueled by the kind of stubborn optimism only first-time designers have. The site shipped. The brand grew. And I realized something: <strong>most people aren't short on dreams — they're short on someone who can shape them into something tangible.</strong></p>
+
+        <p>That's the job, really. Taking the half-formed vision in someone's head — the brand they keep meaning to launch, the song they want to release, the business they keep promising to take seriously — and turning it into pixels, frames, and pages that actually do the work.</p>
+
+        <p>Today I work with founders, musicians, coaches and brands across Fiverr, LinkedIn and direct referrals. I've shipped over <strong>120 projects</strong>, helped indie artists clear hundreds of thousands of streams with AI-generated music videos, and built WordPress sites that load fast, look expensive and convert quietly in the background.</p>
+
+        <p>The tagline <em>"From Dreams to Diamonds"</em> isn't marketing fluff. It's the actual through-line. Every project starts rough. The work is in the pressure, the polish, and the patience.</p>
+
+        <p>If that sounds like the kind of partner you've been looking for — <strong>let's talk.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLBOX -->
+<section style="padding-top: 0;">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">02 — Toolbox</span>
+      <h2 class="display">The stack I <em>swear by.</em></h2>
+    </div>
+
+    <div class="toolbox reveal-stagger">
+      <div class="tool"><span class="label">CMS</span><h4>WordPress</h4></div>
+      <div class="tool"><span class="label">Page Builder</span><h4>Elementor Pro</h4></div>
+      <div class="tool"><span class="label">eCommerce</span><h4>WooCommerce</h4></div>
+      <div class="tool"><span class="label">Builder</span><h4>Divi</h4></div>
+      <div class="tool"><span class="label">Design</span><h4>Figma</h4></div>
+      <div class="tool"><span class="label">AI Video</span><h4>Runway · Kling</h4></div>
+      <div class="tool"><span class="label">Edit</span><h4>CapCut · Premiere</h4></div>
+      <div class="tool"><span class="label">UGC</span><h4>HeyGen · Arcads</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section data-screen-label="Process">
+  <div class="shell">
+    <div class="process-block reveal">
+      <div class="section-head">
+        <span class="eyebrow">03 — Process</span>
+        <h2 class="display">From first call to <em>final cut.</em></h2>
+      </div>
+
+      <div class="process-steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h4>Listen</h4>
+          <p>A free 20-min call. I ask the questions that actually matter — audience, outcomes, vibe, deadlines.</p>
+          <span class="duration">Day 0</span>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h4>Shape</h4>
+          <p>I send back a written scope, mood-board, and timeline. You approve or we tighten it together.</p>
+          <span class="duration">Day 1–2</span>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h4>Build</h4>
+          <p>Heads-down craft. Daily progress shots in your inbox so there are no "wait, where are we?" moments.</p>
+          <span class="duration">Day 3–10</span>
+        </div>
+        <div class="step">
+          <span class="num">04</span>
+          <h4>Polish</h4>
+          <p>Two free revision rounds. We tune copy, colors, transitions until it actually feels like <em>yours.</em></p>
+          <span class="duration">Day 10–14</span>
+        </div>
+        <div class="step">
+          <span class="num">05</span>
+          <h4>Launch</h4>
+          <p>I hand it off with a Loom walkthrough, a launch checklist, and 14 days of free aftercare.</p>
+          <span class="duration">Day 14+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section data-screen-label="Principles">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">04 — Principles</span>
+      <h2 class="display">Three rules I won't <em>break.</em></h2>
+    </div>
+
+    <div class="principles reveal-stagger">
+      <div class="principle">
+        <span class="num">PRINCIPLE / 01</span>
+        <h4>Ship the <em>real</em> work, not a demo.</h4>
+        <p>Polished portfolios are easy. Sites that convert, videos that move people, and content that ships on time — that's the actual job.</p>
+      </div>
+      <div class="principle">
+        <span class="num">PRINCIPLE / 02</span>
+        <h4>Make it feel <em>like you,</em> not like a template.</h4>
+        <p>I use Elementor and WordPress, but no two sites I make look the same. Your brand's quirks are the feature, not the bug.</p>
+      </div>
+      <div class="principle">
+        <span class="num">PRINCIPLE / 03</span>
+        <h4>Tell me the <em>truth,</em> get the truth back.</h4>
+        <p>No client-pleasing nods. If your copy is weak or your idea won't convert, I'll say so — and offer a better version.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="shell">
+    <div style="border-top: 1px solid var(--line); padding-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;">
+      <h2 class="display" style="font-size: clamp(36px, 5.5vw, 80px); line-height: .95;">Ready to start your <em>diamond?</em></h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Send a message <span class="arrow">→</span></a>
+        <a href="services.html" class="btn btn-ghost">View services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div>
+        <h3 class="display">Let's build something <em>worth remembering.</em></h3>
+        <p style="margin-top:24px; color:rgba(246,243,238,.7); max-width: 44ch;">Open for WordPress builds, music video commissions and UGC packages. Reply within 24 hours.</p>
+        <a href="mailto:Ritaomoteghoo@gmail.com" style="display:inline-flex; align-items:center; gap:10px; margin-top:24px; font-family:var(--font-display); font-style:italic; font-size:24px; color:var(--bg); border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 4px;">
+          Ritaomoteghoo@gmail.com <span>→</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="https://Fiverr.com/Omotegho" target="_blank" rel="noopener">Fiverr ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@omotegho" target="_blank" rel="noopener">TikTok ↗</a></li>
+          <li><a href="https://x.com/DesignzPixel" target="_blank" rel="noopener">X / Twitter ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Rita Omotegho Aghwana</span>
+      <span>From Dreams to Diamonds — Vol. 05</span>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+  // Auto-print once fonts and content are ready
+  (async function autoPrint() {
+    try {
+      if (document.fonts && document.fonts.ready) {
+        await document.fonts.ready;
+      }
+    } catch (e) {}
+    // Wait an extra beat for layout to settle
+    setTimeout(() => { window.print(); }, 600);
+  })();
+</script>
+</body>
+</html>

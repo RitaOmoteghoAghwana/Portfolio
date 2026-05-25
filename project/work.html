@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Work & Portfolio — Rita Omotegho Aghwana | WordPress Sites, AI Music Videos & UGC</title>
+<meta name="description" content="Selected work by Rita Omotegho Aghwana — WordPress websites, AI music videos, and human/AI UGC content. 5+ years, 120+ projects." />
+<meta name="keywords" content="Rita Omotegho, WordPress designer, AI music video, UGC creator, web design portfolio, Lagos designer" />
+<meta name="author" content="Rita Omotegho Aghwana" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://omotegho.com/work.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Work & Portfolio — Rita Omotegho Aghwana" />
+<meta property="og:description" content="Selected WordPress sites, AI music videos, and UGC reels from 5+ years of client work." />
+<meta property="og:image" content="assets/rita-portrait.jpg" />
+<meta property="og:url" content="https://omotegho.com/work.html" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@DesignzPixel" />
+<meta name="twitter:title" content="Work — Rita Omotegho Aghwana" />
+<meta name="twitter:description" content="WordPress, AI music videos & UGC. From dreams to diamonds." />
+<meta name="twitter:image" content="assets/rita-portrait.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:wght@400;500&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* === WORK PAGE === */
+  .work-hero {
+    padding: clamp(60px, 8vw, 110px) 0 clamp(32px, 4vw, 56px);
+  }
+  .work-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(58px, 9.5vw, 156px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+  }
+  .work-hero h1 em { font-style: italic; color: var(--accent); }
+  .work-hero .lead { margin-top: 24px; max-width: 56ch; }
+
+  /* FILTER BAR */
+  .filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-top: 48px;
+  }
+  .filter-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .f-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    background: transparent;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .f-chip:hover { border-color: var(--ink-3); }
+  .f-chip.active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .f-chip .count {
+    font-size: 10px;
+    opacity: .6;
+  }
+  .filter-bar .count-display {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .filter-bar .count-display em { font-style: normal; color: var(--ink); }
+
+  /* UGC VIDEO GRID — vertical 9:16 reels */
+  .ugc-section { padding: clamp(48px, 7vw, 100px) 0; }
+
+  .ugc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .reel {
+    position: relative;
+    aspect-ratio: 9/16;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
+  }
+  .reel:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(0,0,0,.2); }
+
+  .reel video, .reel img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .reel .reel-placeholder {
+    position: absolute; inset: 0;
+    background: var(--bg-2);
+    background-image: repeating-linear-gradient(45deg, transparent 0px, transparent 14px, rgba(26,26,26,.04) 14px, rgba(26,26,26,.04) 15px);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  .reel .reel-placeholder .label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+  .reel .reel-placeholder .icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--bg);
+    display: grid; place-items: center;
+    margin: 0 auto 14px;
+    font-size: 14px;
+  }
+
+  /* Overlay info on hover */
+  .reel .reel-info {
+    position: absolute;
+    inset: 0;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.4) 40%, transparent 70%);
+    color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+  }
+  .reel:hover .reel-info { opacity: 1; }
+  .reel .reel-info .tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-soft);
+    margin-bottom: 6px;
+  }
+  .reel .reel-info h4 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+  .reel .reel-info p {
+    font-size: 12px;
+    color: rgba(246,243,238,.8);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  /* Play icon overlay */
+  .reel .play-icon {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(8px);
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    color: var(--ink);
+    z-index: 2;
+  }
+
+  /* Pinned ribbon */
+  .reel .ribbon {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 5px 10px;
+    border-radius: 99px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    z-index: 2;
+  }
+
+  /* WEB WORK GRID — wider cards */
+  .web-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 720px) {
+    .web-grid { grid-template-columns: 1fr; }
+  }
+  .web-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
+    cursor: pointer;
+  }
+  .web-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(0,0,0,.18); }
+  .web-card .frame {
+    aspect-ratio: 16/10;
+    background: var(--bg-2);
+    position: relative;
+    overflow: hidden;
+  }
+  .web-card .frame img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .web-card .frame .placeholder {
+    position: absolute; inset: 0;
+    border-radius: 0;
+    border: none;
+  }
+  .web-card .info {
+    padding: 22px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .web-card .info h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    line-height: 1.1;
+  }
+  .web-card .info h3 em { font-style: italic; color: var(--accent); }
+  .web-card .info .meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    text-align: right;
+  }
+  .web-card .info .meta .visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    color: var(--ink);
+  }
+
+  /* INSTRUCTIONS PANEL — only visible to Rita */
+  .add-panel {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 16px;
+    padding: clamp(32px, 5vw, 64px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (max-width: 820px) { .add-panel { grid-template-columns: 1fr; gap: 32px; } }
+
+  .add-panel h2 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.05;
+    color: var(--bg);
+  }
+  .add-panel h2 em { font-style: italic; color: var(--accent-soft); }
+  .add-panel .sub {
+    margin-top: 16px;
+    color: rgba(246,243,238,.7);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .add-code {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px;
+    padding: 20px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.7;
+    color: rgba(246,243,238,.92);
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .add-code .k { color: var(--accent-soft); }
+  .add-code .s { color: #9ad4a8; }
+  .add-code .c { color: rgba(246,243,238,.45); font-style: italic; }
+</style>
+</head>
+<body data-screen-label="Work">
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-mark">R</span>
+      <span>Rita Omotegho</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">
+      <span class="dot"></span>
+      <span>Available for Work</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="work-hero">
+  <div class="shell">
+    <span class="eyebrow reveal">Portfolio — Selected work · 2024–2026</span>
+    <h1 class="reveal" style="margin-top: 20px;">Pixels with <em>purpose,</em><br/>reels with <em>rhythm.</em></h1>
+    <p class="lead reveal">A living gallery — websites I've shipped, music videos I've directed, and UGC reels I've created and edited. New work added every month.</p>
+
+    <div class="filter-bar reveal">
+      <div class="filter-chips" id="filters">
+        <button type="button" class="f-chip active" data-filter="all">All <span class="count">14</span></button>
+        <button type="button" class="f-chip" data-filter="ugc">UGC Reels <span class="count">8</span></button>
+        <button type="button" class="f-chip" data-filter="music">Music Videos <span class="count">3</span></button>
+        <button type="button" class="f-chip" data-filter="wordpress">WordPress <span class="count">3</span></button>
+      </div>
+      <div class="count-display" id="countDisplay">Showing <em>14</em> projects</div>
+    </div>
+  </div>
+</header>
+
+<!-- UGC VIDEOS — VERTICAL REELS -->
+<section class="ugc-section" data-screen-label="UGC reels" data-category-group="ugc-music">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">01 — UGC &amp; Music Videos</span>
+      <h2 class="display">Vertical-native <em>reels.</em></h2>
+    </div>
+
+    <!-- 
+      ╔══════════════════════════════════════════════════════════════════╗
+      ║  HOW TO ADD YOUR UGC VIDEO:                                       ║
+      ║  1. Drop your .mp4 file into the assets/videos/ folder            ║
+      ║  2. (Optional) Drop a poster .jpg into assets/videos/ too         ║
+      ║  3. Copy any .reel block below and edit the highlighted bits      ║
+      ║  4. Save and refresh                                              ║
+      ║  See the panel at the bottom of this page for a clean template    ║
+      ╚══════════════════════════════════════════════════════════════════╝
+    -->
+
+    <div class="ugc-grid reveal-stagger" id="ugcGrid">
+
+      <!-- ✦ REEL 1 — Has placeholder, swap in your video below ✦ -->
+      <a href="#" class="reel" data-cat="ugc">
+        <span class="ribbon">Featured</span>
+        <span class="play-icon">▶</span>
+        <!-- 
+          To use a real video, REPLACE the .reel-placeholder div with:
+          <video src="assets/videos/your-file.mp4" poster="assets/videos/your-poster.jpg" muted loop playsinline preload="metadata"></video>
+        -->
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">▶</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">Human UGC · Skincare</span>
+          <h4>Glowline — Morning routine</h4>
+          <p>Day-in-a-life UGC for TikTok Shop</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="ugc">
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">▶</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">AI UGC · SaaS</span>
+          <h4>Sendly AI — Hook test</h4>
+          <p>One of 6 variants for split-testing</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="music">
+        <span class="ribbon">Music Video</span>
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">♫</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">AI Music Video · Afrobeats</span>
+          <h4>Dreamscape — King Ade</h4>
+          <p>Vertical cut · 200K+ views</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="ugc">
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">▶</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">Human UGC · Fashion</span>
+          <h4>Nala Atelier — Lookbook</h4>
+          <p>Editorial reel for collection launch</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="ugc">
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">▶</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">AI UGC · Wellness</span>
+          <h4>Auralis — Founder story</h4>
+          <p>Brand-voice script, AI avatar</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="music">
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">♫</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">AI Music Video · R&amp;B</span>
+          <h4>Midnight — Toju</h4>
+          <p>Cinematic dreamscape edit</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="ugc">
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">▶</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">Human UGC · Food</span>
+          <h4>BukaBox — Unboxing</h4>
+          <p>First-impression reel</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="ugc">
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">▶</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">AI UGC · Fintech</span>
+          <h4>PayKraft — 3 hooks</h4>
+          <p>Test pack for media buyer</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="ugc">
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">▶</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">Human UGC · Beauty</span>
+          <h4>Lush Lashes — Tutorial</h4>
+          <p>30s how-to with brand colors</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="music">
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">♫</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">AI Music Video · Gospel</span>
+          <h4>Light — DJ Kemi</h4>
+          <p>Featured on artist's YouTube</p>
+        </div>
+      </a>
+
+      <a href="#" class="reel" data-cat="ugc">
+        <span class="play-icon">▶</span>
+        <div class="reel-placeholder">
+          <div>
+            <div class="icon">▶</div>
+            <div class="label">Drop video<br/>9:16 · MP4</div>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="tag">AI UGC · Course</span>
+          <h4>Adaeze Academy — Pitch</h4>
+          <p>30s ad creative for IG</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- WORDPRESS SHOWCASE -->
+<section style="background: var(--bg-2); padding: clamp(48px, 7vw, 100px) 0;" data-screen-label="WordPress sites">
+  <div class="shell">
+    <div class="section-head reveal" style="border-color: var(--line);">
+      <span class="eyebrow">02 — WordPress Builds</span>
+      <h2 class="display">Sites that <em>load fast</em><br/>and convert <em>quietly.</em></h2>
+    </div>
+
+    <div class="web-grid reveal-stagger" id="webGrid">
+      <a href="#" class="web-card" data-cat="wordpress">
+        <div class="frame">
+          <div class="placeholder browser">
+            <span class="ph-meta">Elementor Pro · 1600×900</span>
+            <span class="ph-label">AURALIS WELLNESS — HOMEPAGE</span>
+            <span class="ph-tag">drop screenshot.png</span>
+          </div>
+        </div>
+        <div class="info">
+          <h3>Auralis <em>Wellness</em></h3>
+          <div class="meta">
+            <div>Wellness · 2025</div>
+            <div class="visit">Visit ↗</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="web-card" data-cat="wordpress">
+        <div class="frame">
+          <div class="placeholder browser">
+            <span class="ph-meta">WooCommerce · 1600×900</span>
+            <span class="ph-label">NALA ATELIER — SHOP</span>
+            <span class="ph-tag">drop screenshot.png</span>
+          </div>
+        </div>
+        <div class="info">
+          <h3>Nala <em>Atelier</em></h3>
+          <div class="meta">
+            <div>Fashion eCom · 2024</div>
+            <div class="visit">Visit ↗</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="web-card" data-cat="wordpress">
+        <div class="frame">
+          <div class="placeholder browser">
+            <span class="ph-meta">Custom Theme · 1600×900</span>
+            <span class="ph-label">ADAEZE OKAFOR — PERSONAL BRAND</span>
+            <span class="ph-tag">drop screenshot.png</span>
+          </div>
+        </div>
+        <div class="info">
+          <h3>Adaeze <em>Okafor</em></h3>
+          <div class="meta">
+            <div>Consultant · 2024</div>
+            <div class="visit">Visit ↗</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="web-card" data-cat="wordpress">
+        <div class="frame">
+          <div class="placeholder browser">
+            <span class="ph-meta">Divi · 1600×900</span>
+            <span class="ph-label">SOULFIT STUDIO — BOOKING</span>
+            <span class="ph-tag">drop screenshot.png</span>
+          </div>
+        </div>
+        <div class="info">
+          <h3>SoulFit <em>Studio</em></h3>
+          <div class="meta">
+            <div>Fitness · 2025</div>
+            <div class="visit">Visit ↗</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- "HOW TO ADD" PANEL — for Rita -->
+<section data-screen-label="How to add a video">
+  <div class="shell">
+    <div class="add-panel">
+      <div class="reveal">
+        <span class="eyebrow" style="color: rgba(246,243,238,.5);">For Rita — Quick reference</span>
+        <h2 style="margin-top: 16px;">Adding a new <em>UGC video</em> takes 30 seconds.</h2>
+        <p class="sub">Drop the file in <code style="background: rgba(255,255,255,.08); padding: 2px 6px; border-radius: 4px;">assets/videos/</code>, then paste this block above any existing reel in the grid. The page handles the rest — autoplay, hover overlay, filter category.</p>
+        <div style="margin-top: 24px;">
+          <a href="contact.html" class="btn btn-accent">Need a new section? Ping me</a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <pre class="add-code"><span class="c">&lt;!-- Copy this whole block --&gt;</span>
+<span class="k">&lt;a</span> <span class="k">href</span>=<span class="s">"#"</span> <span class="k">class</span>=<span class="s">"reel"</span> <span class="k">data-cat</span>=<span class="s">"ugc"</span><span class="k">&gt;</span>
+  <span class="k">&lt;span</span> <span class="k">class</span>=<span class="s">"play-icon"</span><span class="k">&gt;</span>▶<span class="k">&lt;/span&gt;</span>
+
+  <span class="k">&lt;video</span>
+    <span class="k">src</span>=<span class="s">"assets/videos/<u>YOUR-FILE.mp4</u>"</span>
+    <span class="k">poster</span>=<span class="s">"assets/videos/<u>cover.jpg</u>"</span>
+    muted loop playsinline preload=<span class="s">"metadata"</span>
+  <span class="k">&gt;&lt;/video&gt;</span>
+
+  <span class="k">&lt;div</span> <span class="k">class</span>=<span class="s">"reel-info"</span><span class="k">&gt;</span>
+    <span class="k">&lt;span</span> <span class="k">class</span>=<span class="s">"tag"</span><span class="k">&gt;</span><u>Human UGC · Brand</u><span class="k">&lt;/span&gt;</span>
+    <span class="k">&lt;h4&gt;</span><u>Project name here</u><span class="k">&lt;/h4&gt;</span>
+    <span class="k">&lt;p&gt;</span><u>One-line description</u><span class="k">&lt;/p&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/a&gt;</span>
+
+<span class="c">// data-cat options: "ugc" | "music" | "wordpress"</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 0;">
+  <div class="shell">
+    <div style="border-top: 1px solid var(--line); padding-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;">
+      <h2 class="display" style="font-size: clamp(36px, 5.5vw, 80px); line-height: .95;">Like what you see? Let's <em>make yours.</em></h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Start a project <span class="arrow">→</span></a>
+        <a href="services.html" class="btn btn-ghost">View services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div>
+        <h3 class="display">Let's build something <em>worth remembering.</em></h3>
+        <p style="margin-top:24px; color:rgba(246,243,238,.7); max-width: 44ch;">Open for WordPress builds, music video commissions and UGC packages. Reply within 24 hours.</p>
+        <a href="mailto:Ritaomoteghoo@gmail.com" style="display:inline-flex; align-items:center; gap:10px; margin-top:24px; font-family:var(--font-display); font-style:italic; font-size:24px; color:var(--bg); border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 4px;">
+          Ritaomoteghoo@gmail.com <span>→</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="https://Fiverr.com/Omotegho" target="_blank" rel="noopener">Fiverr ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@omotegho" target="_blank" rel="noopener">TikTok ↗</a></li>
+          <li><a href="https://x.com/DesignzPixel" target="_blank" rel="noopener">X / Twitter ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Rita Omotegho Aghwana</span>
+      <span>From Dreams to Diamonds — Vol. 05</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // VIDEO HOVER-PLAY: muted + autoplay on hover
+  document.querySelectorAll('.reel video').forEach(v => {
+    const card = v.closest('.reel');
+    card.addEventListener('mouseenter', () => { v.play().catch(()=>{}); });
+    card.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+  });
+
+  // FILTER
+  const filterChips = document.querySelectorAll('#filters .f-chip');
+  const allCards = document.querySelectorAll('.reel, .web-card');
+  const ugcSection = document.querySelector('[data-category-group="ugc-music"]');
+  const wpSection = ugcSection.nextElementSibling;
+
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const f = chip.dataset.filter;
+
+      let shown = 0;
+      allCards.forEach(c => {
+        const match = (f === 'all') || (c.dataset.cat === f);
+        c.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+
+      // Hide section heads when all their cards are hidden
+      const ugcVisible = [...document.querySelectorAll('#ugcGrid .reel')].some(c => c.style.display !== 'none');
+      const wpVisible = [...document.querySelectorAll('#webGrid .web-card')].some(c => c.style.display !== 'none');
+      ugcSection.style.display = ugcVisible ? '' : 'none';
+      wpSection.style.display = wpVisible ? '' : 'none';
+
+      document.getElementById('countDisplay').innerHTML = `Showing <em>${shown}</em> ${shown === 1 ? 'project' : 'projects'}`;
+    });
+  });
+</script>
+<script src="shared.js"></script>
+<script src="enhance.js"></script>
+</body>
+</html>
