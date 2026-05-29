@@ -86,30 +86,19 @@
     transform: rotate(-1.5deg);
   }
 
-  /* Bottom: portrait + content */
+  /* Centered content below heading */
   .hero-body {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: clamp(24px, 4vw, 56px);
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: 28px;
   }
-  .portrait {
-    width: 180px;
-    aspect-ratio: 3/4;
-    background: var(--bg-2);
-    border: 1px solid var(--line);
-    border-radius: 120px 120px 8px 8px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; }
-
   .hero-desc p {
     font-size: clamp(16px, 1.5vw, 19px);
     color: var(--ink-2);
     line-height: 1.55;
     max-width: 52ch;
-    margin-bottom: 28px;
   }
   .hero-actions {
     display: flex;
@@ -119,9 +108,6 @@
   }
 
   @media (max-width: 640px) {
-    .hero-body { grid-template-columns: 1fr; }
-    .portrait { width: 140px; margin: 0 auto; }
-    .hero-actions { justify-content: flex-start; }
     .hero-top-left .item:last-child { display: none; }
   }
 
@@ -343,16 +329,13 @@
     </div>
 
     <!-- heading -->
-    <h1 class="display hero-heading reveal">
+    <h1 class="display hero-heading reveal" style="text-align:center;">
       <span class="line">From <em>Dreams</em></span>
       <span class="line">to <span class="pill">Diamonds.</span></span>
     </h1>
 
-    <!-- picture + content -->
+    <!-- centered content -->
     <div class="hero-body reveal-stagger">
-      <div class="portrait">
-        <img src="assets/rita-portrait.jpg" alt="Rita Omotegho Aghwana" />
-      </div>
       <div class="hero-desc">
         <p>I'm Rita — a WordPress designer and visual storyteller building websites, AI music videos and UGC that turn rough ideas into refined, scroll-stopping work.</p>
         <div class="hero-actions">
