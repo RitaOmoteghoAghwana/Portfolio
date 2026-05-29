@@ -35,24 +35,26 @@
 <style>
   /* === HOME-SPECIFIC === */
   .hero {
-    padding: clamp(36px, 5vw, 64px) 0 clamp(36px, 5vw, 56px);
-    position: relative;
+    padding: clamp(28px, 4vw, 52px) 0 clamp(32px, 5vw, 56px);
   }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(40px, 5vw, 64px);
-  }
-  .hero-meta {
+
+  /* Top bar: meta items + booking button */
+  .hero-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
-    padding-bottom: 24px;
+    gap: 12px;
+    padding-bottom: 20px;
     border-bottom: 1px solid var(--line);
+    margin-bottom: clamp(28px, 4vw, 48px);
   }
-  .hero-meta .item {
+  .hero-top-left {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-top .item {
     font-family: var(--font-mono);
     font-size: 11px;
     text-transform: uppercase;
@@ -62,22 +64,20 @@
     align-items: center;
     gap: 8px;
   }
-  .hero-meta .item .dot { width: 5px; height: 5px; border-radius: 50%; background: #5dd4a8; }
+  .hero-top .item .dot { width: 5px; height: 5px; border-radius: 50%; background: #5dd4a8; }
 
-  .hero h1 {
-    font-size: clamp(36px, 6vw, 96px);
+  /* Heading */
+  .hero-heading {
+    font-size: clamp(44px, 7vw, 100px);
     line-height: 1;
     letter-spacing: -0.03em;
+    margin-bottom: clamp(28px, 4vw, 48px);
+    padding-bottom: clamp(28px, 4vw, 48px);
+    border-bottom: 1px solid var(--line);
   }
-  .hero h1 .line { display: block; }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero h1 .ampersand {
-    color: var(--ink-3);
-    font-size: 0.7em;
-    vertical-align: 0.05em;
-    padding: 0 0.05em;
-  }
-  .hero h1 .pill {
+  .hero-heading .line { display: block; }
+  .hero-heading em { font-style: normal; color: var(--accent); }
+  .hero-heading .pill {
     display: inline-block;
     background: var(--accent);
     color: var(--bg);
@@ -86,58 +86,44 @@
     transform: rotate(-1.5deg);
   }
 
-  .hero-bottom {
+  /* Bottom: portrait + content */
+  .hero-body {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(24px, 4vw, 64px);
-    padding-top: 32px;
-    border-top: 1px solid var(--line);
-    align-items: end;
-  }
-  .hero-tag {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(15px, 1.6vw, 20px);
-    color: var(--ink-2);
-    line-height: 1.4;
-    max-width: 28ch;
-  }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
-  @media (max-width: 720px) {
-    .hero-bottom { grid-template-columns: 1fr; }
-    .hero-actions { justify-content: flex-start; }
-  }
-
-  /* Hero portrait card */
-  .hero-card {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 16px;
-    padding: 18px 0 0;
+    grid-template-columns: 180px 1fr;
+    gap: clamp(24px, 4vw, 56px);
+    align-items: center;
   }
   .portrait {
-    width: 200px; height: 240px;
+    width: 180px;
+    aspect-ratio: 3/4;
     background: var(--bg-2);
     border: 1px solid var(--line);
-    border-radius: 200px 200px 8px 8px;
+    border-radius: 120px 120px 8px 8px;
     overflow: hidden;
-    position: relative;
-    background-image: repeating-linear-gradient(45deg, transparent 0px, transparent 14px, rgba(10,17,40,0.04) 14px, rgba(10,17,40,0.04) 15px);
-    display: grid; place-items: center;
+    flex-shrink: 0;
   }
-  .portrait .ph-label {
-    font-family: var(--font-mono); font-size: 10px;
-    text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-3);
+  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; }
+
+  .hero-desc p {
+    font-size: clamp(16px, 1.5vw, 19px);
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 52ch;
+    margin-bottom: 28px;
   }
-  .portrait .ring {
-    position: absolute; inset: -12px; border: 1px dashed var(--ink-3);
-    border-radius: 200px 200px 12px 12px;
-    animation: spin 60s linear infinite;
-    opacity: .4;
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 640px) {
+    .hero-body { grid-template-columns: 1fr; }
+    .portrait { width: 140px; margin: 0 auto; }
+    .hero-actions { justify-content: flex-start; }
+    .hero-top-left .item:last-child { display: none; }
+  }
 
   /* === SERVICES TEASER === */
   .services-teaser {
@@ -346,30 +332,36 @@
 <!-- HERO -->
 <header class="hero">
   <div class="shell">
-    <div class="hero-meta reveal">
-      <span class="item"><span class="dot"></span>Lagos / Remote — Worldwide</span>
-      <span class="item">Portfolio &nbsp;·&nbsp; Vol. 05 / 2026</span>
-      <span class="item">Booking: June onward</span>
+
+    <!-- top bar -->
+    <div class="hero-top reveal">
+      <div class="hero-top-left">
+        <span class="item"><span class="dot"></span>Lagos / Remote — Worldwide</span>
+        <span class="item">Booking: June onward</span>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Book a project <span class="arrow">→</span></a>
     </div>
 
-    <div class="hero-grid reveal-stagger">
-      <h1 class="display">
-        <span class="line">From <em>Dreams</em></span>
-        <span class="line">to <span class="pill">Diamonds</span> <span class="ampersand">&amp;</span></span>
-        <span class="line">pixels with <em>purpose</em>.</span>
-      </h1>
+    <!-- heading -->
+    <h1 class="display hero-heading reveal">
+      <span class="line">From <em>Dreams</em></span>
+      <span class="line">to <span class="pill">Diamonds.</span></span>
+    </h1>
 
-      <div class="hero-bottom">
-        <div class="hero-tag" style="display:flex; align-items:center; gap:20px;">
-          <img src="assets/rita-portrait.jpg" alt="Rita Omotegho" style="flex-shrink:0; width:84px; height:84px; border-radius:50%; object-fit:cover; object-position: center 18%; border: 1px solid var(--line);" />
-          <span>I'm Rita — a WordPress designer and visual storyteller building websites, AI music videos and UGC that turn rough ideas into refined, scroll-stopping work.</span>
-        </div>
+    <!-- picture + content -->
+    <div class="hero-body reveal-stagger">
+      <div class="portrait">
+        <img src="assets/rita-portrait.jpg" alt="Rita Omotegho Aghwana" />
+      </div>
+      <div class="hero-desc">
+        <p>I'm Rita — a WordPress designer and visual storyteller building websites, AI music videos and UGC that turn rough ideas into refined, scroll-stopping work.</p>
         <div class="hero-actions">
           <a href="contact.html" class="btn btn-primary">Start a project <span class="arrow">→</span></a>
           <a href="services.html" class="btn btn-ghost">View services</a>
         </div>
       </div>
     </div>
+
   </div>
 </header>
 
