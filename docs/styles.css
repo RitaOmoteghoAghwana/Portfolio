@@ -2,16 +2,16 @@
 /* Dark navy + electric blue */
 
 :root {
-  --bg: #0a1128;
-  --bg-2: #0f1840;
-  --bg-3: #1a2558;
-  --ink: #f4f5f8;
-  --ink-2: #8892aa;
-  --ink-3: #4a5270;
-  --line: rgba(255,255,255,0.08);
+  --bg: #ffffff;
+  --bg-2: #f2f5fc;
+  --bg-3: #e4eaf8;
+  --ink: #0a1128;
+  --ink-2: #3b4d75;
+  --ink-3: #7f90b8;
+  --line: rgba(10,17,40,0.1);
   --accent: #2352fe;
   --accent-deep: #1a3de0;
-  --accent-soft: #1a2860;
+  --accent-soft: #dce6ff;
   --gold: #2352fe;
 
   --font-display: "Syne", sans-serif;
@@ -105,7 +105,7 @@ section { padding: clamp(64px, 9vw, 140px) 0; position: relative; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 17, 40, 0.92);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
@@ -223,8 +223,8 @@ section { padding: clamp(64px, 9vw, 140px) 0; position: relative; }
 
 /* === FOOTER === */
 .footer {
-  background: var(--bg-2);
-  color: var(--ink);
+  background: #0a1128;
+  color: #f4f5f8;
   border-top: 1px solid var(--line);
   padding: clamp(60px, 8vw, 120px) 0 32px;
 }
@@ -241,7 +241,7 @@ section { padding: clamp(64px, 9vw, 140px) 0; position: relative; }
 .footer h3 {
   font-size: clamp(40px, 6vw, 88px);
   line-height: 1;
-  color: var(--ink);
+  color: #f4f5f8;
 }
 .footer h3 em { font-style: normal; color: var(--accent); }
 
@@ -250,18 +250,18 @@ section { padding: clamp(64px, 9vw, 140px) 0; position: relative; }
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--ink-3);
+  color: rgba(244,245,248,0.4);
   margin-bottom: 18px;
   font-weight: 500;
 }
 
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .footer-col a {
-  color: var(--ink-2);
+  color: rgba(244,245,248,0.75);
   font-size: 15px;
   transition: color .2s;
 }
-.footer-col a:hover { color: var(--accent); }
+.footer-col a:hover { color: #fff; }
 
 .footer-bottom {
   padding-top: 32px;
@@ -274,7 +274,7 @@ section { padding: clamp(64px, 9vw, 140px) 0; position: relative; }
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--ink-3);
+  color: rgba(244,245,248,0.4);
 }
 
 @media (max-width: 720px) {
@@ -345,8 +345,8 @@ section { padding: clamp(64px, 9vw, 140px) 0; position: relative; }
     45deg,
     transparent 0px,
     transparent 14px,
-    rgba(240,237,232,.03) 14px,
-    rgba(240,237,232,.03) 15px
+    rgba(10,17,40,0.04) 14px,
+    rgba(10,17,40,0.04) 15px
   );
 }
 
@@ -431,3 +431,37 @@ section { padding: clamp(64px, 9vw, 140px) 0; position: relative; }
 
 /* === TWEAKS PANEL CUSTOM === */
 .tweak-host { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+
+/* === MOBILE IMPROVEMENTS === */
+
+/* Mobile nav — compact CTA, hide brand text */
+@media (max-width: 480px) {
+  .nav-brand span:last-child { display: none; }
+  .nav-cta span:last-child { display: none; }
+  .nav-cta { padding: 8px 12px; }
+}
+
+/* Mobile typography */
+@media (max-width: 480px) {
+  .display { letter-spacing: -0.02em; }
+  section { padding: clamp(40px, 8vw, 64px) 0; }
+  .section-head { padding-bottom: 28px; margin-bottom: 28px; }
+  .lead { font-size: 16px; }
+}
+
+/* Stats strip — 2 cols on mobile */
+@media (max-width: 480px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Marquee — smaller on mobile */
+@media (max-width: 480px) {
+  .marquee-track { font-size: clamp(20px, 6vw, 32px); }
+}
+
+/* Services page inner padding on mobile */
+@media (max-width: 640px) {
+  .svc-section .svc-inner {
+    padding: 40px 20px;
+  }
+}
