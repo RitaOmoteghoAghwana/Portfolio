@@ -3,365 +3,165 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contact — Hire Rita Omotegho Aghwana | WordPress · UGC · AI Video</title>
-<meta name="description" content="Get in touch with Rita Omotegho Aghwana. Book a free discovery call, send a brief, or DM on Fiverr / LinkedIn / Instagram. Reply within 24 hours." />
-<meta name="keywords" content="hire Rita Omotegho, contact WordPress designer, book UGC creator, Fiverr Omotegho" />
+<title>Contact — Rita Omotegho Aghwana</title>
+<meta name="description" content="Get in touch with Rita Omotegho Aghwana. WordPress design, AI videos and UGC. Reply within 24 hours." />
 <meta name="author" content="Rita Omotegho Aghwana" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://omotegho.com/contact.html" />
-
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Contact Rita Omotegho Aghwana" />
-<meta property="og:description" content="Send a brief, book a call. Reply within 24 hours." />
-<meta property="og:image" content="assets/rita-portrait.jpg" />
-<meta property="og:url" content="https://omotegho.com/contact.html" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:creator" content="@DesignzPixel" />
-<meta name="twitter:image" content="assets/rita-portrait.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
 <style>
-  /* === CONTACT PAGE === */
-  .contact-hero {
-    padding: clamp(60px, 8vw, 100px) 0 clamp(32px, 4vw, 56px);
-  }
-  .contact-hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(58px, 9vw, 144px);
-    line-height: 0.92;
-    letter-spacing: -0.025em;
-  }
-  .contact-hero h1 em { font-style: italic; color: var(--accent); }
-  .contact-hero .lead { margin-top: 32px; max-width: 56ch; }
-
-  /* MAIN GRID */
-  .contact-grid {
+  .contact-page {
+    min-height: calc(100vh - 70px);
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(32px, 4vw, 56px);
-    padding: clamp(40px, 5vw, 64px) 0 clamp(64px, 9vw, 120px);
+    grid-template-columns: 1fr 1fr;
   }
-  @media (max-width: 920px) { .contact-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .contact-page { grid-template-columns: 1fr; } }
 
-  /* FORM */
-  .form-card {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: clamp(28px, 4vw, 48px);
-  }
-  .form-card .form-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink-3);
+  .contact-left {
+    padding: clamp(48px, 7vw, 100px) clamp(28px, 5vw, 72px);
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 28px;
+    gap: 48px;
+    border-right: 1px solid var(--line);
   }
-  .form-card .form-eyebrow .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #5dd4a8; margin-right: 6px; vertical-align: 2px; box-shadow: 0 0 0 0 #5dd4a8; animation: pulse 2s infinite; }
-
-  .form-row { margin-bottom: 22px; }
-  .form-row.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 540px) { .form-row.two { grid-template-columns: 1fr; } }
-
-  .form-label {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink-3);
-    margin-bottom: 8px;
+  .contact-left h1 {
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-top: 20px;
   }
-  .form-input, .form-textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--line);
-    padding: 12px 0;
-    font-family: var(--font-body);
+  .contact-left h1 em { font-style: normal; color: var(--accent); }
+  .contact-left .lead {
+    margin-top: 18px;
     font-size: 17px;
-    color: var(--ink);
-    outline: none;
-    transition: border-color .2s;
-  }
-  .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-3); opacity: .6; }
-  .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
-  .form-textarea { min-height: 100px; resize: vertical; padding-top: 12px; line-height: 1.5; }
-
-  /* CHIP SELECTORS */
-  .chip-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 16px;
-    border: 1px solid var(--line);
-    border-radius: 99px;
-    background: transparent;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    line-height: 1.6;
     color: var(--ink-2);
-    cursor: pointer;
-    transition: all .2s;
-    user-select: none;
+    max-width: 40ch;
   }
-  .chip:hover { border-color: var(--ink-3); }
-  .chip.active {
-    background: var(--ink);
-    color: var(--bg);
-    border-color: var(--ink);
-  }
-  .chip.active .check { display: inline; }
-  .chip .check { display: none; }
 
-  /* BUDGET RANGE */
-  .budget-bar {
-    margin-top: 8px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-  }
-  .budget-opt {
-    padding: 18px 12px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: transparent;
-    cursor: pointer;
-    text-align: center;
-    transition: all .2s;
-  }
-  .budget-opt:hover { border-color: var(--ink-3); }
-  .budget-opt.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-  .budget-opt .amount { font-family: var(--font-display); font-size: 22px; line-height: 1; }
-  .budget-opt .label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-top: 6px; }
-  .budget-opt.active .label { color: rgba(240,237,232,.6); }
-
-  .form-submit {
-    margin-top: 28px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line);
+  .contact-info {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .form-submit .note {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--ink-3);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  /* SIDE — booking + contact */
-  .side-stack { display: flex; flex-direction: column; gap: 16px; }
-
-  .side-card {
-    background: var(--bg-2);
+    flex-direction: column;
     border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 24px;
-  }
-  .side-card h3 {
-    font-family: var(--font-display);
-    font-size: 28px;
-    margin-bottom: 4px;
-  }
-  .side-card h3 em { font-style: italic; color: var(--accent); }
-  .side-card .sub {
-    font-size: 14px;
-    color: var(--ink-2);
-    margin-bottom: 18px;
-  }
-
-  /* MINI CALENDAR */
-  .cal {
-    background: var(--bg);
-    border-radius: 8px;
-    border: 1px solid var(--line);
+    border-radius: 10px;
     overflow: hidden;
   }
-  .cal-head {
-    padding: 12px 16px;
+  .cir {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
     border-bottom: 1px solid var(--line);
-    background: var(--bg);
+    transition: background .2s;
+    color: var(--ink);
+    text-decoration: none;
   }
-  .cal-head h4 {
-    font-family: var(--font-display);
-    font-size: 18px;
-  }
-  .cal-head .nav-btn {
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
-    background: transparent;
-    cursor: pointer;
-    color: var(--ink-2);
-    display: grid; place-items: center;
-    font-size: 12px;
-    transition: background .2s, color .2s;
-  }
-  .cal-head .nav-btn:hover { background: var(--ink); color: var(--bg); }
-  .cal-head .nav-row { display: flex; gap: 6px; }
-
-  .cal-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 8px;
-    gap: 2px;
-  }
-  .cal-dow {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--ink-3);
-    text-align: center;
-    padding: 6px 0;
-  }
-  .cal-day {
-    aspect-ratio: 1;
-    display: grid;
-    place-items: center;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--ink-2);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background .15s, color .15s;
-    position: relative;
-  }
-  .cal-day:hover:not(.empty):not(.past) { background: var(--bg-2); }
-  .cal-day.past { color: var(--line); cursor: not-allowed; }
-  .cal-day.empty { cursor: default; }
-  .cal-day.available::after {
-    content: ""; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
-    width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
-  }
-  .cal-day.selected { background: var(--ink); color: var(--bg); }
-  .cal-day.selected::after { background: var(--accent-soft); }
-
-  .slots {
-    margin-top: 16px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-  .slot {
-    padding: 10px;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-align: center;
-    background: var(--bg);
-    cursor: pointer;
-    transition: all .15s;
-    color: var(--ink-2);
-  }
-  .slot:hover { border-color: var(--ink-3); }
-  .slot.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
-  .slot.taken { color: var(--ink-3); text-decoration: line-through; cursor: not-allowed; opacity: .5; }
-
-  .booking-confirm {
-    margin-top: 16px;
-    padding: 14px;
-    background: var(--ink);
-    color: var(--bg);
-    border-radius: 8px;
-    display: none;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-  .booking-confirm.show { display: flex; }
-  .booking-confirm .label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(240,237,232,.5); }
-  .booking-confirm .when { font-family: var(--font-display); font-size: 18px; margin-top: 2px; }
-  .booking-confirm em { font-style: italic; color: var(--accent-soft); }
-  .booking-confirm .btn-mini {
-    background: var(--accent);
-    color: var(--bg);
-    padding: 8px 14px;
-    border-radius: 99px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    border: none;
-    cursor: pointer;
-  }
-
-  /* SOCIALS */
-  .socials { display: flex; flex-direction: column; gap: 1px; background: var(--line); border-radius: 8px; overflow: hidden; }
-  .social-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    background: var(--bg);
-    transition: background .2s, color .2s;
-    cursor: pointer;
-  }
-  .social-row:hover { background: var(--ink); color: var(--bg); }
-  .social-row:hover .handle { color: var(--accent-soft); }
-  .social-row .left { display: flex; align-items: center; gap: 14px; }
-  .social-row .ico {
-    width: 32px; height: 32px;
+  .cir:last-child { border-bottom: none; }
+  .cir:hover { background: var(--bg-2); }
+  .cir:hover .cir-arrow { color: var(--accent); }
+  .cir-left { display: flex; align-items: center; gap: 14px; }
+  .cir-badge {
+    width: 34px; height: 34px;
     border-radius: 8px;
     background: var(--bg-3);
     display: grid;
     place-items: center;
     font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 600;
     color: var(--ink-2);
+    flex-shrink: 0;
   }
-  .social-row:hover .ico { background: rgba(255,255,255,.1); color: var(--bg); }
-  .social-row .name { font-family: var(--font-display); font-size: 18px; }
-  .social-row .handle { font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); margin-top: 2px; }
-  .social-row .arrow { font-family: var(--font-mono); font-size: 14px; }
+  .cir-label { font-size: 10px; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-3); }
+  .cir-value { font-size: 14px; font-weight: 500; margin-top: 2px; }
+  .cir-arrow { color: var(--ink-3); transition: color .2s; }
 
-  /* INFO LINE */
-  .info-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    border-top: 1px solid var(--line);
-    padding: 32px 0;
+  .contact-right {
+    padding: clamp(48px, 7vw, 100px) clamp(28px, 5vw, 72px);
+    background: var(--bg-2);
   }
-  .info-cell {
-    display: flex; flex-direction: column; gap: 4px;
+  .contact-right h2 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-3);
+    margin-bottom: 32px;
   }
-  .info-cell .label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
-  .info-cell .value { font-family: var(--font-display); font-size: 22px; }
-  .info-cell .value em { font-style: italic; color: var(--accent); }
-  @media (max-width: 720px) {
-    .info-row { grid-template-columns: 1fr; gap: 18px; }
+
+  .clean-form { display: flex; flex-direction: column; gap: 20px; }
+  .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 540px) { .cf-row { grid-template-columns: 1fr; } }
+  .cf-field { display: flex; flex-direction: column; gap: 7px; }
+  .cf-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+  }
+  .cf-input, .cf-textarea {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 13px 15px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s;
+    width: 100%;
+  }
+  .cf-input::placeholder, .cf-textarea::placeholder { color: var(--ink-3); }
+  .cf-input:focus, .cf-textarea:focus { border-color: var(--accent); }
+  .cf-textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
+
+  .cf-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 4px;
+  }
+  .cf-note { font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; }
+  .cf-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 14px 28px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cf-btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
+
+  .success-msg {
+    display: none;
+    padding: 18px;
+    background: rgba(35,82,254,.1);
+    border: 1px solid rgba(35,82,254,.25);
+    border-radius: 8px;
+    color: var(--ink);
+    font-size: 15px;
+    text-align: center;
   }
 </style>
 </head>
 <body data-screen-label="Contact">
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
@@ -372,8 +172,7 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="work.html">Work</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta">
       <span class="dot"></span>
@@ -382,190 +181,102 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="contact-hero">
-  <div class="shell">
-    <span class="eyebrow reveal">Contact — Let's start something</span>
-    <h1 class="reveal" style="margin-top: 20px;">Tell me about your <em>diamond.</em></h1>
-    <p class="lead reveal">Send the brief, pick a slot, or just say hi. I read every message myself and reply within 24 hours — usually faster.</p>
+<div class="contact-page">
 
-    <div class="info-row reveal-stagger" style="margin-top: 48px;">
-      <div class="info-cell">
-        <span class="label">Email</span>
-        <a href="mailto:Ritaomoteghoo@gmail.com" class="value" style="border-bottom: 1px solid var(--line); padding-bottom: 4px; align-self: flex-start;">Ritaomoteghoo<em>@</em>gmail.com</a>
-      </div>
-      <div class="info-cell">
-        <span class="label">Location</span>
-        <span class="value">Lagos, NG <em>· Remote worldwide</em></span>
-      </div>
-      <div class="info-cell">
-        <span class="label">Response time</span>
-        <span class="value"><em>&lt; 24h</em> · Mon–Sat</span>
-      </div>
+  <div class="contact-left">
+    <div>
+      <span class="eyebrow">Get in touch</span>
+      <h1>Let's build something <em>great</em> together.</h1>
+      <p class="lead">Fill in the form and I'll get back to you within 24 hours — usually the same day.</p>
     </div>
-  </div>
-</header>
 
-<!-- MAIN GRID -->
-<section style="padding: 0;">
-  <div class="shell">
-    <div class="contact-grid">
-      <!-- FORM -->
-      <form class="form-card reveal" onsubmit="handleSubmit(event)">
-        <div class="form-eyebrow">
-          <span><span class="dot"></span>Project brief</span>
-          <span>Step 1 of 1</span>
-        </div>
-
-        <div class="form-row two">
+    <div class="contact-info">
+      <a href="mailto:Ritaomoteghoo@gmail.com" class="cir">
+        <div class="cir-left">
+          <div class="cir-badge">@</div>
           <div>
-            <label class="form-label">Your name</label>
-            <input class="form-input" type="text" placeholder="What should I call you?" required />
+            <div class="cir-label">Email</div>
+            <div class="cir-value">Ritaomoteghoo@gmail.com</div>
           </div>
+        </div>
+        <span class="cir-arrow">↗</span>
+      </a>
+      <a href="https://fiverr.com/Omotegho" target="_blank" rel="noopener" class="cir">
+        <div class="cir-left">
+          <div class="cir-badge">Fv</div>
           <div>
-            <label class="form-label">Email</label>
-            <input class="form-input" type="email" placeholder="hi@yourbrand.com" required />
+            <div class="cir-label">Fiverr</div>
+            <div class="cir-value">fiverr.com/Omotegho</div>
           </div>
         </div>
-
-        <div class="form-row">
-          <label class="form-label">Company / brand</label>
-          <input class="form-input" type="text" placeholder="Optional — your business or project name" />
-        </div>
-
-        <div class="form-row">
-          <label class="form-label">What do you need? &nbsp;<span style="text-transform:none; letter-spacing:0; color: var(--ink-3);">(pick all that apply)</span></label>
-          <div class="chip-group" id="serviceChips">
-            <button type="button" class="chip" data-value="wordpress"><span class="check">✓</span>WordPress site</button>
-            <button type="button" class="chip" data-value="music"><span class="check">✓</span>AI music video</button>
-            <button type="button" class="chip" data-value="human-ugc"><span class="check">✓</span>Human UGC</button>
-            <button type="button" class="chip" data-value="ai-ugc"><span class="check">✓</span>AI UGC</button>
-            <button type="button" class="chip" data-value="other"><span class="check">✓</span>Something else</button>
+        <span class="cir-arrow">↗</span>
+      </a>
+      <a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener" class="cir">
+        <div class="cir-left">
+          <div class="cir-badge">Ig</div>
+          <div>
+            <div class="cir-label">Instagram</div>
+            <div class="cir-value">@omotegho</div>
           </div>
         </div>
-
-        <div class="form-row">
-          <label class="form-label">Ballpark budget</label>
-          <div class="budget-bar" id="budgetBar">
-            <button type="button" class="budget-opt" data-value="under500"><div class="amount">&lt;$500</div><div class="label">Spark</div></button>
-            <button type="button" class="budget-opt" data-value="500-1500"><div class="amount">$500–1.5k</div><div class="label">Starter</div></button>
-            <button type="button" class="budget-opt active" data-value="1500-3000"><div class="amount">$1.5–3k</div><div class="label">Shine</div></button>
-            <button type="button" class="budget-opt" data-value="3000+"><div class="amount">$3k+</div><div class="label">Diamond</div></button>
+        <span class="cir-arrow">↗</span>
+      </a>
+      <a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener" class="cir">
+        <div class="cir-left">
+          <div class="cir-badge">in</div>
+          <div>
+            <div class="cir-label">LinkedIn</div>
+            <div class="cir-value">Rita Omotegho Aghwana</div>
           </div>
         </div>
-
-        <div class="form-row">
-          <label class="form-label">Tell me about it</label>
-          <textarea class="form-textarea" placeholder="The brand, the goal, the deadline, the dream — drop it all in here. Links welcome." required></textarea>
-        </div>
-
-        <div class="form-row">
-          <label class="form-label">When do you want to launch?</label>
-          <div class="chip-group" id="timeline">
-            <button type="button" class="chip" data-value="asap">ASAP</button>
-            <button type="button" class="chip active" data-value="2-4w">2–4 weeks</button>
-            <button type="button" class="chip" data-value="1-2m">1–2 months</button>
-            <button type="button" class="chip" data-value="flexible">Flexible</button>
-          </div>
-        </div>
-
-        <div class="form-submit">
-          <span class="note">↩ I reply within 24h</span>
-          <button type="submit" class="btn btn-primary">Send brief <span class="arrow">→</span></button>
-        </div>
-      </form>
-
-      <!-- SIDE -->
-      <aside class="side-stack reveal-stagger">
-        <!-- BOOKING -->
-        <div class="side-card">
-          <h3>Or <em>book a call.</em></h3>
-          <p class="sub">20-min discovery, no pressure. Free.</p>
-
-          <div class="cal">
-            <div class="cal-head">
-              <h4 id="calMonth">June 2026</h4>
-              <div class="nav-row">
-                <button class="nav-btn" id="calPrev" type="button">‹</button>
-                <button class="nav-btn" id="calNext" type="button">›</button>
-              </div>
-            </div>
-            <div class="cal-grid" id="calGrid"></div>
-          </div>
-
-          <div class="slots" id="slots">
-            <button type="button" class="slot taken">9:00</button>
-            <button type="button" class="slot active">10:30</button>
-            <button type="button" class="slot">13:00</button>
-            <button type="button" class="slot">15:30</button>
-            <button type="button" class="slot taken">16:30</button>
-            <button type="button" class="slot">18:00</button>
-          </div>
-
-          <div class="booking-confirm show" id="bookConfirm">
-            <div>
-              <div class="label">You picked</div>
-              <div class="when">Tue, <em id="bookDay">Jun 9</em> · <em id="bookTime">10:30 WAT</em></div>
-            </div>
-            <button class="btn-mini" type="button">Confirm</button>
-          </div>
-        </div>
-
-        <!-- SOCIALS -->
-        <div class="side-card" style="padding: 0; background: var(--bg);">
-          <div style="padding: 24px 24px 0;">
-            <h3>Find me <em>elsewhere.</em></h3>
-            <p class="sub">DMs open on all platforms.</p>
-          </div>
-          <div class="socials" style="border-radius: 0 0 12px 12px;">
-            <a href="https://Fiverr.com/Omotegho" target="_blank" rel="noopener" class="social-row">
-              <div class="left"><div class="ico">Fv</div><div><div class="name">Fiverr</div><div class="handle">/Omotegho</div></div></div>
-              <span class="arrow">↗</span>
-            </a>
-            <a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener" class="social-row">
-              <div class="left"><div class="ico">in</div><div><div class="name">LinkedIn</div><div class="handle">Rita Omotegho Aghwana</div></div></div>
-              <span class="arrow">↗</span>
-            </a>
-            <a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener" class="social-row">
-              <div class="left"><div class="ico">Ig</div><div><div class="name">Instagram</div><div class="handle">@omotegho</div></div></div>
-              <span class="arrow">↗</span>
-            </a>
-            <a href="https://www.tiktok.com/@omotegho" target="_blank" rel="noopener" class="social-row">
-              <div class="left"><div class="ico">Tk</div><div><div class="name">TikTok</div><div class="handle">@omotegho</div></div></div>
-              <span class="arrow">↗</span>
-            </a>
-            <a href="https://x.com/DesignzPixel" target="_blank" rel="noopener" class="social-row">
-              <div class="left"><div class="ico">𝕏</div><div><div class="name">X / Twitter</div><div class="handle">@DesignzPixel</div></div></div>
-              <span class="arrow">↗</span>
-            </a>
-          </div>
-        </div>
-      </aside>
+        <span class="cir-arrow">↗</span>
+      </a>
     </div>
-  </div>
-</section>
 
-<!-- BOTTOM CTA -->
-<section style="padding-top: 0;">
-  <div class="shell">
-    <div style="border-top: 1px solid var(--line); padding-top: clamp(40px, 5vw, 64px); text-align: center;">
-      <span class="eyebrow">P.S.</span>
-      <p class="display" style="font-family: var(--font-display); font-size: clamp(36px, 5vw, 72px); line-height: 1.05; max-width: 22ch; margin: 20px auto 0;">
-        Every <em>diamond</em> starts with a <em>conversation.</em> Let's have ours.
-      </p>
-    </div>
+    <p style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink-3);">Lagos, Nigeria &nbsp;·&nbsp; Remote worldwide &nbsp;·&nbsp; Mon–Sat</p>
   </div>
-</section>
 
-<!-- FOOTER -->
+  <div class="contact-right">
+    <h2>Send a message</h2>
+    <form class="clean-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+      <div class="cf-row">
+        <div class="cf-field">
+          <label class="cf-label">Your name *</label>
+          <input class="cf-input" type="text" name="name" placeholder="Full name" required />
+        </div>
+        <div class="cf-field">
+          <label class="cf-label">Email address *</label>
+          <input class="cf-input" type="email" name="email" placeholder="you@email.com" required />
+        </div>
+      </div>
+      <div class="cf-field">
+        <label class="cf-label">What do you need?</label>
+        <input class="cf-input" type="text" name="service" placeholder="WordPress site, UGC content, AI video…" />
+      </div>
+      <div class="cf-field">
+        <label class="cf-label">Tell me about your project *</label>
+        <textarea class="cf-textarea" name="message" placeholder="Goals, timeline, budget — the more detail the better." required></textarea>
+      </div>
+      <div class="cf-submit">
+        <span class="cf-note">↩ I reply within 24h</span>
+        <button type="submit" class="cf-btn">Send message →</button>
+      </div>
+      <div class="success-msg" id="successMsg">
+        Message sent! I'll get back to you within 24 hours.
+      </div>
+    </form>
+  </div>
+
+</div>
+
 <footer class="footer">
   <div class="shell">
     <div class="footer-grid">
       <div>
         <h3 class="display">Let's build something <em>worth remembering.</em></h3>
-        <p style="margin-top:24px; color:rgba(240,237,232,.7); max-width: 44ch;">Open for WordPress builds, music video commissions and UGC packages. Reply within 24 hours.</p>
-        <a href="mailto:Ritaomoteghoo@gmail.com" style="display:inline-flex; align-items:center; gap:10px; margin-top:24px; font-family:var(--font-display); font-style:italic; font-size:24px; color:var(--bg); border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 4px;">
-          Ritaomoteghoo@gmail.com <span>→</span>
+        <p style="margin-top:24px; color:var(--ink-3); max-width: 44ch;">Open for WordPress builds, AI videos and UGC packages. Reply within 24 hours.</p>
+        <a href="mailto:Ritaomoteghoo@gmail.com" style="display:inline-flex; align-items:center; gap:10px; margin-top:24px; font-family:var(--font-display); font-size:18px; color:var(--ink); border-bottom: 1px solid var(--line); padding-bottom: 4px;">
+          Ritaomoteghoo@gmail.com →
         </a>
       </div>
       <div class="footer-col">
@@ -574,140 +285,38 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="work.html">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Elsewhere</h4>
         <ul>
-          <li><a href="https://Fiverr.com/Omotegho" target="_blank" rel="noopener">Fiverr ↗</a></li>
+          <li><a href="https://fiverr.com/Omotegho" target="_blank" rel="noopener">Fiverr ↗</a></li>
           <li><a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
           <li><a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener">Instagram ↗</a></li>
           <li><a href="https://www.tiktok.com/@omotegho" target="_blank" rel="noopener">TikTok ↗</a></li>
-          <li><a href="https://x.com/DesignzPixel" target="_blank" rel="noopener">X / Twitter ↗</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Rita Omotegho Aghwana</span>
-      <span>From Dreams to Diamonds — Vol. 05</span>
+      <span>From Dreams to Diamonds</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // CHIP MULTI-SELECT
-  document.querySelectorAll('#serviceChips .chip').forEach(c => {
-    c.addEventListener('click', () => c.classList.toggle('active'));
-  });
-
-  // TIMELINE SINGLE-SELECT
-  document.querySelectorAll('#timeline .chip').forEach(c => {
-    c.addEventListener('click', () => {
-      document.querySelectorAll('#timeline .chip').forEach(x => x.classList.remove('active'));
-      c.classList.add('active');
-    });
-  });
-
-  // BUDGET
-  document.querySelectorAll('.budget-opt').forEach(c => {
-    c.addEventListener('click', () => {
-      document.querySelectorAll('.budget-opt').forEach(x => x.classList.remove('active'));
-      c.classList.add('active');
-    });
-  });
-
-  // FORM SUBMIT
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    const original = btn.innerHTML;
-    btn.innerHTML = 'Sent! Check email ✓';
-    btn.style.background = 'var(--accent)';
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style.background = '';
-      e.target.reset();
-      // also unselect chips visually
-      document.querySelectorAll('#serviceChips .chip').forEach(x => x.classList.remove('active'));
-    }, 2800);
-  }
-
-  // CALENDAR
-  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const dows = ['Su','Mo','Tu','We','Th','Fr','Sa'];
-
-  let viewYear = 2026;
-  let viewMonth = 5; // June (0-indexed)
-  const today = new Date(2026, 4, 21); // May 21 2026
-  let selectedDay = 9;
-  let selectedMonth = 5;
-  let selectedYear = 2026;
-  // Days that are "available" (have open slots) — for visual demo
-  const availableDays = new Set([2,3,4,5,9,10,11,12,16,17,18,19,23,24,25,26,30]);
-
-  function renderCal() {
-    const grid = document.getElementById('calGrid');
-    document.getElementById('calMonth').textContent = `${monthNames[viewMonth]} ${viewYear}`;
-    grid.innerHTML = '';
-    dows.forEach(d => {
-      const el = document.createElement('div'); el.className = 'cal-dow'; el.textContent = d; grid.appendChild(el);
-    });
-    const firstDay = new Date(viewYear, viewMonth, 1).getDay();
-    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
-    for (let i = 0; i < firstDay; i++) {
-      const el = document.createElement('div'); el.className = 'cal-day empty'; grid.appendChild(el);
-    }
-    for (let d = 1; d <= daysInMonth; d++) {
-      const el = document.createElement('div');
-      el.className = 'cal-day';
-      el.textContent = d;
-      const date = new Date(viewYear, viewMonth, d);
-      if (date < today) el.classList.add('past');
-      else if (availableDays.has(d) && viewMonth === 5) el.classList.add('available');
-      if (d === selectedDay && viewMonth === selectedMonth && viewYear === selectedYear) el.classList.add('selected');
-      el.addEventListener('click', () => {
-        if (el.classList.contains('past') || el.classList.contains('empty')) return;
-        selectedDay = d; selectedMonth = viewMonth; selectedYear = viewYear;
-        renderCal();
-        updateBooking();
-      });
-      grid.appendChild(el);
-    }
-  }
-  document.getElementById('calPrev').addEventListener('click', () => {
-    viewMonth--; if (viewMonth < 0) { viewMonth = 11; viewYear--; }
-    renderCal();
-  });
-  document.getElementById('calNext').addEventListener('click', () => {
-    viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; }
-    renderCal();
-  });
-
-  // Slots
-  document.querySelectorAll('.slot').forEach(s => {
-    s.addEventListener('click', () => {
-      if (s.classList.contains('taken')) return;
-      document.querySelectorAll('.slot').forEach(x => x.classList.remove('active'));
-      s.classList.add('active');
-      updateBooking();
-    });
-  });
-
-  function updateBooking() {
-    const slot = document.querySelector('.slot.active');
-    const confirm = document.getElementById('bookConfirm');
-    if (!slot) { confirm.classList.remove('show'); return; }
-    confirm.classList.add('show');
-    const dayStr = `${monthNames[selectedMonth].slice(0,3)} ${selectedDay}`;
-    document.getElementById('bookDay').textContent = dayStr;
-    document.getElementById('bookTime').textContent = slot.textContent + ' WAT';
-  }
-
-  renderCal();
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.cf-btn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  setTimeout(() => {
+    e.target.reset();
+    document.getElementById('successMsg').style.display = 'block';
+    btn.style.display = 'none';
+  }, 800);
+}
 </script>
-<script src="shared.js"></script>
-<script src="enhance.js"></script>
 </body>
 </html>
