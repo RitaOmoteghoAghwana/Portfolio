@@ -2,9 +2,9 @@
 /* Dark navy + electric blue */
 
 :root {
-  --bg: #07091e;
-  --bg-2: #0c0f2a;
-  --bg-3: #141835;
+  --bg: #0a1128;
+  --bg-2: #0f1840;
+  --bg-3: #1a2558;
   --ink: #f4f5f8;
   --ink-2: #8892aa;
   --ink-3: #4a5270;
@@ -105,7 +105,7 @@ section { padding: clamp(64px, 9vw, 140px) 0; position: relative; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(7, 9, 30, 0.92);
+  background: rgba(10, 17, 40, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
