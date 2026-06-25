@@ -80,16 +80,16 @@ h4 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em
 /* === LAYOUT === */
 .shell { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 
-section { padding: clamp(64px, 9vw, 140px) 0; position: relative; }
+section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
 
 .section-head {
   display: grid;
   grid-template-columns: 140px 1fr;
   gap: clamp(24px, 4vw, 64px);
   align-items: baseline;
-  padding-bottom: clamp(40px, 6vw, 80px);
+  padding-bottom: clamp(24px, 3vw, 44px);
   border-bottom: 1px solid var(--line);
-  margin-bottom: clamp(40px, 6vw, 80px);
+  margin-bottom: clamp(24px, 3vw, 44px);
 }
 
 .section-head h2 {
