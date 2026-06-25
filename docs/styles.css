@@ -6,16 +6,16 @@
   --bg-2: #f2f5fc;
   --bg-3: #e4eaf8;
   --ink: #0a1128;
-  --ink-2: #3b4d75;
-  --ink-3: #7f90b8;
+  --ink-2: #263556;
+  --ink-3: #56698e;
   --line: rgba(10,17,40,0.1);
   --accent: #2352fe;
   --accent-deep: #1a3de0;
   --accent-soft: #dce6ff;
   --gold: #2352fe;
 
-  --font-display: "Syne", sans-serif;
-  --font-body: "DM Sans", "Inter", sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
   --font-mono: "Geist Mono", monospace;
 
   --max: 1280px;
@@ -33,9 +33,9 @@ body {
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-  line-height: 1.55;
-  letter-spacing: -0.005em;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: -0.003em;
   overflow-x: hidden;
 }
 
@@ -68,8 +68,8 @@ img { display: block; max-width: 100%; }
 }
 
 .lead {
-  font-size: clamp(18px, 1.6vw, 22px);
-  line-height: 1.5;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.6;
   color: var(--ink-2);
   max-width: 60ch;
 }
@@ -93,7 +93,7 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
 }
 
 .section-head h2 {
-  font-size: clamp(38px, 5.5vw, 80px);
+  font-size: clamp(28px, 3.8vw, 52px);
 }
 
 @media (max-width: 720px) {
@@ -305,10 +305,8 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
 /* === MARQUEE === */
 .marquee {
   overflow: hidden;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 22px 0;
-  background: var(--bg);
+  padding: 20px 0;
+  background: var(--accent);
 }
 .marquee-track {
   display: flex;
@@ -317,11 +315,11 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
   animation: scroll 40s linear infinite;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(28px, 4vw, 56px);
-  color: var(--ink);
+  font-size: clamp(20px, 3vw, 38px);
+  color: #fff;
 }
 .marquee-track span { display: inline-flex; align-items: center; gap: 64px; }
-.marquee-track .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.marquee-track .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.45); display: inline-block; }
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -465,3 +463,17 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
     padding: 40px 20px;
   }
 }
+
+/* === SERVICE CARD COLORS (homepage teaser) === */
+.services-teaser .svc:nth-child(1) { background: #f2eeff; border-color: rgba(108,92,231,0.18); }
+.services-teaser .svc:nth-child(2) { background: #e8f0ff; border-color: rgba(35,82,254,0.18); }
+.services-teaser .svc:nth-child(3) { background: #e8fff4; border-color: rgba(0,166,125,0.18); }
+.services-teaser .svc:nth-child(4) { background: #fff0f5; border-color: rgba(232,67,122,0.18); }
+.services-teaser .svc:nth-child(1) .svc-num { color: #7c5cfc; }
+.services-teaser .svc:nth-child(2) .svc-num { color: #2352fe; }
+.services-teaser .svc:nth-child(3) .svc-num { color: #00a67d; }
+.services-teaser .svc:nth-child(4) .svc-num { color: #e8437a; }
+.services-teaser .svc:nth-child(1):hover { box-shadow: 0 12px 40px rgba(124,92,252,0.14); }
+.services-teaser .svc:nth-child(2):hover { box-shadow: 0 12px 40px rgba(35,82,254,0.14); }
+.services-teaser .svc:nth-child(3):hover { box-shadow: 0 12px 40px rgba(0,166,125,0.14); }
+.services-teaser .svc:nth-child(4):hover { box-shadow: 0 12px 40px rgba(232,67,122,0.14); }
