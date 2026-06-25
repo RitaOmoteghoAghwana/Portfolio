@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portfolio — Rita Omotegho Aghwana</title>
+<meta name="description" content="Portfolio of Rita Omotegho Aghwana — WordPress sites, AI music videos and UGC content. View selected projects." />
+<meta name="author" content="Rita Omotegho Aghwana" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://omotegho.com/portfolio.html" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<style>
+  /* === PORTFOLIO PAGE === */
+  .portfolio-hero {
+    padding: clamp(48px, 6vw, 80px) 0 clamp(40px, 5vw, 64px);
+    border-bottom: 1px solid var(--line);
+  }
+  .portfolio-hero h1 {
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .portfolio-hero h1 em { font-style: normal; color: var(--accent); }
+  .portfolio-hero .lead {
+    margin-top: 20px;
+    font-size: clamp(16px, 1.5vw, 19px);
+    color: var(--ink-2);
+    max-width: 52ch;
+  }
+
+  /* Filter tabs */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* Portfolio grid section */
+  .portfolio-section {
+    padding: clamp(56px, 7vw, 100px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Floating dots background */
+  #portfolio-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .portfolio-section .shell { position: relative; z-index: 1; }
+
+  /* Flip card grid */
+  .flip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .flip-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .flip-grid { grid-template-columns: 1fr; } }
+
+  .flip-card {
+    perspective: 1200px;
+    height: 320px;
+    cursor: pointer;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .flip-card:hover .flip-card-inner,
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-front, .flip-back {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .flip-front { background: var(--bg); }
+  .flip-back {
+    background: var(--ink);
+    color: var(--bg);
+    transform: rotateY(180deg);
+    justify-content: center;
+    padding: 28px;
+  }
+
+  /* Front face */
+  .flip-thumb {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-mono);
+    font-size: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .flip-thumb-icon { font-size: 48px; line-height: 1; }
+  .flip-footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .flip-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+  .flip-tag {
+    font-family: var(--font-mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-3);
+    border: 1px solid var(--line);
+    padding: 4px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  /* Back face */
+  .flip-back-tag {
+    font-family: var(--font-mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: rgba(244,245,248,0.5);
+    margin-bottom: 12px;
+  }
+  .flip-back-title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.4vw, 28px);
+    line-height: 1.1;
+    color: #f4f5f8;
+    margin-bottom: 14px;
+  }
+  .flip-back-title em { font-style: italic; color: var(--accent-soft); }
+  .flip-back-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(244,245,248,0.7);
+    margin-bottom: 20px;
+  }
+  .flip-back-link {
+    font-family: var(--font-mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent-soft);
+    border: 1px solid rgba(35,82,254,0.5);
+    padding: 8px 16px;
+    border-radius: 999px;
+    display: inline-block;
+    transition: background .2s;
+    align-self: flex-start;
+  }
+  .flip-back-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* Colour coding per card */
+  .thumb-wp { background: linear-gradient(135deg, #e4eaf8 0%, #dce6ff 100%); }
+  .thumb-ai { background: linear-gradient(135deg, #0a1128 0%, #2352fe 100%); color: #fff; }
+  .thumb-ugc { background: linear-gradient(135deg, #e4f8ef 0%, #b8f0d4 100%); }
+  .thumb-ai2 { background: linear-gradient(135deg, #f0e4f8 0%, #dcc6ff 100%); }
+</style>
+</head>
+<body data-screen-label="Portfolio">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-mark">R</span>
+      <span>Rita Omotegho</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">
+      <span class="dot"></span>
+      <span>Available for Work</span>
+    </a>
+  </div>
+</nav>
+
+<!-- PORTFOLIO HERO -->
+<header class="portfolio-hero">
+  <div class="shell">
+    <span class="eyebrow" data-aos="fade-up">Selected work</span>
+    <h1 class="display" data-aos="fade-up" data-aos-delay="80">
+      Projects that<br><em>speak for themselves.</em>
+    </h1>
+    <p class="lead" data-aos="fade-up" data-aos-delay="160">
+      A curated selection across WordPress design, AI music videos and UGC content. Hover a card to see details.
+    </p>
+    <div class="filter-bar" data-aos="fade-up" data-aos-delay="220">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="wordpress">WordPress</button>
+      <button class="filter-btn" data-filter="ai-video">AI Video</button>
+      <button class="filter-btn" data-filter="ugc">UGC</button>
+    </div>
+  </div>
+</header>
+
+<!-- PORTFOLIO GRID -->
+<section class="portfolio-section">
+  <canvas id="portfolio-canvas"></canvas>
+  <div class="shell">
+    <div class="flip-grid" id="flipGrid">
+
+      <!-- Card 1: WordPress -->
+      <div class="flip-card" data-category="wordpress" data-aos="fade-up" data-aos-delay="0">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-thumb thumb-wp">
+              <span class="flip-thumb-icon">🌐</span>
+            </div>
+            <div class="flip-footer">
+              <span class="flip-title">TechEdge Brand Site</span>
+              <span class="flip-tag">WordPress</span>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">WordPress / 01</div>
+            <div class="flip-back-title">Custom <em>brand site</em> with full WooCommerce store</div>
+            <p class="flip-back-desc">Elementor Pro build with custom product layouts, speed optimisation and mobile-first design. Delivered in 12 days.</p>
+            <a href="services.html#wordpress" class="flip-back-link">View service →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: AI Video -->
+      <div class="flip-card" data-category="ai-video" data-aos="fade-up" data-aos-delay="60">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-thumb thumb-ai">
+              <span class="flip-thumb-icon">🎬</span>
+            </div>
+            <div class="flip-footer">
+              <span class="flip-title">Soulful Sound — AI Video</span>
+              <span class="flip-tag">AI Video</span>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">AI Music Video / 02</div>
+            <div class="flip-back-title">Cinematic <em>Afrobeats</em> single release</div>
+            <p class="flip-back-desc">Concept to final cut in 10 days using Runway + Kling. No shoot budget. 150K+ streams in the first month.</p>
+            <a href="services.html#music" class="flip-back-link">View service →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Human UGC -->
+      <div class="flip-card" data-category="ugc" data-aos="fade-up" data-aos-delay="120">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-thumb thumb-ugc">
+              <span class="flip-thumb-icon">📱</span>
+            </div>
+            <div class="flip-footer">
+              <span class="flip-title">GlowUp Skincare UGC</span>
+              <span class="flip-tag">Human UGC</span>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">Human UGC / 03</div>
+            <div class="flip-back-title">On-camera <em>product reels</em> for skincare brand</div>
+            <p class="flip-back-desc">5 authentic UGC reels shot and edited for TikTok + Instagram. Campaign featured on TikTok Shop homepage.</p>
+            <a href="services.html#human-ugc" class="flip-back-link">View service →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: AI UGC -->
+      <div class="flip-card" data-category="ugc" data-aos="fade-up" data-aos-delay="0">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-thumb thumb-ai2">
+              <span class="flip-thumb-icon">🤖</span>
+            </div>
+            <div class="flip-footer">
+              <span class="flip-title">NovaBrand AI UGC Pack</span>
+              <span class="flip-tag">AI UGC</span>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">AI UGC / 04</div>
+            <div class="flip-back-title">10-video <em>AI creator</em> pack for tech brand</div>
+            <p class="flip-back-desc">HeyGen + Arcads pipeline delivering 10 scripted AI UGC videos. Looks human, ships at scale, converts better than stock.</p>
+            <a href="services.html#ai-ugc" class="flip-back-link">View service →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: WordPress -->
+      <div class="flip-card" data-category="wordpress" data-aos="fade-up" data-aos-delay="60">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-thumb thumb-wp">
+              <span class="flip-thumb-icon">💼</span>
+            </div>
+            <div class="flip-footer">
+              <span class="flip-title">LagosFit Business Site</span>
+              <span class="flip-tag">WordPress</span>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">WordPress / 05</div>
+            <div class="flip-back-title">Service business <em>landing page</em> that converts</div>
+            <p class="flip-back-desc">Divi-built landing page with booking integration, SEO setup and testimonials section. 3× increase in enquiries.</p>
+            <a href="services.html#wordpress" class="flip-back-link">View service →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: AI Video -->
+      <div class="flip-card" data-category="ai-video" data-aos="fade-up" data-aos-delay="120">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-thumb thumb-ai">
+              <span class="flip-thumb-icon">🎵</span>
+            </div>
+            <div class="flip-footer">
+              <span class="flip-title">Afro Vibes — R&B Release</span>
+              <span class="flip-tag">AI Video</span>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">AI Music Video / 06</div>
+            <div class="flip-back-title">Moody <em>R&B visual</em> with cinematic colour grade</div>
+            <p class="flip-back-desc">Runway Gen-3 scenes with CapCut finishing. Full cinematic grade and lyric overlays. Delivered in 8 days.</p>
+            <a href="services.html#music" class="flip-back-link">View service →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background: var(--bg-2);">
+  <div class="shell">
+    <div style="border-top:1px solid var(--line); padding-top: clamp(40px,5vw,64px); display:grid; grid-template-columns:1fr auto; gap:32px; align-items:end;" data-aos="fade-up">
+      <h2 class="display" style="font-size:clamp(36px,5.5vw,72px);line-height:.95;">
+        Want results like these?<br><em>Let's talk.</em>
+      </h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Send a message <span class="arrow">→</span></a>
+        <a href="services.html" class="btn btn-ghost">View services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div>
+        <h3 class="display">Let's build something <em>worth remembering.</em></h3>
+        <p style="margin-top:24px; color:rgba(244,245,248,0.7); max-width: 44ch;">Open for WordPress builds, music video commissions and UGC packages. Reply within 24 hours.</p>
+        <a href="mailto:Ritaomoteghoo@gmail.com" style="display:inline-flex; align-items:center; gap:10px; margin-top:24px; font-family:var(--font-display); font-style:italic; font-size:24px; color:#f4f5f8; border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 4px;">
+          Ritaomoteghoo@gmail.com <span>→</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="https://www.fiverr.com/s/e6ZDz7E" target="_blank" rel="noopener">Fiverr ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener">Instagram ↗</a></li>
+          <li><a href="https://www.tiktok.com/@omotegho" target="_blank" rel="noopener">TikTok ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Rita Omotegho Aghwana</span>
+      <span>From Dreams to Diamonds</span>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+// Filter tabs
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const f = this.dataset.filter;
+    document.querySelectorAll('.flip-card').forEach(card => {
+      const show = f === 'all' || card.dataset.category === f;
+      card.style.display = show ? 'block' : 'none';
+    });
+  });
+});
+
+// Touch flip for mobile
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+});
+
+// Floating dots canvas
+(function() {
+  const canvas = document.getElementById('portfolio-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, dots = [];
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  function init() {
+    dots = Array.from({length: 55}, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 4 + 1,
+      vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+      a: Math.random() * .18 + .04
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    dots.forEach(d => {
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(35,82,254,' + d.a + ')';
+      ctx.fill();
+      d.x += d.vx; d.y += d.vy;
+      if (d.x < 0 || d.x > W) d.vx *= -1;
+      if (d.y < 0 || d.y > H) d.vy *= -1;
+    });
+    requestAnimationFrame(draw);
+  }
+  resize(); init(); draw();
+  window.addEventListener('resize', () => { resize(); init(); });
+})();
+</script>
+</body>
+</html>

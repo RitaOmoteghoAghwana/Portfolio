@@ -36,11 +36,19 @@
 <style>
   /* === HOME-SPECIFIC === */
   .hero {
-    padding: clamp(28px, 4vw, 52px) 0 clamp(32px, 5vw, 56px);
+    padding: clamp(40px, 5vw, 72px) 0 clamp(48px, 6vw, 80px);
+    position: relative;
+    overflow: hidden;
   }
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero .shell { position: relative; z-index: 1; }
 
-  /* Top bar: meta items + booking button */
-  .hero-top {
+  .hero-meta-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,14 +56,9 @@
     gap: 12px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--line);
-    margin-bottom: clamp(28px, 4vw, 48px);
+    margin-bottom: clamp(32px, 4vw, 52px);
   }
-  .hero-top-left {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .hero-top .item {
+  .hero-meta-bar .item {
     font-family: var(--font-mono);
     font-size: 11px;
     text-transform: uppercase;
@@ -65,51 +68,124 @@
     align-items: center;
     gap: 8px;
   }
-  .hero-top .item .dot { width: 5px; height: 5px; border-radius: 50%; background: #5dd4a8; }
-
-  /* Heading */
-  .hero-heading {
-    font-size: clamp(44px, 7vw, 100px);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    margin-bottom: clamp(28px, 4vw, 48px);
-    padding-bottom: clamp(28px, 4vw, 48px);
-    border-bottom: 1px solid var(--line);
-  }
-  .hero-heading .line { display: block; }
-  .hero-heading em { font-style: normal; color: var(--accent); }
-  .hero-heading .pill {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--bg);
-    padding: 0.05em 0.3em;
-    border-radius: 100px;
-    transform: rotate(-1.5deg);
+  .dot-live {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #5dd4a8;
+    animation: pulse 2s infinite;
   }
 
-  /* Centered content below heading */
-  .hero-body {
-    display: flex;
-    flex-direction: column;
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: clamp(40px, 6vw, 80px);
     align-items: center;
-    text-align: center;
-    gap: 28px;
   }
-  .hero-desc p {
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo-wrap { order: -1; display: flex; justify-content: center; }
+  }
+
+  .hero-heading {
+    font-size: clamp(38px, 6vw, 80px);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .hero-heading em { font-style: normal; color: var(--accent); }
+
+  .typewriter-line {
     font-size: clamp(16px, 1.5vw, 19px);
     color: var(--ink-2);
-    line-height: 1.55;
-    max-width: 52ch;
+    margin-bottom: 20px;
+    min-height: 1.6em;
   }
-  .hero-actions {
+  .tw-text { color: var(--accent); font-weight: 600; }
+  .tw-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--accent);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+  .hero-lead {
+    font-size: clamp(15px, 1.4vw, 17px);
+    color: var(--ink-2);
+    line-height: 1.6;
+    max-width: 46ch;
+    margin-bottom: 28px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Photo frame */
+  .hero-photo-wrap {
+    position: relative;
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    min-height: 380px;
+  }
+  .orbit {
+    position: absolute;
+    border-radius: 50% 50% 40% 40% / 50% 50% 40% 40%;
+    border: 1.5px dashed rgba(35,82,254,0.22);
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    animation: orbit-spin var(--ospeed, 14s) linear infinite;
+  }
+  .orbit-1 { width: 320px; height: 390px; --ospeed: 14s; }
+  .orbit-2 { width: 360px; height: 440px; --ospeed: 22s; animation-direction: reverse; border-color: rgba(93,212,168,0.2); }
+  .orbit-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--accent); margin-top: -4px;
+    box-shadow: 0 0 10px rgba(35,82,254,0.8);
+  }
+  .orbit-2 .orbit-dot { background: #5dd4a8; box-shadow: 0 0 10px rgba(93,212,168,0.8); }
+  @keyframes orbit-spin {
+    from { transform: translate(-50%,-50%) rotate(0deg); }
+    to   { transform: translate(-50%,-50%) rotate(360deg); }
   }
 
-  @media (max-width: 640px) {
-    .hero-top-left .item:last-child { display: none; }
+  .photo-frame {
+    position: relative;
+    width: 260px;
+    height: 320px;
+    flex-shrink: 0;
+  }
+  .photo-frame-ring {
+    position: absolute; inset: -5px;
+    border-radius: 50% 50% 20px 20px;
+    background: conic-gradient(from 0deg, #2352fe 0%, #5dd4a8 20%, #dce6ff 40%, #2352fe 60%, #1a3de0 80%, #2352fe 100%);
+    animation: ring-spin 4s linear infinite;
+    z-index: 0;
+  }
+  .photo-frame-gap {
+    position: absolute; inset: 4px;
+    border-radius: 50% 50% 18px 18px;
+    background: #fff;
+    z-index: 1;
+  }
+  .photo-inner {
+    position: relative; z-index: 2;
+    width: 100%; height: 100%;
+    border-radius: 50% 50% 18px 18px;
+    overflow: hidden;
+    animation: zoom-pulse 6s ease-in-out infinite;
+  }
+  .photo-inner img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top; display: block;
+  }
+  @keyframes ring-spin { to { transform: rotate(360deg); } }
+  @keyframes zoom-pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.055); }
   }
 
   /* === SERVICES TEASER === */
@@ -142,10 +218,7 @@
     text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3);
     transition: color .3s;
   }
-  .svc h3 {
-    font-size: clamp(26px, 2.6vw, 36px);
-    line-height: 1.05;
-  }
+  .svc h3 { font-size: clamp(26px, 2.6vw, 36px); line-height: 1.05; }
   .svc h3 em { font-style: italic; }
   .svc-meta {
     margin-top: auto;
@@ -155,7 +228,6 @@
     transition: color .3s;
   }
   .svc-arrow { transition: transform .3s, color .3s; }
-
   @media (max-width: 920px) {
     .services-teaser { grid-template-columns: repeat(2, 1fr); }
     .svc:nth-child(2) { border-right: none; }
@@ -165,39 +237,6 @@
     .services-teaser { grid-template-columns: 1fr; }
     .svc { border-right: none !important; border-bottom: 1px solid var(--line); min-height: 180px; }
     .svc:last-child { border-bottom: none; }
-  }
-
-  /* === WORK SHOWCASE === */
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 16px;
-  }
-  .work-card {
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-    transition: transform .4s cubic-bezier(.16,1,.3,1);
-  }
-  .work-card:hover { transform: translateY(-4px); }
-  .work-card.span-7 { grid-column: span 7; }
-  .work-card.span-5 { grid-column: span 5; }
-  .work-card.span-6 { grid-column: span 6; }
-  .work-card .placeholder { aspect-ratio: 16/10; }
-  .work-card.tall .placeholder { aspect-ratio: 4/5; }
-  .work-card video { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; }
-  .work-card.tall video { aspect-ratio: 4/5; }
-  .work-card .meta {
-    display: flex; justify-content: space-between; align-items: baseline;
-    padding: 14px 4px 0;
-  }
-  .work-card .meta h4 { font-family: var(--font-body); font-size: 14px; font-weight: 500; letter-spacing: 0; }
-  .work-card .meta .tag {
-    font-family: var(--font-mono); font-size: 10px;
-    text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3);
-  }
-  @media (max-width: 720px) {
-    .work-card.span-7, .work-card.span-5, .work-card.span-6 { grid-column: span 12; }
   }
 
   /* === STATS STRIP === */
@@ -217,8 +256,7 @@
   .stat .num {
     font-family: var(--font-display);
     font-size: clamp(48px, 7vw, 90px);
-    line-height: 1;
-    letter-spacing: -0.02em;
+    line-height: 1; letter-spacing: -0.02em;
   }
   .stat .num em { font-style: italic; color: var(--accent); }
   .stat .label {
@@ -242,46 +280,31 @@
   .testimonial blockquote {
     font-family: var(--font-display);
     font-size: clamp(28px, 3.4vw, 48px);
-    line-height: 1.15;
-    letter-spacing: -0.015em;
+    line-height: 1.15; letter-spacing: -0.015em;
   }
   .testimonial blockquote em { font-style: italic; color: var(--accent); }
   .testimonial cite {
-    display: block;
-    font-style: normal;
-    margin-top: 24px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink-3);
+    display: block; font-style: normal; margin-top: 24px;
+    font-family: var(--font-mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3);
   }
   .testi-card-stack { position: relative; padding: 20px; }
   .testi-card {
-    background: var(--bg-2);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 24px;
-    margin-bottom: 12px;
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 8px; padding: 24px; margin-bottom: 12px;
   }
   .testi-card .name { font-family: var(--font-display); font-size: 22px; }
   .testi-card .role { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-top: 2px; }
   .testi-card .quote { margin-top: 14px; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
   .testi-card .stars { color: var(--accent); margin-top: 12px; font-size: 14px; letter-spacing: 2px; }
-  @media (max-width: 820px) {
-    .testimonial { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 820px) { .testimonial { grid-template-columns: 1fr; } }
 
   /* === CTA STRIP === */
   .cta-strip {
-    background: var(--ink);
-    color: var(--bg);
-    border-radius: 12px;
-    padding: clamp(40px, 6vw, 80px);
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 32px;
-    align-items: center;
+    background: var(--ink); color: var(--bg);
+    border-radius: 12px; padding: clamp(40px, 6vw, 80px);
+    display: grid; grid-template-columns: 1.4fr 1fr;
+    gap: 32px; align-items: center;
   }
   .cta-strip h2 { font-size: clamp(36px, 5vw, 64px); line-height: 1; color: var(--bg); }
   .cta-strip h2 em { font-style: italic; color: var(--accent-soft); }
@@ -307,6 +330,7 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="contact.html">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta">
@@ -318,34 +342,52 @@
 
 <!-- HERO -->
 <header class="hero">
+  <canvas id="hero-canvas"></canvas>
   <div class="shell">
 
-    <!-- top bar -->
-    <div class="hero-top reveal">
-      <div class="hero-top-left">
-        <span class="item"><span class="dot"></span>Lagos / Remote — Worldwide</span>
+    <!-- meta bar -->
+    <div class="hero-meta-bar" data-aos="fade-down">
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <span class="item"><span class="dot-live"></span>Lagos / Remote — Worldwide</span>
         <span class="item">Booking: June onward</span>
       </div>
-      <a href="contact.html" class="btn btn-primary">Book a project <span class="arrow">→</span></a>
+      <a href="contact.html" class="btn btn-primary" style="font-size:11px;padding:10px 20px;">Book a project →</a>
     </div>
 
-    <!-- heading -->
-    <h1 class="display hero-heading reveal" style="text-align:center;">
-      <span class="line">From <em>Dreams</em></span>
-      <span class="line">to <span class="pill">Diamonds.</span></span>
-    </h1>
+    <!-- two-column grid -->
+    <div class="hero-grid">
 
-    <!-- centered content -->
-    <div class="hero-body reveal-stagger">
-      <div class="hero-desc">
-        <p>I'm Rita — a WordPress designer and visual storyteller building websites, AI music videos and UGC that turn rough ideas into refined, scroll-stopping work.</p>
-        <div class="hero-actions">
+      <!-- LEFT: text -->
+      <div class="hero-text">
+        <h1 class="display hero-heading" data-aos="fade-up">
+          From <em>Dreams</em><br>to Diamonds.
+        </h1>
+        <div class="typewriter-line" data-aos="fade-up" data-aos-delay="100">
+          I create <span class="tw-text" id="tw"></span><span class="tw-cursor"></span>
+        </div>
+        <p class="hero-lead" data-aos="fade-up" data-aos-delay="150">
+          WordPress designer, AI music video creator and UGC specialist. Turning rough ideas into refined, scroll-stopping work.
+        </p>
+        <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
           <a href="contact.html" class="btn btn-primary">Start a project <span class="arrow">→</span></a>
-          <a href="services.html" class="btn btn-ghost">View services</a>
+          <a href="portfolio.html" class="btn btn-ghost">View my work</a>
         </div>
       </div>
-    </div>
 
+      <!-- RIGHT: animated photo frame -->
+      <div class="hero-photo-wrap" data-aos="zoom-in" data-aos-delay="100">
+        <div class="orbit orbit-1"><span class="orbit-dot"></span></div>
+        <div class="orbit orbit-2"><span class="orbit-dot"></span></div>
+        <div class="photo-frame">
+          <div class="photo-frame-ring"></div>
+          <div class="photo-frame-gap"></div>
+          <div class="photo-inner">
+            <img src="assets/rita-portrait.jpg" alt="Rita Omotegho Aghwana" />
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </header>
 
@@ -525,5 +567,61 @@
 
 <script src="shared.js"></script>
 <script src="enhance.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// AOS init
+AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+// Typewriter
+(function() {
+  const words = ['WordPress Sites.', 'AI Music Videos.', 'Human UGC.', 'AI UGC Content.', 'Brand Stories.'];
+  const el = document.getElementById('tw');
+  if (!el) return;
+  let wi = 0, ci = 0, del = false;
+  function tick() {
+    const w = words[wi];
+    el.textContent = del ? w.slice(0, ci--) : w.slice(0, ci++);
+    if (!del && ci > w.length) { del = true; setTimeout(tick, 1600); return; }
+    if (del && ci < 0) { del = false; wi = (wi + 1) % words.length; ci = 0; setTimeout(tick, 400); return; }
+    setTimeout(tick, del ? 45 : 80);
+  }
+  tick();
+})();
+
+// Floating particles
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  function init() {
+    particles = Array.from({length: 40}, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 3 + 1.5,
+      vx: (Math.random() - .5) * .4, vy: (Math.random() - .5) * .4,
+      a: Math.random() * .35 + .08
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(35,82,254,' + p.a + ')';
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    });
+    requestAnimationFrame(draw);
+  }
+  resize(); init(); draw();
+  window.addEventListener('resize', () => { resize(); init(); });
+})();
+</script>
 </body>
 </html>
