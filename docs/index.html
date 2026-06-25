@@ -76,11 +76,11 @@
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: 1fr 360px;
     gap: clamp(40px, 6vw, 80px);
     align-items: center;
   }
-  @media (max-width: 860px) {
+  @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
     .hero-photo-wrap { order: -1; display: flex; justify-content: center; }
   }
@@ -126,7 +126,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 380px;
+    min-height: 420px;
+    overflow: visible;
   }
   .orbit {
     position: absolute;
@@ -139,8 +140,8 @@
     justify-content: center;
     animation: orbit-spin var(--ospeed, 14s) linear infinite;
   }
-  .orbit-1 { width: 320px; height: 390px; --ospeed: 14s; }
-  .orbit-2 { width: 360px; height: 440px; --ospeed: 22s; animation-direction: reverse; border-color: rgba(93,212,168,0.2); }
+  .orbit-1 { width: 340px; height: 410px; --ospeed: 14s; }
+  .orbit-2 { width: 380px; height: 460px; --ospeed: 22s; animation-direction: reverse; border-color: rgba(93,212,168,0.2); }
   .orbit-dot {
     width: 9px; height: 9px; border-radius: 50%;
     background: var(--accent); margin-top: -4px;
@@ -154,27 +155,28 @@
 
   .photo-frame {
     position: relative;
-    width: 270px;
-    height: 340px;
+    width: 285px;
+    height: 360px;
     flex-shrink: 0;
+    filter: drop-shadow(0 24px 48px rgba(35,82,254,0.22)) drop-shadow(0 8px 20px rgba(0,0,0,0.12));
   }
   .photo-frame-ring {
-    position: absolute; inset: -5px;
-    border-radius: 22px;
-    background: conic-gradient(from 0deg, #2352fe 0%, #5dd4a8 20%, #dce6ff 40%, #2352fe 60%, #1a3de0 80%, #2352fe 100%);
-    animation: ring-spin 4s linear infinite;
+    position: absolute; inset: -12px;
+    border-radius: 26px;
+    background: conic-gradient(from 0deg, #2352fe 0%, #5dd4a8 18%, #dce6ff 36%, #2352fe 55%, #1a3de0 75%, #5dd4a8 90%, #2352fe 100%);
+    animation: ring-spin 3.5s linear infinite;
     z-index: 0;
   }
   .photo-frame-gap {
-    position: absolute; inset: 4px;
-    border-radius: 20px;
+    position: absolute; inset: 3px;
+    border-radius: 22px;
     background: #fff;
     z-index: 1;
   }
   .photo-inner {
     position: relative; z-index: 2;
     width: 100%; height: 100%;
-    border-radius: 20px;
+    border-radius: 22px;
     overflow: hidden;
     animation: zoom-pulse 6s ease-in-out infinite;
   }
@@ -235,13 +237,16 @@
     white-space: nowrap; z-index: 10;
   }
   .svc-badge .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-  .svc-badge-1 { top: 8%; right: -10px; animation: float-a 4s ease-in-out infinite; }
-  .svc-badge-2 { top: 36%; right: -20px; animation: float-b 5s ease-in-out infinite 0.5s; }
-  .svc-badge-3 { bottom: 22%; right: -15px; animation: float-a 4.5s ease-in-out infinite 1s; }
-  .svc-badge-4 { top: 55%; left: -10px; animation: float-b 5.5s ease-in-out infinite 1.5s; }
+  /* Badges positioned relative to .hero-photo-wrap (360px). Frame is 285px centered → 37px each side.
+     Frame right edge = 37+285 = 322px from wrap left. right:-105px puts badge left at 360+105-badge_width.
+     For 130px badge: left = 360+105-130 = 335px > 322px. Clears the photo with 13px gap. */
+  .svc-badge-1 { top: 8%; right: -108px; animation: float-a 4s ease-in-out infinite; }
+  .svc-badge-2 { top: 36%; right: -108px; animation: float-b 5s ease-in-out infinite 0.5s; }
+  .svc-badge-3 { bottom: 22%; right: -108px; animation: float-a 4.5s ease-in-out infinite 1s; }
+  .svc-badge-4 { top: 55%; left: -108px; animation: float-b 5.5s ease-in-out infinite 1.5s; }
   @keyframes float-a { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
   @keyframes float-b { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-  @media (max-width: 860px) { .svc-badge { display: none; } }
+  @media (max-width: 900px) { .svc-badge { display: none; } }
 
   /* === SERVICES TEASER === */
   .services-section { position: relative; overflow: hidden; }

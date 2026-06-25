@@ -45,41 +45,79 @@
   .about-hero h1 em { font-style: italic; color: var(--accent); }
   .about-hero .lead { margin-top: 18px; font-size: clamp(15px, 1.3vw, 17px); color: var(--ink-2); line-height: 1.6; }
 
-  .portrait-large {
+  /* === PORTRAIT FRAME (matches hero card frame) === */
+  .portrait-frame {
     position: relative;
-    aspect-ratio: 4/5;
-    max-height: 420px;
-    background: var(--bg-2);
-    border: 1px solid var(--line);
-    border-radius: 200px 200px 8px 8px;
+    width: 285px;
+    height: 360px;
+    flex-shrink: 0;
+    margin: 0 auto;
+    filter: drop-shadow(0 24px 48px rgba(35,82,254,0.22)) drop-shadow(0 8px 20px rgba(0,0,0,0.12));
+  }
+  .portrait-ring {
+    position: absolute; inset: -12px;
+    border-radius: 26px;
+    background: conic-gradient(from 0deg, #2352fe 0%, #5dd4a8 18%, #dce6ff 36%, #2352fe 55%, #1a3de0 75%, #5dd4a8 90%, #2352fe 100%);
+    animation: portrait-spin 3.5s linear infinite;
+    z-index: 0;
+  }
+  @keyframes portrait-spin { to { transform: rotate(360deg); } }
+  .portrait-gap {
+    position: absolute; inset: 3px;
+    border-radius: 22px;
+    background: #fff;
+    z-index: 1;
+  }
+  .portrait-photo {
+    position: relative; z-index: 2;
+    width: 100%; height: 100%;
+    border-radius: 22px;
     overflow: hidden;
-    background-image: repeating-linear-gradient(45deg, transparent 0px, transparent 14px, rgba(10,17,40,0.04) 14px, rgba(10,17,40,0.04) 15px);
-    display: grid; place-items: center;
+    animation: portrait-pulse 6s ease-in-out infinite;
   }
-  .portrait-large .ph-label {
-    font-family: var(--font-mono); font-size: 11px;
-    text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-3);
-    text-align: center; line-height: 1.6;
+  @keyframes portrait-pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
   }
-  .portrait-large .badge {
-    position: absolute; top: 24px; right: 24px;
-    width: 88px; height: 88px;
-    background: var(--accent);
-    color: var(--bg);
-    border-radius: 50%;
-    display: grid; place-items: center;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 12px;
-    line-height: 1.15;
-    text-align: center;
-    transform: rotate(-8deg);
-    padding: 12px;
+  .portrait-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 20%; display: block;
+  }
+  .portrait-status {
+    position: absolute;
+    bottom: 18px; left: 18px;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    padding: 10px 14px;
+    display: flex; align-items: center; gap: 10px;
+    z-index: 20;
+    box-shadow: 0 4px 24px rgba(10,17,40,0.16);
+  }
+  .portrait-status-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: #5dd4a8;
+    box-shadow: 0 0 0 0 rgba(93,212,168,.6);
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(93,212,168,.6); }
+    50% { box-shadow: 0 0 0 6px rgba(93,212,168,0); }
+  }
+  .portrait-status-title {
+    font-family: var(--font-body); font-size: 12px;
+    font-weight: 700; color: var(--ink); line-height: 1.2;
+  }
+  .portrait-status-sub {
+    font-family: var(--font-mono); font-size: 9px;
+    color: var(--ink-3); text-transform: uppercase;
+    letter-spacing: 0.08em; margin-top: 2px;
   }
 
   @media (max-width: 820px) {
     .about-hero .grid { grid-template-columns: 1fr; }
-    .portrait-large { max-width: 320px; margin: 0 auto; }
+    .portrait-frame { margin: 0 auto; }
   }
 
   /* STORY */
@@ -270,10 +308,18 @@
         <p class="lead">WordPress designer, AI music video creator, and UGC specialist based in Lagos. Five years in, 120+ projects shipped.</p>
       </div>
 
-      <div class="portrait-large reveal">
-        <img src="assets/rita-portrait.jpg" alt="Rita Omotegho Aghwana" style="width:100%; height:100%; object-fit:cover; object-position: center 20%; display:block;" />
-        <div class="badge">
-          Hi, I'm<br/>Rita ✦
+      <div class="portrait-frame reveal">
+        <div class="portrait-ring"></div>
+        <div class="portrait-gap"></div>
+        <div class="portrait-photo">
+          <img src="assets/rita-portrait.jpg" alt="Rita Omotegho Aghwana" />
+        </div>
+        <div class="portrait-status">
+          <span class="portrait-status-dot"></span>
+          <div>
+            <div class="portrait-status-title">Available for projects</div>
+            <div class="portrait-status-sub">Replies within 24h</div>
+          </div>
         </div>
       </div>
     </div>
