@@ -3,9 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Services — WordPress, AI Music Videos & UGC | Rita Omotegho Aghwana</title>
-<meta name="description" content="WordPress web design, AI music video production, human UGC and AI UGC content. Packages from $450. Booking June 2026 onward." />
-<meta name="keywords" content="WordPress design service, AI music video service, UGC creator hire, Fiverr WordPress, AI UGC, human UGC" />
+<title>Services — WordPress, AI Videos, Social Media & Shopify | Rita Omotegho Aghwana</title>
+<meta name="description" content="WordPress design from $250, AI videos from $15, Social Media Marketing and Shopify stores from $250. Reply within 24h." />
 <meta name="author" content="Rita Omotegho Aghwana" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://omotegho.com/services.html" />
@@ -13,7 +12,7 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Services — Rita Omotegho Aghwana" />
-<meta property="og:description" content="Four crafts, one standard. WordPress, AI music videos, human & AI UGC." />
+<meta property="og:description" content="WordPress, AI Videos, Social Media Marketing and Shopify — four crafts, one standard." />
 <meta property="og:image" content="assets/rita-portrait.jpg" />
 <meta property="og:url" content="https://omotegho.com/services.html" />
 
@@ -26,29 +25,81 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700;1,800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
 <style>
-  /* === SERVICES PAGE === */
+  /* === SERVICES HERO === */
   .services-hero {
-    padding: clamp(60px, 8vw, 110px) 0 clamp(40px, 5vw, 70px);
+    padding: clamp(56px, 7vw, 100px) 0 clamp(40px, 5vw, 64px);
+    position: relative;
+    overflow: hidden;
+  }
+  .services-hero::before {
+    content: "";
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(35,82,254,0.07) 0%, transparent 70%);
+    pointer-events: none;
   }
   .services-hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(48px, 8vw, 120px);
-    line-height: 0.95;
+    font-size: clamp(38px, 6vw, 88px);
+    line-height: 0.97;
     letter-spacing: -0.03em;
+    margin-top: 18px;
     max-width: 16ch;
-    margin-top: 20px;
   }
   .services-hero h1 em { font-style: normal; color: var(--accent); }
-  .services-hero .lead { margin-top: 24px; max-width: 52ch; }
+  .services-hero .lead { margin-top: 20px; max-width: 50ch; }
 
-  /* === SERVICE SECTIONS — full-width, flush, no gaps === */
-  .svc-section {
-    padding: 0;
-    border: none;
+  /* Hero service chips */
+  .service-chips {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-top: 36px;
   }
+  .schip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: var(--font-mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-2);
+    background: var(--bg);
+    transition: background .22s, color .22s, border-color .22s, transform .22s;
+    animation: float-a var(--fspeed, 4s) ease-in-out infinite var(--fdelay, 0s);
+  }
+  .schip:nth-child(1) { --fspeed: 4s; --fdelay: 0s; }
+  .schip:nth-child(2) { --fspeed: 4.5s; --fdelay: .4s; }
+  .schip:nth-child(3) { --fspeed: 5s; --fdelay: .8s; }
+  .schip:nth-child(4) { --fspeed: 4.2s; --fdelay: 1.2s; }
+  @keyframes float-a { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  .schip-num { color: var(--accent); font-weight: 600; }
+  .schip:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-3px); animation: none; }
+  .schip:hover .schip-num { color: rgba(255,255,255,0.7); }
+
+  /* Hero quick stats */
+  .hero-quick-stats {
+    display: flex; gap: 0;
+    margin-top: 40px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    max-width: 580px;
+  }
+  .hqs {
+    flex: 1;
+    padding: 16px 20px;
+    border-right: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .hqs:last-child { border-right: none; }
+  .hqs-num { font-family: var(--font-display); font-size: 24px; font-weight: 800; color: var(--ink); line-height: 1; }
+  .hqs-num em { font-style: normal; color: var(--accent); }
+  .hqs-label { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
+
+  /* === SERVICE SECTIONS === */
+  .svc-section { padding: 0; border: none; }
   .svc-section:nth-child(even) { background: var(--bg-2); }
 
-  /* Full-width inner: no max-width shell, just edge padding */
   .svc-section .svc-inner {
     display: grid;
     grid-template-columns: 1fr 1.7fr;
@@ -56,6 +107,8 @@
     align-items: start;
     padding: clamp(56px, 7vw, 100px) clamp(24px, 5vw, 72px);
     border-bottom: 1px solid var(--line);
+    max-width: 1280px;
+    margin: 0 auto;
   }
   .svc-section:last-of-type .svc-inner { border-bottom: none; }
 
@@ -65,21 +118,21 @@
     text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3);
   }
   .svc-info h2 {
-    font-size: clamp(38px, 5vw, 72px);
-    line-height: 1;
+    font-size: clamp(32px, 4vw, 60px);
+    line-height: 1.02;
     margin-top: 14px;
     letter-spacing: -0.03em;
   }
   .svc-info h2 em { font-style: normal; color: var(--accent); }
   .svc-info p.descr {
-    margin-top: 18px;
-    font-size: 16px;
+    margin-top: 16px;
+    font-size: 15px;
     line-height: 1.65;
     color: var(--ink-2);
-    max-width: 44ch;
+    max-width: 40ch;
   }
   .price-tag {
-    margin-top: 24px;
+    margin-top: 22px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -94,7 +147,7 @@
   }
   .price-tag strong { color: var(--accent); font-weight: 600; }
 
-  /* Deliverable cards grid */
+  /* Deliverable cards */
   .svc-deliverables {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -103,7 +156,7 @@
   .deliverable {
     border: 1px solid var(--line);
     border-radius: 10px;
-    padding: 22px;
+    padding: 20px;
     background: var(--bg);
     transition: border-color .2s, transform .2s;
   }
@@ -115,11 +168,32 @@
     background: var(--accent);
     color: #fff;
     display: grid; place-items: center;
-    font-size: 13px;
-    margin-bottom: 12px;
+    font-size: 12px;
+    margin-bottom: 10px;
   }
-  .deliverable h4 { font-size: 18px; line-height: 1.2; font-weight: 600; }
-  .deliverable p { margin-top: 8px; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .deliverable h4 { font-size: 15px; line-height: 1.2; font-weight: 700; }
+  .deliverable p { margin-top: 6px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+
+  /* AI Video duration pricing */
+  .video-pricing {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .vp-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 18px;
+    background: var(--bg);
+    display: flex; flex-direction: column; gap: 6px;
+    transition: border-color .2s, transform .2s;
+  }
+  .vp-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .vp-card.vp-best { border-color: var(--accent); background: var(--accent-soft); }
+  .vp-dur { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
+  .vp-price { font-family: var(--font-display); font-size: 36px; line-height: 1; font-weight: 800; color: var(--ink); }
+  .vp-note { font-size: 12px; color: var(--ink-2); line-height: 1.4; margin-top: 2px; }
 
   @media (max-width: 960px) {
     .svc-section .svc-inner { grid-template-columns: 1fr; }
@@ -127,9 +201,10 @@
   }
   @media (max-width: 640px) {
     .svc-deliverables { grid-template-columns: 1fr; }
+    .video-pricing { grid-template-columns: 1fr; }
   }
 
-  /* PACKAGES */
+  /* === PACKAGES === */
   .packages {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -140,7 +215,7 @@
     border: 1px solid var(--line);
     border-radius: 12px;
     padding: 32px 28px;
-    display: flex; flex-direction: column; gap: 16px;
+    display: flex; flex-direction: column; gap: 14px;
     transition: transform .25s, border-color .25s, box-shadow .25s;
   }
   .pkg:hover { transform: translateY(-4px); border-color: var(--ink); box-shadow: 0 20px 40px -20px rgba(0,0,0,.15); }
@@ -149,111 +224,70 @@
   .pkg.featured .pkg-tag,
   .pkg.featured ul li { color: var(--bg); }
   .pkg.featured ul li::before { background: var(--accent-soft); }
-
-  .pkg .pkg-tag {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink-3);
-  }
-  .pkg .pkg-name { font-family: var(--font-display); font-size: 36px; line-height: 1; }
+  .pkg .pkg-tag { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
+  .pkg .pkg-name { font-family: var(--font-display); font-size: 30px; line-height: 1; }
   .pkg .pkg-name em { font-style: italic; color: var(--accent); }
   .pkg.featured .pkg-name em { color: var(--accent-soft); }
-  .pkg .pkg-price {
-    font-family: var(--font-display);
-    font-size: 48px;
-    line-height: 1;
-  }
+  .pkg .pkg-price { font-family: var(--font-display); font-size: 44px; line-height: 1; }
   .pkg .pkg-price .from { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); display: block; margin-bottom: 4px; }
   .pkg.featured .pkg-price .from { color: rgba(244,245,248,0.6); }
-
-  .pkg ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
-  .pkg ul li {
-    font-size: 14px;
-    line-height: 1.4;
-    padding-left: 22px;
-    position: relative;
-  }
-  .pkg ul li::before {
-    content: "";
-    position: absolute;
-    left: 0; top: 8px;
-    width: 8px; height: 2px;
-    background: var(--accent);
-  }
+  .pkg ul { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-top: 6px; }
+  .pkg ul li { font-size: 13px; line-height: 1.4; padding-left: 22px; position: relative; }
+  .pkg ul li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 2px; background: var(--accent); }
   .pkg .btn { margin-top: auto; justify-content: center; }
   .pkg.featured .btn-ghost { color: var(--bg); border-color: rgba(255,255,255,.3); }
   .pkg.featured .btn-ghost:hover { border-color: var(--bg); }
   .pkg-ribbon {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--accent);
-    color: var(--bg);
-    padding: 4px 10px;
-    border-radius: 99px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent); color: var(--bg);
+    padding: 4px 10px; border-radius: 99px;
+    font-family: var(--font-mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.12em;
     align-self: flex-start;
   }
-
   @media (max-width: 920px) { .packages { grid-template-columns: 1fr; } }
 
-  /* FAQ */
-  .faq-list {
-    border-top: 1px solid var(--line);
-  }
-  .faq-item {
-    border-bottom: 1px solid var(--line);
-    padding: 24px 0;
-    cursor: pointer;
-  }
+  /* === FAQ === */
+  .faq-list { border-top: 1px solid var(--line); }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; cursor: pointer; }
   .faq-item summary {
     list-style: none;
     display: grid;
-    grid-template-columns: 60px 1fr 32px;
-    gap: 24px;
+    grid-template-columns: 52px 1fr 32px;
+    gap: 20px;
     align-items: baseline;
     cursor: pointer;
   }
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item .faq-num {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink-3);
-  }
+  .faq-item .faq-num { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); }
   .faq-item h4 {
     font-family: var(--font-display);
-    font-size: clamp(22px, 2.4vw, 32px);
-    line-height: 1.15;
+    font-size: clamp(15px, 1.5vw, 20px);
+    line-height: 1.2;
+    font-weight: 600;
   }
   .faq-item .toggle {
-    width: 32px; height: 32px;
-    border-radius: 50%;
+    width: 32px; height: 32px; border-radius: 50%;
     border: 1px solid var(--line);
     display: grid; place-items: center;
     font-family: var(--font-mono);
     transition: background .2s, color .2s, transform .2s;
+    flex-shrink: 0;
   }
   .faq-item[open] .toggle { background: var(--accent); color: var(--bg); border-color: var(--accent); transform: rotate(45deg); }
   .faq-item .answer {
-    margin-top: 18px;
-    padding-left: 84px;
-    padding-right: 56px;
-    font-size: 16px;
+    margin-top: 16px;
+    padding-left: 72px;
+    padding-right: 52px;
+    font-size: 15px;
     line-height: 1.6;
     color: var(--ink-2);
-    max-width: 70ch;
+    max-width: 68ch;
   }
   @media (max-width: 720px) {
     .faq-item summary { grid-template-columns: 1fr 32px; gap: 12px; }
     .faq-item .faq-num { display: none; }
-    .faq-item .answer { padding: 0; margin-top: 14px; }
+    .faq-item .answer { padding: 0; margin-top: 12px; }
   }
 </style>
 </head>
@@ -269,7 +303,7 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="services.html">Services</a>
+      <a href="services.html" class="active">Services</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -283,9 +317,25 @@
 <!-- HERO -->
 <header class="services-hero">
   <div class="shell">
-    <span class="eyebrow reveal">Services — what I can build for you</span>
-    <h1 class="reveal" style="margin-top: 20px;">Four crafts, <em>one</em> standard.</h1>
-    <p class="lead reveal">Whether you need a website that does the heavy lifting or content that fills your feed for the next 90 days — these are the four offerings I've shaped over five years of client work.</p>
+    <span class="eyebrow reveal">Services · What I can build for you</span>
+    <h1 class="reveal" style="margin-top: 18px;">Four crafts, <em>one</em> standard.</h1>
+    <p class="lead reveal">Whether you need a website, a scroll-stopping video, a brand that shows up on social, or a store that sells — these four services cover it.</p>
+
+    <!-- Floating service chips -->
+    <div class="service-chips reveal">
+      <a href="#wordpress" class="schip"><span class="schip-num">01</span> WordPress</a>
+      <a href="#ai-videos" class="schip"><span class="schip-num">02</span> AI Videos</a>
+      <a href="#social-media" class="schip"><span class="schip-num">03</span> Social Media</a>
+      <a href="#shopify" class="schip"><span class="schip-num">04</span> Shopify</a>
+    </div>
+
+    <!-- Quick stats -->
+    <div class="hero-quick-stats reveal">
+      <div class="hqs"><span class="hqs-num">90<em>+</em></span><span class="hqs-label">Projects done</span></div>
+      <div class="hqs"><span class="hqs-num">5<em>★</em></span><span class="hqs-label">Fiverr rating</span></div>
+      <div class="hqs"><span class="hqs-num">$15</span><span class="hqs-label">Starting from</span></div>
+      <div class="hqs"><span class="hqs-num">24h</span><span class="hqs-label">Response time</span></div>
+    </div>
   </div>
 </header>
 
@@ -295,89 +345,112 @@
     <div class="svc-info reveal">
       <span class="svc-num">SERVICE / 01</span>
       <h2>WordPress <em>Web Design</em></h2>
-      <p class="descr">Custom-built WordPress sites for brands, founders and creators. No bloated templates. Just sites that load fast and convert quietly.</p>
-      <div class="price-tag">From <strong>$450</strong> &nbsp;·&nbsp; 7–14 days</div>
+      <p class="descr">Custom WordPress sites for brands, founders and creators. No bloated templates — just clean, fast sites that look expensive and convert quietly.</p>
+      <div class="price-tag">From <strong>$250</strong> &nbsp;·&nbsp; 7–14 days</div>
       <div style="margin-top: 24px;">
         <a href="contact.html" class="btn btn-primary">Book this <span class="arrow">→</span></a>
       </div>
     </div>
     <div class="reveal-stagger">
       <div class="svc-deliverables">
-        <div class="deliverable"><div class="check">✓</div><h4>Custom design</h4><p>Mocked in Figma. No template lookalike — your brand, your quirks, your colors.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Elementor / Divi build</h4><p>Built with industry-standard page builders so your team can update it without me.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Mobile-first</h4><p>Designed for thumb-scrollers first, desktop second. Where your traffic actually lives.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Speed & SEO basics</h4><p>Image optimization, lazy-load, meta tags, sitemap, schema — out of the box.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>WooCommerce-ready</h4><p>Need to sell? I bolt on a clean Woo store, payment gateway and order flow.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>14-day aftercare</h4><p>Two weeks of free tweaks post-launch — copy edits, image swaps, minor layout changes.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Custom layout, your brand</h4><p>Designed to match your colors, fonts and vibe. No two sites look the same.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Elementor or Divi build</h4><p>Built with page builders your team can update without coding knowledge.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Mobile-first design</h4><p>Looks sharp on phones first. Because that's where 70%+ of your traffic is.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Speed + SEO essentials</h4><p>Optimized images, meta tags, sitemap and clean code — ready for Google.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Contact forms + integrations</h4><p>Lead capture, email opt-in, WhatsApp button — whatever your workflow needs.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>14-day post-launch support</h4><p>Free tweaks for two weeks after going live — copy edits, image swaps, layout fixes.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 02 AI MUSIC VIDEO -->
-<section id="music" class="svc-section">
+<!-- 02 AI VIDEOS -->
+<section id="ai-videos" class="svc-section">
   <div class="svc-inner">
     <div class="svc-info reveal">
       <span class="svc-num">SERVICE / 02</span>
-      <h2>AI Music <em>Videos</em></h2>
-      <p class="descr">Cinematic videos for musicians who want to drop without a $20K shoot. Concept to delivery — vertical and horizontal cuts included.</p>
-      <div class="price-tag">From <strong>$300</strong> &nbsp;·&nbsp; 10–14 days</div>
+      <h2>AI <em>Videos</em></h2>
+      <p class="descr">Short-form AI videos for reels, promos and ads — plus full AI music videos for artists. Fast, cinematic, no shoot budget needed.</p>
+      <div class="price-tag">From <strong>$15</strong> &nbsp;·&nbsp; 1–3 days</div>
       <div style="margin-top: 24px;">
         <a href="contact.html" class="btn btn-primary">Book this <span class="arrow">→</span></a>
       </div>
     </div>
     <div class="reveal-stagger">
+      <!-- Duration pricing row -->
+      <div class="video-pricing">
+        <div class="vp-card">
+          <span class="vp-dur">15 seconds</span>
+          <span class="vp-price">$15</span>
+          <span class="vp-note">Quick reel, teaser, hook clip</span>
+        </div>
+        <div class="vp-card vp-best">
+          <span class="vp-dur">30 seconds</span>
+          <span class="vp-price">$30</span>
+          <span class="vp-note">Story ad, product highlight</span>
+        </div>
+        <div class="vp-card">
+          <span class="vp-dur">1 minute</span>
+          <span class="vp-price">$55</span>
+          <span class="vp-note">Brand video, full track promo</span>
+        </div>
+      </div>
+      <!-- Feature cards -->
       <div class="svc-deliverables">
-        <div class="deliverable"><div class="check">✓</div><h4>Concept & storyboard</h4><p>Mood-board and scene-by-scene plan before a single frame gets generated.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>AI-generated scenes</h4><p>Runway, Kling, Sora-class tools — chosen per shot for the right look.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Beat-matched edit</h4><p>Cuts on the bar, transitions on the drop. Audio polished and mastered for socials.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>9:16 + 16:9 versions</h4><p>One for YouTube, one for Reels/TikTok/Shorts. Plus a 30s teaser cut for promo.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Beat-synced editing</h4><p>Every cut lands on the beat. Audio polished and leveled for social platforms.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>9:16 + 16:9 cuts</h4><p>One file for TikTok/Reels, one for YouTube. Both included in every order.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Captions burned in</h4><p>Styled to match your brand. No robotic timing, no embarrassing typos.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Full music video from $300</h4><p>Concept, AI scenes, edit and master. Vertical + horizontal. 1–2 week delivery.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 03 HUMAN UGC -->
-<section id="human-ugc" class="svc-section">
+<!-- 03 SOCIAL MEDIA MARKETING -->
+<section id="social-media" class="svc-section">
   <div class="svc-inner">
     <div class="svc-info reveal">
       <span class="svc-num">SERVICE / 03</span>
-      <h2>Human <em>UGC</em></h2>
-      <p class="descr">Authentic, on-camera content for brands that want a real face and real reactions. Filmed vertical, scripted or improvised, ready to post.</p>
-      <div class="price-tag">From <strong>$80</strong>/video &nbsp;·&nbsp; 3–7 days</div>
+      <h2>Social Media <em>Marketing</em></h2>
+      <p class="descr">Content strategy, post creation and scheduling for brands that want to show up consistently without burning out doing it themselves.</p>
+      <div class="price-tag">From <strong>$250</strong> &nbsp;·&nbsp; 7 days</div>
       <div style="margin-top: 24px;">
         <a href="contact.html" class="btn btn-primary">Book this <span class="arrow">→</span></a>
       </div>
     </div>
     <div class="reveal-stagger">
       <div class="svc-deliverables">
-        <div class="deliverable"><div class="check">✓</div><h4>Script or improv</h4><p>Send me a hook or let me write one. Either way it sounds like a person, not a brand.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Vertical-native</h4><p>Shot in 9:16 with the right framing, lighting and pacing for Reels/TikTok/Shorts.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Captions burned in</h4><p>Auto-captioned, manually corrected. Brand colors, brand font, no awkward typos.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Hook variants</h4><p>Three opening hooks per video so your media buyer has real options to test.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Monthly content calendar</h4><p>30 days of planned posts — topics, formats and publish dates mapped out in advance.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Graphics + captions</h4><p>On-brand visuals and scroll-stopping copy for every post. Ready to publish.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Reels & short-form video</h4><p>Scripted or trending audio — short videos to keep your feed fresh and your reach growing.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Scheduling & posting</h4><p>I handle the queue. Posts go out at peak hours so you don't have to watch the clock.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Story templates</h4><p>A set of branded story slides you or I can update weekly — polls, promos, behind-the-scenes.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Monthly performance recap</h4><p>Simple report: what got reach, what got clicks, what we tweak next month.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 04 AI UGC -->
-<section id="ai-ugc" class="svc-section">
+<!-- 04 SHOPIFY DESIGN -->
+<section id="shopify" class="svc-section">
   <div class="svc-inner">
     <div class="svc-info reveal">
       <span class="svc-num">SERVICE / 04</span>
-      <h2>AI <em>UGC</em></h2>
-      <p class="descr">Scripted AI-generated creator content that looks human, sounds human, ships in volume. Perfect for testing 20 hooks in a week without 20 different actors.</p>
-      <div class="price-tag">From <strong>$50</strong>/video &nbsp;·&nbsp; 1–3 days</div>
+      <h2>Shopify <em>Design</em></h2>
+      <p class="descr">Clean, conversion-focused Shopify stores. Theme setup, product pages and a checkout flow that doesn't lose customers at the last step.</p>
+      <div class="price-tag">From <strong>$250</strong> &nbsp;·&nbsp; 7 days</div>
       <div style="margin-top: 24px;">
         <a href="contact.html" class="btn btn-primary">Book this <span class="arrow">→</span></a>
       </div>
     </div>
     <div class="reveal-stagger">
       <div class="svc-deliverables">
-        <div class="deliverable"><div class="check">✓</div><h4>Scripted hooks</h4><p>Written for your product. I read your landing page so the AI doesn't have to guess.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Avatar variety</h4><p>Different "creators", different rooms, different vibes — for split-testing at scale.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Polished output</h4><p>No glitchy hands or robotic delivery. I retake until each clip passes the human bar.</p></div>
-        <div class="deliverable"><div class="check">✓</div><h4>Volume-friendly</h4><p>Bundles of 5, 10 or 20 — discounted. Ideal for performance marketers testing hooks.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Theme setup + customization</h4><p>A paid or free theme configured to look like your brand, not like a Shopify default.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Product pages that sell</h4><p>Clean layout, strong images, benefit-led copy and a clear buy button. No clutter.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Mobile checkout optimized</h4><p>Thumb-friendly, fast and frustration-free. Most purchases happen on phones.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Payment gateway setup</h4><p>Stripe, PayPal or Shopify Payments — configured, tested and ready to receive orders.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Collections + navigation</h4><p>Organized product categories with clean menus. Customers find what they want fast.</p></div>
+        <div class="deliverable"><div class="check">✓</div><h4>Launch checklist + handoff</h4><p>I walk you through every setting before handing over the keys. Nothing left unclear.</p></div>
       </div>
     </div>
   </div>
@@ -387,52 +460,51 @@
 <section data-screen-label="Packages">
   <div class="shell">
     <div class="section-head reveal">
-      <span class="eyebrow">Bundles</span>
-      <h2 class="display">Pick a <em>package,</em><br/>skip the math.</h2>
+      <span class="eyebrow">WordPress Packages</span>
+      <h2 class="display">Pick a <em>plan,</em> skip the math.</h2>
     </div>
 
     <div class="packages reveal-stagger">
       <div class="pkg">
         <span class="pkg-tag">Starter</span>
         <span class="pkg-name">The <em>Spark</em></span>
-        <div class="pkg-price"><span class="from">From</span>$450</div>
+        <div class="pkg-price"><span class="from">From</span>$250</div>
         <ul>
-          <li>3-page WordPress site, or</li>
-          <li>1 AI music video (9:16), or</li>
-          <li>5 UGC reels (human or AI)</li>
+          <li>3-page WordPress site</li>
+          <li>Mobile-responsive design</li>
+          <li>Contact form + basic SEO</li>
           <li>2 revision rounds</li>
-          <li>14-day aftercare</li>
+          <li>7-day delivery</li>
         </ul>
         <a href="contact.html" class="btn btn-ghost">Choose Spark</a>
       </div>
 
       <div class="pkg featured">
-        <span class="pkg-ribbon">Most Booked</span>
+        <span class="pkg-ribbon">Most Popular</span>
         <span class="pkg-tag">Growth</span>
         <span class="pkg-name">The <em>Shine</em></span>
-        <div class="pkg-price"><span class="from">From</span>$1,200</div>
+        <div class="pkg-price"><span class="from">From</span>$500</div>
         <ul>
-          <li>6-page WordPress build</li>
-          <li>+ 1 AI music video or hero reel</li>
-          <li>+ 10 UGC reels</li>
-          <li>Custom mood-board & brand kit</li>
+          <li>5-page WordPress site</li>
+          <li>Custom layout + brand kit</li>
+          <li>Blog setup + speed optimization</li>
           <li>3 revision rounds</li>
-          <li>30-day aftercare + Loom walkthrough</li>
+          <li>10–14 day delivery</li>
+          <li>21-day aftercare</li>
         </ul>
         <a href="contact.html" class="btn btn-accent">Choose Shine</a>
       </div>
 
       <div class="pkg">
-        <span class="pkg-tag">Full Launch</span>
+        <span class="pkg-tag">Full Build</span>
         <span class="pkg-name">The <em>Diamond</em></span>
-        <div class="pkg-price"><span class="from">From</span>$2,800</div>
+        <div class="pkg-price"><span class="from">From</span>$1,000</div>
         <ul>
-          <li>10+ page WordPress / WooCommerce</li>
-          <li>+ 2 AI music or brand videos</li>
-          <li>+ 20 UGC reels (mix &amp; match)</li>
-          <li>Brand voice & copy direction</li>
+          <li>7+ page WordPress / WooCommerce</li>
+          <li>E-commerce or booking system</li>
+          <li>Full SEO setup + sitemap</li>
           <li>Unlimited revisions during build</li>
-          <li>60-day aftercare + content calendar</li>
+          <li>30-day aftercare + Loom walkthrough</li>
         </ul>
         <a href="contact.html" class="btn btn-ghost">Choose Diamond</a>
       </div>
@@ -445,7 +517,7 @@
   <div class="shell">
     <div class="section-head reveal">
       <span class="eyebrow">FAQ</span>
-      <h2 class="display">The questions I <em>always</em> get.</h2>
+      <h2 class="display">Questions I <em>always</em> get.</h2>
     </div>
 
     <div class="faq-list reveal-stagger">
@@ -455,34 +527,34 @@
           <h4>Do I need to provide content before we start?</h4>
           <span class="toggle">+</span>
         </summary>
-        <div class="answer">Ideally, yes — copy, logos, and brand assets speed everything up. But I can also write first-draft copy and source stock visuals as part of the Shine and Diamond packages. We'll discuss this on the discovery call.</div>
+        <div class="answer">Ideally yes — logos, brand colors and any copy speed things up. But I can write first-draft copy and source visuals for the Shine and Diamond packages. We'll sort it on the discovery call.</div>
       </details>
 
       <details class="faq-item">
         <summary>
           <span class="faq-num">02</span>
-          <h4>Where are you based and what timezone do you work in?</h4>
+          <h4>How do payments work?</h4>
           <span class="toggle">+</span>
         </summary>
-        <div class="answer">I'm based in Lagos, Nigeria (WAT, UTC+1) and work with clients worldwide. I overlap with EU mornings and US East Coast afternoons. I reply within 24 hours, usually faster.</div>
+        <div class="answer">For direct bookings I take 50% upfront to begin and 50% on delivery. Fiverr handles payments automatically through their platform with buyer protection built in.</div>
       </details>
 
       <details class="faq-item">
         <summary>
           <span class="faq-num">03</span>
-          <h4>Will the AI music video look "AI-y"?</h4>
+          <h4>Will the AI video look like an AI video?</h4>
           <span class="toggle">+</span>
         </summary>
-        <div class="answer">It'll look stylized — that's the point. I lean into the medium rather than trying to fake live-action. Think music-video moodboards, not deepfakes. You'll see references on the discovery call so there are no surprises.</div>
+        <div class="answer">It'll look stylized — that's the point and why it stands out. I lean into the medium rather than faking live-action. You'll see mood-board references before I generate a single frame.</div>
       </details>
 
       <details class="faq-item">
         <summary>
           <span class="faq-num">04</span>
-          <h4>Do you book on Fiverr or directly?</h4>
+          <h4>Can I book on Fiverr or only directly?</h4>
           <span class="toggle">+</span>
         </summary>
-        <div class="answer">Both. Fiverr is great for first-time clients who want the platform's buyer protection. Direct booking (via this site or LinkedIn) is faster, slightly cheaper, and gives us more flexibility on scope.</div>
+        <div class="answer">Both. Fiverr is great for buyer protection on your first order. Direct booking via this site is slightly faster and gives more flexibility on scope and add-ons.</div>
       </details>
 
       <details class="faq-item">
@@ -491,25 +563,16 @@
           <h4>What if I'm not happy with the result?</h4>
           <span class="toggle">+</span>
         </summary>
-        <div class="answer">Every package includes 2–3 revision rounds. Beyond that, I'll keep iterating at a per-hour rate. So far I've never had a project end without the client happy — but if it ever did, we'd refund the unbuilt portion. No drama.</div>
+        <div class="answer">Every package includes 2–3 revision rounds. I keep iterating until it feels right. I've never had a project close unhappy — but if yours ever did, we'd refund the undelivered portion, no drama.</div>
       </details>
 
       <details class="faq-item">
         <summary>
           <span class="faq-num">06</span>
-          <h4>Can I see references for the kind of WordPress sites you build?</h4>
-          <span class="toggle">+</span>
-        </summary>
-        <div class="answer">Yes — drop me a note via the contact form and I'll send a curated case-study PDF with five live sites, the brief behind each, and the outcomes. Easier than a portfolio scroll.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-num">07</span>
           <h4>Do you handle hosting and domains?</h4>
           <span class="toggle">+</span>
         </summary>
-        <div class="answer">I don't resell hosting (you should own that directly), but I'll guide you through buying a domain and choosing hosting that won't bite you later. I deploy to your account.</div>
+        <div class="answer">I don't resell hosting — you should own it directly. I'll guide you to the right host for your budget, help you set it up, and deploy everything to your account.</div>
       </details>
     </div>
   </div>
@@ -518,10 +581,10 @@
 <!-- CTA -->
 <section>
   <div class="shell">
-    <div class="cta-strip reveal" style="background: var(--ink); color: var(--bg); border-radius: 12px; padding: clamp(40px, 6vw, 80px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center;">
-      <h2 class="display" style="font-size: clamp(36px, 5vw, 64px); line-height: 1; color: var(--bg);">Still deciding? Let's <em style="font-style:italic; color: var(--accent-soft);">talk it out.</em></h2>
+    <div class="reveal" style="background: var(--ink); color: var(--bg); border-radius: 12px; padding: clamp(40px, 6vw, 80px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center;">
+      <h2 class="display" style="font-size: clamp(30px, 4.5vw, 56px); line-height: 1.02; color: var(--bg);">Still deciding? Let's <em style="font-style:italic; color: var(--accent-soft);">talk it out.</em></h2>
       <div style="display:flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
-        <a href="contact.html" class="btn btn-accent">Book discovery call <span class="arrow">→</span></a>
+        <a href="contact.html" class="btn btn-accent">Book a discovery call <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -530,13 +593,35 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="shell">
-    <div class="footer-grid">
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.1);">
       <div>
-        <h3 class="display">Let's build something <em>worth remembering.</em></h3>
-        <p style="margin-top:24px; color:rgba(244,245,248,0.7); max-width: 44ch;">Open for WordPress builds, music video commissions and UGC packages. Reply within 24 hours.</p>
-        <a href="mailto:Ritaomoteghoo@gmail.com" style="display:inline-flex; align-items:center; gap:10px; margin-top:24px; font-family:var(--font-display); font-style:italic; font-size:24px; color:#f4f5f8; border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 4px;">
-          Ritaomoteghoo@gmail.com <span>→</span>
+        <div style="display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:rgba(244,245,248,0.45); margin-bottom:16px;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#5dd4a8;animation:pulse 2s infinite;"></span>
+          Available for new projects
+        </div>
+        <h3 class="display" style="font-size:clamp(36px,5vw,72px); color:#f4f5f8;">Let's build something <em>worth remembering.</em></h3>
+      </div>
+      <a href="contact.html" style="flex-shrink:0; background:var(--accent); color:#fff; padding:16px 32px; border-radius:999px; font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.12em; transition:background .2s, transform .2s; white-space:nowrap;" onmouseover="this.style.background='#1a3de0';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#2352fe';this.style.transform='none'">Start a conversation →</a>
+    </div>
+
+    <div class="footer-grid" style="padding-top:48px;">
+      <div>
+        <a href="mailto:Ritaomoteghoo@gmail.com" style="display:block; font-family:var(--font-display); font-size:clamp(16px,1.8vw,22px); color:#f4f5f8; border-bottom:1px solid rgba(255,255,255,.15); padding-bottom:12px; margin-bottom:24px; transition:color .2s;" onmouseover="this.style.color='#dce6ff'" onmouseout="this.style.color='#f4f5f8'">
+          Ritaomoteghoo@gmail.com →
         </a>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;color:rgba(244,245,248,.6);transition:background .2s,color .2s,border-color .2s;" onmouseover="this.style.background='#2352fe';this.style.color='#fff';this.style.borderColor='#2352fe'" onmouseout="this.style.background='';this.style.color='rgba(244,245,248,.6)';this.style.borderColor='rgba(255,255,255,.15)'" title="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@omotegho" target="_blank" rel="noopener" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;color:rgba(244,245,248,.6);transition:background .2s,color .2s,border-color .2s;" onmouseover="this.style.background='#2352fe';this.style.color='#fff';this.style.borderColor='#2352fe'" onmouseout="this.style.background='';this.style.color='rgba(244,245,248,.6)';this.style.borderColor='rgba(255,255,255,.15)'" title="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.28 8.28 0 004.84 1.55V6.83a4.85 4.85 0 01-1.07-.14z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;color:rgba(244,245,248,.6);transition:background .2s,color .2s,border-color .2s;" onmouseover="this.style.background='#2352fe';this.style.color='#fff';this.style.borderColor='#2352fe'" onmouseout="this.style.background='';this.style.color='rgba(244,245,248,.6)';this.style.borderColor='rgba(255,255,255,.15)'" title="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.fiverr.com/s/e6ZDz7E" target="_blank" rel="noopener" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;color:rgba(244,245,248,.6);font-family:var(--font-mono);font-size:11px;font-weight:700;transition:background .2s,color .2s,border-color .2s;" onmouseover="this.style.background='#2352fe';this.style.color='#fff';this.style.borderColor='#2352fe'" onmouseout="this.style.background='';this.style.color='rgba(244,245,248,.6)';this.style.borderColor='rgba(255,255,255,.15)'" title="Fiverr">Fv</a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
@@ -544,25 +629,24 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li>
-</li>
+          <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Elsewhere</h4>
+        <h4>Services</h4>
         <ul>
-          <li><a href="https://www.fiverr.com/s/e6ZDz7E" target="_blank" rel="noopener">Fiverr ↗</a></li>
-          <li><a href="https://www.linkedin.com/in/rita-omotegho-aghwana-9193bb386/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-          <li><a href="https://www.instagram.com/omotegho" target="_blank" rel="noopener">Instagram ↗</a></li>
-          <li><a href="https://www.tiktok.com/@omotegho" target="_blank" rel="noopener">TikTok ↗</a></li>
-          <li><a href="https://x.com/DesignzPixel" target="_blank" rel="noopener">X / Twitter ↗</a></li>
+          <li><a href="#wordpress">WordPress Design</a></li>
+          <li><a href="#ai-videos">AI Videos</a></li>
+          <li><a href="#social-media">Social Media</a></li>
+          <li><a href="#shopify">Shopify Design</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
       <span>© 2026 Rita Omotegho Aghwana</span>
-      <span>From Dreams to Diamonds — Vol. 05</span>
+      <span>From Dreams to Diamonds</span>
     </div>
   </div>
 </footer>
