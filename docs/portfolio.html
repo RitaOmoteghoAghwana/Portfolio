@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <script>try{if(localStorage.getItem('rita-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <title>Portfolio — Rita Omotegho Aghwana</title>
-<meta name="description" content="Portfolio of Rita Omotegho Aghwana — WordPress sites, AI music videos and UGC content. View selected projects." />
+<meta name="description" content="Portfolio of Rita Omotegho Aghwana — WordPress sites, AI music videos, book cover design, Shopify stores and social media. View selected projects." />
 <meta name="author" content="Rita Omotegho Aghwana" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://omotegho.com/portfolio.html" />
@@ -190,6 +190,105 @@
   .thumb-ai { background: linear-gradient(135deg, #0a1128 0%, #2352fe 100%); color: #fff; }
   .thumb-ugc { background: linear-gradient(135deg, #e4f8ef 0%, #b8f0d4 100%); }
   .thumb-ai2 { background: linear-gradient(135deg, #f0e4f8 0%, #dcc6ff 100%); }
+
+  /* Book cover card fronts */
+  .book-cover-front {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .book-cover-front .bc-border {
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .book-cover-front .bc-corner {
+    position: absolute;
+    width: 16px; height: 16px;
+    border-color: currentColor;
+    border-style: solid;
+    opacity: 0.6;
+    z-index: 3;
+  }
+  .bc-corner.tl { top: 12px; left: 12px; border-width: 1px 0 0 1px; }
+  .bc-corner.tr { top: 12px; right: 12px; border-width: 1px 1px 0 0; }
+  .bc-corner.bl { bottom: 12px; left: 12px; border-width: 0 0 1px 1px; }
+  .bc-corner.br { bottom: 12px; right: 12px; border-width: 0 1px 1px 0; }
+  .book-cover-front .bc-genre {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+    z-index: 4;
+  }
+  .book-cover-front .bc-icon {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    position: relative;
+    z-index: 1;
+  }
+  .book-cover-front .bc-title-wrap {
+    padding: 14px 20px 18px;
+    position: relative;
+    z-index: 4;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .book-cover-front .bc-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .book-cover-front .bc-subtitle {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-top: 5px;
+    opacity: 0.55;
+  }
+
+  /* Shadows of the Summit */
+  .thumb-fantasy {
+    background: linear-gradient(175deg, #090818 0%, #12102c 35%, #1e1406 70%, #2a1a00 100%);
+    color: #c9a84c;
+  }
+  .thumb-fantasy .bc-icon { text-shadow: 0 0 40px rgba(201,168,76,0.4); }
+  .thumb-fantasy .bc-title { color: #c9a84c; font-size: 15px; }
+  .thumb-fantasy .bc-genre { color: rgba(201,168,76,0.7); }
+  .thumb-fantasy .bc-subtitle { color: rgba(201,168,76,0.55); }
+  .thumb-fantasy .bc-title-wrap { background: rgba(0,0,0,0.45); }
+
+  /* The Wild Within */
+  .thumb-darkbook {
+    background: linear-gradient(175deg, #0c0a08 0%, #1a1008 40%, #3d1e00 80%, #1a0c00 100%);
+    color: #d4722a;
+  }
+  .thumb-darkbook::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 85%, rgba(180,80,0,0.25) 0%, transparent 70%);
+    z-index: 0;
+  }
+  .thumb-darkbook .bc-icon { text-shadow: 0 0 40px rgba(212,114,42,0.5); z-index: 2; }
+  .thumb-darkbook .bc-title { color: #e8a06a; font-size: 13px; }
+  .thumb-darkbook .bc-genre { color: rgba(212,114,42,0.65); }
+  .thumb-darkbook .bc-subtitle { color: rgba(212,114,42,0.5); }
+  .thumb-darkbook .bc-title-wrap { background: rgba(0,0,0,0.5); }
 </style>
 </head>
 <body data-screen-label="Portfolio">
@@ -239,7 +338,7 @@
       Projects that<br><em>speak for themselves.</em>
     </h1>
     <p class="lead" data-aos="fade-up" data-aos-delay="160">
-      A curated selection across WordPress design, AI videos, social media and Shopify. Hover a card to see details.
+      A curated selection across WordPress design, AI videos, social media, Shopify and book cover design. Hover a card to see details.
     </p>
     <div class="filter-bar" data-aos="fade-up" data-aos-delay="220">
       <button class="filter-btn active" data-filter="all">All</button>
@@ -247,6 +346,7 @@
       <button class="filter-btn" data-filter="ai-video">AI Video</button>
       <button class="filter-btn" data-filter="social">Social Media</button>
       <button class="filter-btn" data-filter="shopify">Shopify</button>
+      <button class="filter-btn" data-filter="book-cover">Book Covers</button>
     </div>
   </div>
 </header>
@@ -379,6 +479,68 @@
             <div class="flip-back-title">Moody <em>R&B visual</em> with cinematic colour grade</div>
             <p class="flip-back-desc">Runway Gen-3 scenes with CapCut finishing. Full cinematic grade and lyric overlays. Delivered in 8 days.</p>
             <a href="services.html#music" class="flip-back-link">View service →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7: Book Cover — Shadows of the Summit -->
+      <div class="flip-card" data-category="book-cover" data-aos="fade-up" data-aos-delay="0">
+        <div class="flip-card-inner">
+          <div class="flip-front" style="display:flex;flex-direction:column;">
+            <div class="flip-thumb thumb-fantasy book-cover-front" style="display:flex;flex-direction:column;justify-content:flex-end;">
+              <div class="bc-border"></div>
+              <span class="bc-corner tl"></span>
+              <span class="bc-corner tr"></span>
+              <span class="bc-corner bl"></span>
+              <span class="bc-corner br"></span>
+              <div class="bc-genre">Fantasy · Adventure</div>
+              <div class="bc-icon">⚔️</div>
+              <div class="bc-title-wrap">
+                <div class="bc-title">Shadows of the Summit</div>
+                <div class="bc-subtitle">Full cover · KDP · IngramSpark</div>
+              </div>
+            </div>
+            <div class="flip-footer">
+              <span class="flip-title">Shadows of the Summit</span>
+              <span class="flip-tag">Book Cover</span>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">Book Cover / 07</div>
+            <div class="flip-back-title">Fantasy <em>hardcover</em> with gold ornamental borders</div>
+            <p class="flip-back-desc">Warrior silhouette on cliff edge, sweeping mountain vista, gold ornamental frame. Full wrap: front, spine and back. Print-ready for KDP and IngramSpark. eBook version included.</p>
+            <a href="book-cover.html" class="flip-back-link">View service →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8: Book Cover — The Wild Within -->
+      <div class="flip-card" data-category="book-cover" data-aos="fade-up" data-aos-delay="60">
+        <div class="flip-card-inner">
+          <div class="flip-front" style="display:flex;flex-direction:column;">
+            <div class="flip-thumb thumb-darkbook book-cover-front" style="display:flex;flex-direction:column;justify-content:flex-end;">
+              <div class="bc-border"></div>
+              <span class="bc-corner tl"></span>
+              <span class="bc-corner tr"></span>
+              <span class="bc-corner bl"></span>
+              <span class="bc-corner br"></span>
+              <div class="bc-genre">Self-Help · Emotional</div>
+              <div class="bc-icon">🌲</div>
+              <div class="bc-title-wrap">
+                <div class="bc-title">The Wild Within: Taming the Raw Power of Emotions</div>
+                <div class="bc-subtitle">eBook · Print · Audiobook thumb</div>
+              </div>
+            </div>
+            <div class="flip-footer">
+              <span class="flip-title">The Wild Within</span>
+              <span class="flip-tag">Book Cover</span>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-tag">Book Cover / 08</div>
+            <div class="flip-back-title">Dark atmospheric <em>self-help</em> cover</div>
+            <p class="flip-back-desc">Bare tree silhouette against a dramatic stormy amber sky. Full Author Brand package: print wrap, eBook, audiobook thumbnail and social banners. Emotionally charged and immediately striking.</p>
+            <a href="book-cover.html" class="flip-back-link">View service →</a>
           </div>
         </div>
       </div>
