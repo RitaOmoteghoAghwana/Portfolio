@@ -427,6 +427,54 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
   100% { transform: translateX(100%); }
 }
 
+/* === THEME TOGGLE BUTTON === */
+.theme-toggle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  color: var(--ink-2);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background .2s, border-color .2s, color .2s, transform .3s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { background: var(--bg-3); color: var(--ink); transform: rotate(15deg); }
+.theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
+/* === DARK MODE === */
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --bg-2: #161b22;
+  --bg-3: #21262d;
+  --ink: #e6edf3;
+  --ink-2: #b1bac4;
+  --ink-3: #8b949e;
+  --line: rgba(255,255,255,0.1);
+  --accent-soft: #1c2f6b;
+}
+
+/* Nav CTA: stays as accent blue (not ink-colored) in dark mode */
+[data-theme="dark"] .nav-cta { background: var(--accent); color: #fff; }
+[data-theme="dark"] .nav-cta:hover { background: var(--accent-deep); }
+
+/* Service cards: tinted darks matching their light counterparts */
+[data-theme="dark"] .services-teaser .svc:nth-child(1) { background: #1a1530; border-color: rgba(108,92,231,0.3); }
+[data-theme="dark"] .services-teaser .svc:nth-child(2) { background: #0d1a38; border-color: rgba(35,82,254,0.3); }
+[data-theme="dark"] .services-teaser .svc:nth-child(3) { background: #0a1f18; border-color: rgba(0,166,125,0.3); }
+[data-theme="dark"] .services-teaser .svc:nth-child(4) { background: #200d18; border-color: rgba(232,67,122,0.3); }
+
+/* Photo / portrait frame gap (hardcoded #fff) */
+[data-theme="dark"] .photo-frame-gap,
+[data-theme="dark"] .portrait-gap { background: #0d1117; }
+
+/* Smooth transition on theme switch */
+body { transition: background-color 0.35s ease, color 0.35s ease; }
+.nav { transition: background-color 0.35s ease; }
+
 /* === TWEAKS PANEL CUSTOM === */
 .tweak-host { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
 
