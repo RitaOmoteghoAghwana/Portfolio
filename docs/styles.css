@@ -277,8 +277,8 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
 
 /* === FOOTER === */
 .footer {
-  background: #0a1128;
-  color: #f4f5f8;
+  background: #f5f6fa;
+  color: var(--ink);
   border-top: 1px solid var(--line);
   padding: clamp(60px, 8vw, 120px) 0 32px;
 }
@@ -289,13 +289,13 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
   grid-template-columns: 2fr 1fr 1fr;
   gap: clamp(32px, 5vw, 80px);
   padding-bottom: 60px;
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid var(--line);
 }
 
 .footer h3 {
   font-size: clamp(40px, 6vw, 88px);
   line-height: 1;
-  color: #f4f5f8;
+  color: var(--ink);
 }
 .footer h3 em { font-style: normal; color: var(--accent); }
 
@@ -304,18 +304,18 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: rgba(244,245,248,0.4);
+  color: var(--ink-3);
   margin-bottom: 18px;
   font-weight: 500;
 }
 
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .footer-col a {
-  color: rgba(244,245,248,0.75);
+  color: var(--ink-2);
   font-size: 15px;
   transition: color .2s;
 }
-.footer-col a:hover { color: #fff; }
+.footer-col a:hover { color: var(--accent); }
 
 .footer-bottom {
   padding-top: 32px;
@@ -328,7 +328,11 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(244,245,248,0.4);
+  color: var(--ink-3);
+}
+
+[data-theme="dark"] .footer {
+  background: #111827;
 }
 
 @media (max-width: 720px) {

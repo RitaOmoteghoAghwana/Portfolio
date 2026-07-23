@@ -22,13 +22,16 @@
   // Tweaks
   const TWEAKS = /*EDITMODE-BEGIN*/{
     "accent": "#c4632a",
-    "displayFont": "Instrument Serif",
+    "displayFont": "Plus Jakarta Sans",
     "darkMode": false
   }/*EDITMODE-END*/;
 
+  const SERIF_FONTS = ['Instrument Serif', 'DM Serif Display', 'Cormorant Garamond', 'Playfair Display'];
+
   const applyTweaks = (t) => {
     document.documentElement.style.setProperty('--accent', t.accent);
-    document.documentElement.style.setProperty('--font-display', `"${t.displayFont}", Georgia, serif`);
+    const fallback = SERIF_FONTS.includes(t.displayFont) ? 'Georgia, serif' : 'sans-serif';
+    document.documentElement.style.setProperty('--font-display', `"${t.displayFont}", ${fallback}`);
     if (t.darkMode) {
       document.documentElement.style.setProperty('--bg', '#1a1816');
       document.documentElement.style.setProperty('--bg-2', '#252320');
@@ -52,7 +55,12 @@
   let current = { ...TWEAKS };
   try {
     const saved = JSON.parse(localStorage.getItem('rita-tweaks') || 'null');
-    if (saved) current = { ...current, ...saved };
+    if (saved) {
+      // Migrate: clear old Instrument Serif default so new clean font takes effect
+      if (saved.displayFont === 'Instrument Serif') delete saved.displayFont;
+      current = { ...current, ...saved };
+      localStorage.setItem('rita-tweaks', JSON.stringify(saved));
+    }
   } catch (e) {}
   applyTweaks(current);
 
@@ -151,9 +159,9 @@
       <div class="group">
         <div class="label">Display font</div>
         <div class="fonts" data-fonts>
+          <button class="font-opt" data-font="Plus Jakarta Sans" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700">Plus Jakarta Sans</button>
           <button class="font-opt" data-font="Instrument Serif" style="font-family:'Instrument Serif',serif;font-style:italic">Instrument Serif</button>
           <button class="font-opt" data-font="DM Serif Display" style="font-family:'DM Serif Display',serif">DM Serif Display</button>
-          <button class="font-opt" data-font="Cormorant Garamond" style="font-family:'Cormorant Garamond',serif;font-style:italic">Cormorant Garamond</button>
           <button class="font-opt" data-font="Playfair Display" style="font-family:'Playfair Display',serif">Playfair Display</button>
         </div>
       </div>
@@ -217,4 +225,54 @@
   });
 
   try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (e) {}
+
+  // Patch hardcoded dark footer inline styles for light theme
+  document.addEventListener('DOMContentLoaded', function () {
+    const footer = document.querySelector('.footer');
+    if (!footer) return;
+
+    footer.querySelectorAll('[style]').forEach(function (el) {
+      const raw = el.getAttribute('style') || '';
+      if (raw.includes('rgba(255,255,255')) {
+        el.style.borderBottom = '1px solid var(--line)';
+        el.style.borderTop = '';
+      }
+      if (raw.includes('#f4f5f8')) {
+        el.style.color = 'var(--ink)';
+      }
+      if (raw.includes('rgba(244,245,248')) {
+        el.style.color = 'var(--ink-3)';
+      }
+    });
+
+    // Replace social icon dark hover handlers
+    footer.querySelectorAll('a[onmouseover]').forEach(function (a) {
+      a.removeAttribute('onmouseover');
+      a.removeAttribute('onmouseout');
+      a.style.color = 'var(--ink-3)';
+      a.style.borderColor = 'var(--line)';
+      a.style.background = 'transparent';
+      a.addEventListener('mouseenter', function () {
+        this.style.background = 'var(--accent)';
+        this.style.color = '#fff';
+        this.style.borderColor = 'var(--accent)';
+      });
+      a.addEventListener('mouseleave', function () {
+        this.style.background = 'transparent';
+        this.style.color = 'var(--ink-3)';
+        this.style.borderColor = 'var(--line)';
+      });
+    });
+
+    // Fix big email link
+    const emailLink = footer.querySelector('a[href^="mailto"]');
+    if (emailLink) {
+      emailLink.removeAttribute('onmouseover');
+      emailLink.removeAttribute('onmouseout');
+      emailLink.style.color = 'var(--ink)';
+      emailLink.style.borderBottomColor = 'var(--line)';
+      emailLink.addEventListener('mouseenter', function () { this.style.color = 'var(--accent)'; });
+      emailLink.addEventListener('mouseleave', function () { this.style.color = 'var(--ink)'; });
+    }
+  });
 })();
