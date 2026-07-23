@@ -257,6 +257,10 @@
   <div class="contact-right">
     <h2>Send a message</h2>
     <form class="clean-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+      <input type="hidden" name="access_key" value="5ba096e8-9840-4f70-81fe-915bd027628b" />
+      <input type="hidden" name="subject" value="New message from your portfolio site" />
+      <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+      <input type="checkbox" name="botcheck" style="display:none" />
       <div class="cf-row">
         <div class="cf-field">
           <label class="cf-label">Your name *</label>
@@ -360,16 +364,33 @@
 </footer>
 
 <script>
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.cf-btn');
+  const form = e.target;
+  const btn = form.querySelector('.cf-btn');
   btn.textContent = 'Sending…';
   btn.disabled = true;
-  setTimeout(() => {
-    e.target.reset();
-    document.getElementById('successMsg').style.display = 'block';
-    btn.style.display = 'none';
-  }, 800);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form)
+    });
+    const data = await res.json();
+    if (data.success) {
+      form.reset();
+      document.getElementById('successMsg').style.display = 'block';
+      btn.style.display = 'none';
+    } else {
+      btn.textContent = 'Send message →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email me directly at Ritaomoteghoo@gmail.com');
+    }
+  } catch (err) {
+    btn.textContent = 'Send message →';
+    btn.disabled = false;
+    alert('Network error. Please email me directly at Ritaomoteghoo@gmail.com');
+  }
 }
 </script>
 <script src="theme.js"></script>
