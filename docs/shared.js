@@ -21,14 +21,14 @@
 
   // Tweaks
   const TWEAKS = /*EDITMODE-BEGIN*/{
-    "accent": "#2352fe",
-    "displayFont": "Plus Jakarta Sans",
+    "accent": "#c4632a",
+    "displayFont": "Instrument Serif",
     "darkMode": false
   }/*EDITMODE-END*/;
 
   const applyTweaks = (t) => {
     document.documentElement.style.setProperty('--accent', t.accent);
-    document.documentElement.style.setProperty('--font-display', `"${t.displayFont}", sans-serif`);
+    document.documentElement.style.setProperty('--font-display', `"${t.displayFont}", Georgia, serif`);
     if (t.darkMode) {
       document.documentElement.style.setProperty('--bg', '#1a1816');
       document.documentElement.style.setProperty('--bg-2', '#252320');
