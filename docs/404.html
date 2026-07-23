@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<script>try{if(localStorage.getItem('rita-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+<title>Page Not Found — Rita Omotegho Aghwana</title>
+<meta name="description" content="This page doesn't exist — but Rita Omotegho Aghwana's portfolio does. Head back and explore." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700;1,800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+.err-wrap {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(48px,8vw,96px) var(--gutter);
+}
+.err-inner { max-width: 560px; }
+.err-code {
+  font-family: var(--font-mono);
+  font-size: clamp(96px,20vw,200px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  color: var(--bg-3);
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+.err-code::after {
+  content: '404';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep, #1a3fcc));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.18;
+  pointer-events: none;
+}
+.err-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+.err-headline {
+  font-size: clamp(28px, 5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.err-headline em { font-style: italic; color: var(--accent); }
+.err-sub {
+  margin-top: 16px;
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.err-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.err-links {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+}
+.err-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  transition: color .2s;
+}
+.err-link:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-mark">R</span>
+      <span>Rita Omotegho</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+      <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <a href="contact.html" class="nav-cta">
+      <span class="dot"></span>
+      <span>Available for Work</span>
+    </a>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" data-page="index.html">Home</a>
+  <a href="about.html" data-page="about.html">About</a>
+  <a href="services.html" data-page="services.html">Services</a>
+  <a href="portfolio.html" data-page="portfolio.html">Portfolio</a>
+  <a href="contact.html" data-page="contact.html">Contact</a>
+  <div class="mobile-nav-footer">
+    <a href="contact.html" class="btn btn-accent">Get in touch →</a>
+    <a href="services.html" class="btn btn-ghost">View services</a>
+  </div>
+</div>
+
+<div class="err-wrap">
+  <div class="err-inner">
+    <span class="err-code">404</span>
+    <span class="err-eyebrow">Page not found</span>
+    <h1 class="err-headline display">This page doesn't<br><em>exist.</em></h1>
+    <p class="err-sub">The link might be broken, the page may have moved, or you may have typed something slightly off. Easy fix — let's get you somewhere useful.</p>
+    <div class="err-btns">
+      <a href="index.html" class="btn btn-primary">Go home <span class="arrow">→</span></a>
+      <a href="contact.html" class="btn btn-ghost">Contact Rita</a>
+    </div>
+    <div class="err-links">
+      <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);">Or jump to:</span>
+      <a href="services.html" class="err-link">Services</a>
+      <a href="portfolio.html" class="err-link">Portfolio</a>
+      <a href="about.html" class="err-link">About</a>
+      <a href="ai-videos.html" class="err-link">AI Videos</a>
+      <a href="wordpress.html" class="err-link">WordPress</a>
+      <a href="shopify.html" class="err-link">Shopify</a>
+      <a href="social-media.html" class="err-link">Social Media</a>
+    </div>
+  </div>
+</div>
+
+<script src="theme.js"></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a61cdc29ba6bb1d47ddec39/1ju70nghk';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
