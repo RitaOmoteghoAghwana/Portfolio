@@ -226,10 +226,36 @@
 
   try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (e) {}
 
-  // Patch hardcoded dark footer inline styles for light theme
+  // Patch hardcoded dark footer inline styles and build scrolling ticker
   document.addEventListener('DOMContentLoaded', function () {
     const footer = document.querySelector('.footer');
     if (!footer) return;
+
+    // Replace big broken CTA heading with a compact scrolling ticker
+    const shell = footer.querySelector('.shell');
+    if (shell) {
+      const cta = shell.firstElementChild;
+      if (cta && cta.querySelector && cta.querySelector('h3')) {
+        const MSGS = [
+          'Let\'s build something worth remembering',
+          'Available for new projects',
+          'From dreams to diamonds',
+          'WordPress · AI Videos · Book Covers · Shopify · Social Media'
+        ];
+        const ticker = document.createElement('div');
+        ticker.className = 'footer-ticker';
+        const track = document.createElement('div');
+        track.className = 'footer-ticker-track';
+        [...MSGS, ...MSGS].forEach(function (msg) {
+          const item = document.createElement('span');
+          item.className = 'footer-ticker-item';
+          item.innerHTML = msg + '<span class="footer-ticker-dot"></span>';
+          track.appendChild(item);
+        });
+        ticker.appendChild(track);
+        cta.replaceWith(ticker);
+      }
+    }
 
     footer.querySelectorAll('[style]').forEach(function (el) {
       const raw = el.getAttribute('style') || '';

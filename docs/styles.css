@@ -280,8 +280,17 @@ section { padding: clamp(48px, 7vw, 100px) 0; position: relative; }
   background: #f5f6fa;
   color: var(--ink);
   border-top: 1px solid var(--line);
-  padding: clamp(60px, 8vw, 120px) 0 32px;
+  padding: 0 0 32px;
 }
+
+/* Footer ticker */
+.footer-ticker { overflow: hidden; border-bottom: 1px solid var(--line); padding: 13px 0; }
+.footer-ticker-track { display: flex; white-space: nowrap; animation: ft-run 28s linear infinite; }
+.footer-ticker-track:hover { animation-play-state: paused; }
+.footer-ticker-item { flex-shrink: 0; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-2); padding: 0 32px; display: inline-flex; align-items: center; gap: 16px; }
+.footer-ticker-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); display: inline-block; flex-shrink: 0; }
+@keyframes ft-run { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+[data-theme="dark"] .footer { background: #111827; }
 .footer .shell { padding: 0 var(--gutter); }
 
 .footer-grid {
