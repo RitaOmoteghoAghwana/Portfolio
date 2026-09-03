@@ -46,59 +46,48 @@
   .about-hero h1 em { font-style: italic; color: var(--accent); }
   .about-hero .lead { margin-top: 18px; font-size: clamp(15px, 1.3vw, 17px); color: var(--ink-2); line-height: 1.6; }
 
-  /* === PORTRAIT FRAME (matches hero card frame) === */
+  /* === PORTRAIT CARD (matches homepage hero card) === */
   .portrait-frame {
     position: relative;
-    width: 285px;
-    height: 360px;
+    width: 300px;
     flex-shrink: 0;
     margin: 0 auto;
-    filter: drop-shadow(0 24px 48px rgba(35,82,254,0.22)) drop-shadow(0 8px 20px rgba(0,0,0,0.12));
   }
-  .portrait-ring {
-    position: absolute; inset: -12px;
-    border-radius: 26px;
-    background: conic-gradient(from 0deg, #2352fe 0%, #5dd4a8 18%, #dce6ff 36%, #2352fe 55%, #1a3de0 75%, #5dd4a8 90%, #2352fe 100%);
-    animation: portrait-spin 3.5s linear infinite;
+  .portrait-frame::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 22px;
+    background: var(--bg-3);
+    border: 1.5px solid var(--line);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    transform: translate(14px, 14px);
     z-index: 0;
   }
-  @keyframes portrait-spin { to { transform: rotate(360deg); } }
-  .portrait-gap {
-    position: absolute; inset: 3px;
-    border-radius: 22px;
-    background: #fff;
-    z-index: 1;
-  }
   .portrait-photo {
-    position: relative; z-index: 2;
-    width: 100%; height: 100%;
+    position: relative; z-index: 1;
     border-radius: 22px;
     overflow: hidden;
-    animation: portrait-pulse 6s ease-in-out infinite;
-  }
-  @keyframes portrait-pulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
+    border-top: 3px solid var(--accent);
+    box-shadow: 0 28px 64px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.10);
   }
   .portrait-photo img {
-    width: 100%; height: 100%;
+    width: 100%; height: 390px;
     object-fit: cover; object-position: center 20%; display: block;
   }
   .portrait-status {
     position: absolute;
-    bottom: 18px; left: 18px;
-    background: rgba(255,255,255,0.97);
-    backdrop-filter: blur(8px);
-    border-radius: 14px;
-    padding: 10px 14px;
+    bottom: -18px; left: -12px;
+    background: #fff;
+    border-radius: 999px;
+    padding: 10px 16px;
     display: flex; align-items: center; gap: 10px;
     z-index: 20;
     box-shadow: 0 4px 24px rgba(10,17,40,0.16);
+    max-width: 220px;
   }
   .portrait-status-dot {
     width: 9px; height: 9px; border-radius: 50%;
     background: #5dd4a8;
-    box-shadow: 0 0 0 0 rgba(93,212,168,.6);
     animation: pulse 2s infinite;
     flex-shrink: 0;
   }
@@ -108,17 +97,17 @@
   }
   .portrait-status-title {
     font-family: var(--font-body); font-size: 12px;
-    font-weight: 700; color: var(--ink); line-height: 1.2;
+    font-weight: 700; color: #111; line-height: 1.2;
   }
   .portrait-status-sub {
     font-family: var(--font-mono); font-size: 9px;
-    color: var(--ink-3); text-transform: uppercase;
+    color: #888; text-transform: uppercase;
     letter-spacing: 0.08em; margin-top: 2px;
   }
 
   @media (max-width: 820px) {
     .about-hero .grid { grid-template-columns: 1fr; }
-    .portrait-frame { margin: 0 auto; }
+    .portrait-frame { margin: 0 auto 32px; }
   }
 
   /* STORY */
@@ -328,8 +317,6 @@
       </div>
 
       <div class="portrait-frame reveal">
-        <div class="portrait-ring"></div>
-        <div class="portrait-gap"></div>
         <div class="portrait-photo">
           <img src="assets/rita-portrait.jpg" alt="Rita Omotegho Aghwana" />
         </div>

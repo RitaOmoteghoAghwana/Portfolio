@@ -58,7 +58,7 @@
     flex-wrap: wrap;
     gap: 12px;
     padding-bottom: 20px;
-    margin-bottom: clamp(32px, 4vw, 52px);
+    margin-bottom: clamp(12px, 2vw, 20px);
   }
   .hero-meta-bar .item {
     font-family: var(--font-mono);
@@ -80,7 +80,7 @@
     display: grid;
     grid-template-columns: 1fr 380px;
     gap: clamp(28px, 4vw, 52px);
-    align-items: end;
+    align-items: center;
   }
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
@@ -465,7 +465,6 @@
       <!-- RIGHT: photo card -->
       <div class="hero-photo-wrap" data-aos="zoom-in" data-aos-delay="100">
         <div class="photo-card">
-          <div class="photo-card-dot"></div>
           <div class="photo-card-img">
             <img src="assets/rita-portrait.jpg" alt="Rita Omotegho Aghwana" />
           </div>
