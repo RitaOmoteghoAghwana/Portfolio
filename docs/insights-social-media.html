@@ -4,18 +4,18 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <script>try{if(localStorage.getItem('rita-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
-<title>Insights — Rita Omotegho Aghwana</title>
-<meta name="description" content="Short write-ups on AI UGC video production and WordPress redesign — what actually goes into the work." />
+<title>What's Actually Included in Social Media Marketing — Rita Omotegho Aghwana</title>
+<meta name="description" content="Content strategy, creation, scheduling, engagement, and reporting — what social media marketing actually breaks down into." />
 <meta name="author" content="Rita Omotegho Aghwana" />
 <meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://ritaomoteghoaghwana.github.io/Portfolio/insights.html" />
+<link rel="canonical" href="https://ritaomoteghoaghwana.github.io/Portfolio/insights-social-media.html" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Insights — Rita Omotegho Aghwana" />
-<meta property="og:description" content="Short write-ups on AI UGC video production and WordPress redesign." />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="What's Actually Included in Social Media Marketing" />
+<meta property="og:description" content="Content strategy, creation, scheduling, engagement, and reporting — what social media marketing actually breaks down into." />
 <meta property="og:image" content="assets/rita-portrait.jpg" />
-<meta property="og:url" content="https://ritaomoteghoaghwana.github.io/Portfolio/insights.html" />
+<meta property="og:url" content="https://ritaomoteghoaghwana.github.io/Portfolio/insights-social-media.html" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@DesignzPixel" />
@@ -26,78 +26,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700;1,800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
 <style>
-  /* === INSIGHTS INDEX === */
-  .insights-hero {
-    padding: clamp(56px, 7vw, 100px) 0 clamp(40px, 5vw, 64px);
+  /* === ARTICLE PAGE === */
+  .article-header {
+    padding: clamp(56px, 7vw, 100px) 0 clamp(40px, 5vw, 60px);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: clamp(48px, 6vw, 80px);
   }
-  .insights-hero .label {
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-family: var(--font-mono);
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     color: var(--ink-3);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color .2s;
   }
-  .insights-hero .label::before {
-    content: '';
-    width: 24px;
-    height: 1.5px;
-    background: var(--accent);
-    display: block;
-  }
-  .insights-hero h1 {
-    font-size: clamp(36px, 5vw, 72px);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    max-width: 18ch;
-  }
-  .insights-hero h1 em { font-style: italic; color: var(--accent); }
-  .insights-hero .lead {
-    margin-top: 20px;
-    font-size: clamp(15px, 1.3vw, 17px);
-    color: var(--ink-2);
-    line-height: 1.6;
-    max-width: 50ch;
-  }
-
-  /* Article cards */
-  .article-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 28px;
-    padding: clamp(48px, 6vw, 80px) 0 clamp(64px, 8vw, 120px);
-  }
-  .article-card {
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 36px;
-    background: var(--bg);
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    transition: border-color .2s, transform .2s, box-shadow .2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .article-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 18px 18px 0 0;
-    opacity: 0;
-    transition: opacity .2s;
-  }
-  .article-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.09);
-  }
-  .article-card:hover::before { opacity: 1; }
+  .article-back:hover { color: var(--accent); }
+  .article-back svg { transition: transform .2s; }
+  .article-back:hover svg { transform: translateX(-3px); }
 
   .article-tag {
     font-family: var(--font-mono);
@@ -105,41 +55,71 @@
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: var(--accent);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
-  .article-card h2 {
-    font-family: var(--font-display);
-    font-size: clamp(18px, 2vw, 22px);
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 14px;
+  .article-header h1 {
+    font-size: clamp(28px, 4vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 22ch;
+    margin-bottom: 20px;
   }
-  .article-card p {
-    font-size: 15px;
-    line-height: 1.6;
+  .article-header .deck {
+    font-size: clamp(15px, 1.3vw, 18px);
     color: var(--ink-2);
-    flex: 1;
+    line-height: 1.6;
+    max-width: 54ch;
+  }
+
+  /* Article body */
+  .article-body {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: clamp(64px, 8vw, 120px);
+  }
+  .article-body p {
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.75;
+    color: var(--ink-2);
     margin-bottom: 28px;
   }
-  .article-link {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: gap .2s;
+  .article-body p:first-child {
+    font-size: clamp(17px, 1.4vw, 20px);
+    color: var(--ink);
   }
-  .article-link:hover { gap: 10px; }
+  .article-body strong { color: var(--ink); font-weight: 600; }
+
+  /* CTA block */
+  .article-cta {
+    margin-top: clamp(48px, 6vw, 80px);
+    padding: 36px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    border-top: 3px solid var(--accent);
+    background: var(--bg-2);
+  }
+  .article-cta .label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+  }
+  .article-cta h3 {
+    font-size: clamp(18px, 2vw, 24px);
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .article-cta p {
+    font-size: 15px !important;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin-bottom: 24px !important;
+  }
 </style>
 </head>
-<body data-screen-label="Insights">
+<body data-screen-label="Insights — Social Media Marketing">
 
 <!-- NAV -->
 <nav class="nav">
@@ -180,44 +160,48 @@
   </div>
 </div>
 
-<!-- HERO -->
-<section class="insights-hero">
+<!-- ARTICLE HEADER -->
+<header class="article-header">
   <div class="shell">
-    <div class="label">Insights</div>
-    <h1>Things worth<br><em>knowing.</em></h1>
-    <p class="lead">Short write-ups on the work — what actually goes into AI UGC video production, WordPress projects, and everything in between.</p>
+    <a href="insights.html" class="article-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Insights
+    </a>
+    <div class="article-tag">Social Media</div>
+    <h1>What's Actually Included in Social Media Marketing</h1>
+    <p class="deck">"Social media marketing" gets used as a catch-all term, but it's rarely one single task. Knowing what's actually involved helps you figure out what you need — and what you don't.</p>
   </div>
-</section>
+</header>
 
-<!-- ARTICLE LIST -->
-<section>
+<!-- ARTICLE BODY -->
+<main>
   <div class="shell">
-    <div class="article-list">
+    <div class="article-body">
 
-      <div class="article-card">
-        <div class="article-tag">AI &amp; Video</div>
-        <h2>How AI UGC Videos Actually Work</h2>
-        <p>A lot of people assume AI-generated UGC videos mean typing a prompt and getting a finished ad. The real process has a few more steps — and understanding them gets you a better result.</p>
-        <a href="insights-ai-ugc.html" class="article-link">Read more →</a>
-      </div>
+      <p>"Social media marketing" gets used as a catch-all term, but it's rarely one single task. Knowing what's actually involved helps you figure out what you need, and what you don't.</p>
 
-      <div class="article-card">
-        <div class="article-tag">WordPress</div>
-        <h2>What to Expect from a WordPress Redesign</h2>
-        <p>A WordPress redesign isn't just a new coat of paint, but it's also not a full rebuild from zero. Knowing where your project falls on that spectrum changes both the cost and the timeline.</p>
-        <a href="insights-wordpress-redesign.html" class="article-link">Read more →</a>
-      </div>
+      <p><strong>Content strategy.</strong> Before anything gets posted, there's a plan behind it — what platforms make sense for the brand, what type of content performs there, and how often to post. Without this step, content ends up reactive instead of intentional.</p>
 
-      <div class="article-card">
-        <div class="article-tag">Social Media</div>
-        <h2>What's Actually Included in Social Media Marketing</h2>
-        <p>Social media marketing gets lumped together as one service, but it usually breaks down into a few distinct pieces. Here's what's actually involved.</p>
-        <a href="insights-social-media.html" class="article-link">Read more →</a>
+      <p><strong>Content creation.</strong> This is the actual output: reels, posts, carousels, captions, whatever format fits the platform and the brand's voice. Good content creation isn't just design — it's writing copy that sounds like a real brand talking to real people, not generic marketing language.</p>
+
+      <p><strong>Scheduling and consistency.</strong> Posting once and disappearing for two weeks doesn't build an audience. A content calendar keeps output consistent, which matters more to platform algorithms — and to audience trust — than any single viral post.</p>
+
+      <p><strong>Growth and engagement.</strong> This covers the parts people often forget: responding to comments and DMs, engaging with related accounts, and adjusting based on what's actually performing versus what looked good on paper.</p>
+
+      <p><strong>Reporting.</strong> Knowing which posts drove engagement, follows, or actual inquiries is what separates content that's just "out there" from content that's working toward a goal.</p>
+
+      <p>Not every brand needs all five pieces at once. Some just need consistent content creation, others need the full strategy built from scratch. The right starting point depends on where the brand already stands.</p>
+
+      <div class="article-cta">
+        <div class="label">Interested?</div>
+        <h3>Social media management built around your brand</h3>
+        <p>Strategy, content, and consistency — as much or as little as you need. Let's talk about where to start.</p>
+        <a href="contact.html" class="btn btn-primary">Work with me →</a>
       </div>
 
     </div>
   </div>
-</section>
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
